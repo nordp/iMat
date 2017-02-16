@@ -18,11 +18,6 @@ import static java.lang.System.out;
  */
 public class CartController implements Initializable{
 
-    public final static int CART = 1;
-    public final static int CONFIRMATION = 2;
-    public final static int DELIVERY = 3;
-    public final static int PAYMENT = 4;
-
     @FXML AnchorPane pane;
     @FXML Button nextButton;
 

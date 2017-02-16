@@ -10,17 +10,13 @@ ReadME IMat:
 
    **cart.fxml:** 
    
-        the UI for the cart(Varukorg).
-        Notes for cart: Size  is subject to change. 
-        Button shape aswell as css theme are preliminary
-        The Pane Size is subject to change. 
-        The button Labels are to be done dynamically
-        Some Decicions regarding size must be handled. 
+       
    the UI for the cart(Varukorg).
    
    ![cart](http://gdurl.com/8udp)
         
         Notes for cart: 
+
 
         
    **checkout.fxml**
@@ -30,7 +26,11 @@ ReadME IMat:
    ![checkout](http://gdurl.com/NCA5)
    
         Notes for checkout: 
-        
+        is subject to change. 
+        Button shape aswell as css theme are preliminary
+        The Pane Size is subject to change. 
+        The button Labels are to be done dynamically
+        Some Decicions regarding size must be handled. 
         
    **Confirmation.fmxl**
    
