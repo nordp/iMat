@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CartController">
+    <children>
+        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Button layoutX="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Tillbaka" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="70.0" />
+        <Button fx:id="nextButton" layoutX="1576.0" layoutY="880.0" mnemonicParsing="false" onAction="#nextButtonPressed" prefHeight="70.0" prefWidth="150.0" text="Nästa" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="70.0" />
+        <GridPane alignment="TOP_CENTER" layoutX="516.0" layoutY="145.0" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="70.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+                <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Leverans">
+                    <font>
+                        <Font size="40.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" text=" &gt; Varukorg" textAlignment="CENTER" GridPane.columnIndex="1">
+                    <font>
+                        <Font size="40.0" />
+                    </font>
+                </Label>
+                <Label text=" &gt; Betalning" GridPane.columnIndex="2">
+                    <font>
+                        <Font size="40.0" />
+                    </font>
+                </Label>
+                <Label text=" &gt; Granska" GridPane.columnIndex="3">
+                    <font>
+                        <Font size="40.0" />
+                    </font>
+                </Label>
+            </children>
+        </GridPane>
+      <AnchorPane fx:id="pane" layoutX="937.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="150.0" />
+    </children>
+</AnchorPane>

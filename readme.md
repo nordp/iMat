@@ -1,9 +1,21 @@
 ReadME IMat:
 
+
+**Notes**
+    
+    Should program launch in maximized mode?
+    How should resizing be handled?
+
 **FXML Files:** 
 
    **cart.fxml:** 
    
+        the UI for the cart(Varukorg).
+        Notes for cart: Size  is subject to change. 
+        Button shape aswell as css theme are preliminary
+        The Pane Size is subject to change. 
+        The button Labels are to be done dynamically
+        Some Decicions regarding size must be handled. 
    the UI for the cart(Varukorg).
    
    ![cart](http://gdurl.com/8udp)

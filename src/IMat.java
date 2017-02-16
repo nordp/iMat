@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import static java.lang.System.out;
+
 public class IMat extends Application {
 
     public static void main(String[] args) {
@@ -24,8 +26,8 @@ public class IMat extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("layouts/main_window.fxml"), bundle);
 
         Scene scene = new Scene(root);
-
         primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }
