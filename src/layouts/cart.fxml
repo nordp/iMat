@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="8.0" text="Varukorg">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutY="43.0" prefHeight="0.0" prefWidth="800.0" />
+      <Label layoutX="21.0" layoutY="59.0" text="Sortera efter">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ListView fx:id="cartElementList" layoutX="21.0" layoutY="119.0" prefHeight="313.0" prefWidth="774.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
+      <ComboBox editable="true" layoutX="151.0" layoutY="59.0" minHeight="20.0" prefHeight="30.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

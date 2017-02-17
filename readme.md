@@ -21,7 +21,7 @@ ReadME IMat:
         
    **checkout.fxml**
    
-   the UI for the Checkout background (bakgrounden för utchekning)
+   the UI for the Checkout background (bakgrunden för utchekning)
    
    ![checkout](http://gdurl.com/NCA5)
    
@@ -30,6 +30,8 @@ ReadME IMat:
         Button shape aswell as css theme are preliminary
         The Pane Size is subject to change. 
         The button Labels are to be done dynamically
+        The Pane size is set to 800x480 px. 
+        The button backgrounds should be transparent(CSS).
         Some Decicions regarding size must be handled. 
         
    **Confirmation.fmxl**
