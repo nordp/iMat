@@ -79,13 +79,17 @@
                   </Button>
                   <Accordion layoutX="-4.0" layoutY="67.0" prefHeight="314.0" prefWidth="202.0" AnchorPane.leftAnchor="-4.0" AnchorPane.topAnchor="75.0">
                     <panes>
-                      <TitledPane prefHeight="224.0" prefWidth="202.0" text="Kategori 1">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
+                      <TitledPane collapsible="false" expanded="false" prefHeight="224.0" prefWidth="202.0" text="Favoritvaror">
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/img/heart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                       </TitledPane>
                       <TitledPane text="Kategori 2">
                         <content>
@@ -136,7 +140,7 @@
                      <font>
                         <Font size="16.0" />
                      </font></Button>
-                  <ListView layoutY="71.0" prefHeight="462.0" prefWidth="196.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                  <ListView layoutY="71.0" prefHeight="462.0" prefWidth="196.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="71.0" />
                   <Separator layoutX="11.0" layoutY="151.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Label alignment="CENTER" layoutX="71.0" layoutY="15.0" text="Kundvagn" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
                      <font>
