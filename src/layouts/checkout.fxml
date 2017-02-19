@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -38,12 +39,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Leverans">
+                <Label text="Varukorg">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" contentDisplay="CENTER" text=" &gt; Varukorg" textAlignment="CENTER" GridPane.columnIndex="1">
+                <Label alignment="CENTER" contentDisplay="CENTER" text=" &gt; Leverans" textAlignment="CENTER" GridPane.columnIndex="1">
                     <font>
                         <Font size="40.0" />
                     </font>

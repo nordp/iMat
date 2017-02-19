@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Betalning" textAlignment="CENTER">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+         </top>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+      <AnchorPane layoutX="219.0" layoutY="210.0" prefHeight="297.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <RadioButton layoutX="31.0" layoutY="23.0" mnemonicParsing="false" text="Betala vid leverans" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <RadioButton layoutX="10.0" layoutY="58.0" mnemonicParsing="false" text="Direktbetalning" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <AnchorPane layoutX="171.0" layoutY="205.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <Label layoutX="10.0" layoutY="10.0" text="Kortnummer" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="10.0" layoutY="10.0" prefWidth="200.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <RadioButton layoutX="279.0" layoutY="10.0" mnemonicParsing="false" text="VISA" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton layoutX="339.0" layoutY="91.0" mnemonicParsing="false" text="MasterCard" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="50.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <TextField layoutX="10.0" layoutY="115.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="10.0" layoutY="100.0" text="Namn på kort" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="250.0" layoutY="137.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0" />
+                  <Label layoutX="235.0" layoutY="100.0" text="Utgångsdatum" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="430.0" layoutY="148.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="130.0" />
+                  <Label layoutX="363.0" layoutY="127.0" text="/" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="125.0">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="195.0" text="CVC Kod" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="190.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutY="210.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="165.0" fitWidth="300.0" layoutX="274.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="220.0">
+                     <image>
+                        <Image url="@../resources/img/cvc.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
