@@ -191,6 +191,8 @@
                   </Button>
                   <StackPane layoutX="201.0" layoutY="250.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                      <children>
+                        <fx:include fx:id="productGrid" source="product_grid.fxml" />
+                        <fx:include fx:id="popupPane" source="popup.fxml" />
                      </children>
                   </StackPane>
                </children>
