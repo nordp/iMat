@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Leverans" textAlignment="CENTER">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+         </top>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+      <AnchorPane layoutX="219.0" layoutY="210.0" prefHeight="297.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" text="Adress:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" text="Namn:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="70.0" text="Post Nummer:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="100.0" text="Stad:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="150.0" layoutY="10.0" prefWidth="300.0" text="Mikael" />
+            <TextField layoutX="150.0" layoutY="40.0" prefWidth="300.0" text="Mikael" />
+            <TextField layoutX="150.0" layoutY="70.0" prefWidth="300.0" text="Mikael" />
+            <TextField layoutX="150.0" layoutY="100.0" prefWidth="300.0" text="Mikael" />
+            <Label layoutX="10.0" layoutY="140.0" text="Tillgängliga Tider:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ToggleButton layoutX="80.0" layoutY="190.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <Label layoutX="10.0" layoutY="200.0" text="Idag:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="250.0" text="Imorn:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="300.0" text="Mån:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="350.0" text="Tis:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="400.0" text="Ons:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ToggleButton layoutX="200.0" layoutY="190.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="320.0" layoutY="190.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="440.0" layoutY="190.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="440.0" layoutY="240.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="320.0" layoutY="240.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="200.0" layoutY="240.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="80.0" layoutY="240.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="440.0" layoutY="290.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="320.0" layoutY="290.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="200.0" layoutY="290.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="80.0" layoutY="290.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="440.0" layoutY="340.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="320.0" layoutY="340.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="200.0" layoutY="340.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="80.0" layoutY="340.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="80.0" layoutY="390.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="200.0" layoutY="390.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="320.0" layoutY="390.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="440.0" layoutY="390.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
