@@ -93,36 +93,36 @@
                            </graphic>
                       </TitledPane>
                       <TitledPane text="Kategori 2">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <content>
+                              <ListView prefHeight="200.0" prefWidth="200.0" />
+                           </content>
                       </TitledPane>
                       <TitledPane text="Kategori 3">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="200.0" />
-                        </content>
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <content>
+                              <ListView prefHeight="200.0" prefWidth="200.0" />
+                           </content>
                       </TitledPane>
-                        <TitledPane animated="false" text="Kategori 4">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                          </content>
+                        <TitledPane text="Kategori 4">
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <content>
+                              <ListView prefHeight="200.0" prefWidth="200.0" />
+                           </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Kategori 5">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                          </content>
+                        <TitledPane text="Kategori 5">
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <content>
+                              <ListView prefHeight="200.0" prefWidth="200.0" />
+                           </content>
                         </TitledPane>
                     </panes>
                   </Accordion>
