@@ -8,9 +8,10 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static java.lang.System.out;
 
@@ -20,7 +21,7 @@ public class CheckoutController implements Initializable{
     public final static int DELIVERY = 2;
     public final static int PAYMENT = 3;
     public final static int CONFIRMATION = 4;
-    private int active = 1;
+    private int active = 0;
 
         @FXML AnchorPane pane;
         @FXML Button nextButton;
@@ -29,59 +30,67 @@ public class CheckoutController implements Initializable{
         @FXML Hyperlink confirmationLink;
         @FXML Hyperlink paymentLink;
 
+        @FXML AnchorPane confirmationPane;
+        @FXML AnchorPane paymentPane;
+        @FXML AnchorPane deliveryPane;
+        @FXML AnchorPane cartPane;
+        private final java.util.List<AnchorPane> activePane = new ArrayList();
+
         @Override
         public void initialize(URL location, ResourceBundle resources) {
+            activePane.add(cartPane);
+            activePane.add(deliveryPane);
+            activePane.add(paymentPane);
+            activePane.add(confirmationPane);
+            changePaneContent(0);
         }
 
-        private void changePaneContent(int paneInt){
-            Node activeNode = null;
+        public void getCurrentController(){
+            activePane.get(active);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setClassLoader(cartPane.getClass().getClassLoader());
+            out.println(loader.getLocation());
+        }
+        private void changePaneContent(int paneIndex){
             try {
-                switch (paneInt) {
-                    case 1:
-                        activeNode = FXMLLoader.load(getClass().getResource("layouts/cart.fxml"));
-                        break;
-                    case 2:
-                        activeNode = FXMLLoader.load(getClass().getResource("layouts/delivery.fxml"));
-                        break;
-                    case 3:
-                        activeNode = FXMLLoader.load(getClass().getResource("layouts/payment.fxml"));
-                        break;
-                    case 4:
-                        activeNode = FXMLLoader.load(getClass().getResource("layouts/confirmation.fxml"));
-                        break;
-                    default:
-                        return;
+                for (int i = 0; i < activePane.size(); i++) {
+                    activePane.get(i).setVisible(false);
                 }
+                activePane.get(paneIndex).setVisible(true);
             }
-            catch (IOException IO){
-                IO.printStackTrace();
-                return;
+            catch (IndexOutOfBoundsException exception){
+                exception.printStackTrace();
+                active = 0;     //Temporary
+                changePaneContent(active);
             }
-            pane.getChildren().clear();
-            pane.getChildren().add(activeNode);
         }
+
         @FXML protected void nextButtonPressed(ActionEvent event){
-            out.println("next pane active");
-            changePaneContent(active++);
+            active++;
+            active = active%4;
+            out.println(active);
+            changePaneContent(active);
         }
-        @FXML protected void backButtonClicked(ActionEvent event){
-            out.println("previous pane active");
-            changePaneContent(active--);
+
+        @FXML protected void backButtonPressed(ActionEvent event){
+            active--;
+            active = active%4;
+            changePaneContent(active);
         }
+
         @FXML protected void linkClicked(ActionEvent event){
             Object source = event.getSource();
-            Hyperlink link = (Hyperlink) source;    // Alternative way: use ID set to 1, 2, 3, 4.
             if(source.equals(cartLink)){
-                active = 1;
+                active = 0;
             }
             else if(source.equals(deliveryLink)){
-                active = 2;
+                active = 1;
             }
             else if(source.equals(paymentLink)){
-                active = 3;
+                active = 2;
             }
             else if(source.equals(confirmationLink)){
-                active = 4;
+                active = 3;
             }
             else{
                 out.println("not a viable link");
