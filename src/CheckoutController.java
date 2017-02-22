@@ -46,8 +46,10 @@ public class CheckoutController implements Initializable{
         }
 
         public void getCurrentController(){
-            activePane.get(active);
+            URL url = getClass().getResource("");
             FXMLLoader loader = new FXMLLoader();
+            activePane.get(active);
+           // FXMLLoader loader = new FXMLLoader();
             loader.setClassLoader(cartPane.getClass().getClassLoader());
             out.println(loader.getLocation());
         }
