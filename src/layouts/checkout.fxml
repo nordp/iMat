@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,9 +17,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CheckoutController">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CheckoutController">
     <children>
-        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
@@ -37,62 +38,63 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <Button layoutX="70.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="70.0" prefWidth="150.0" text="Tillbaka" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="70.0" />
-        <Button fx:id="nextButton" layoutX="1576.0" layoutY="880.0" mnemonicParsing="false" onAction="#nextButtonPressed" prefHeight="70.0" prefWidth="150.0" text="Nästa" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="70.0" />
-        <GridPane alignment="TOP_CENTER" layoutX="516.0" layoutY="145.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-                <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-            <Hyperlink fx:id="cartLink" focusTraversable="false" onAction="#linkClicked" text="Varukorg">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Hyperlink>
-            <Label text="&gt;" GridPane.columnIndex="1">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <Hyperlink fx:id="deliveryLink" focusTraversable="false" onAction="#linkClicked" text="Leverans" GridPane.columnIndex="2">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Hyperlink>
-            <Label text="&gt;" GridPane.columnIndex="3">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Label>
-            <Hyperlink fx:id="paymentLink" focusTraversable="false" onAction="#linkClicked" text="Betalning" GridPane.columnIndex="4">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Hyperlink>
-            <Hyperlink fx:id="confirmationLink" focusTraversable="false" onAction="#linkClicked" text="Granskning" GridPane.columnIndex="6">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Hyperlink>
-            <Label text="&gt;" GridPane.columnIndex="5">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Label>
-            </children>
-        </GridPane>
-      <AnchorPane fx:id="pane" layoutX="937.0" layoutY="250.0" prefHeight="800.0" prefWidth="800.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="150.0">
-         <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <top>
+              <GridPane alignment="CENTER" prefHeight="30.0" prefWidth="1159.0" BorderPane.alignment="BOTTOM_CENTER">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
+                  <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="94.0" prefWidth="185.0" />
+                  <ColumnConstraints maxWidth="101.0" minWidth="0.0" prefWidth="28.0" />
+                  <ColumnConstraints maxWidth="148.0" minWidth="52.0" prefWidth="52.0" />
+                  <ColumnConstraints maxWidth="148.0" minWidth="52.0" prefWidth="52.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                  <children>
+                  <Hyperlink fx:id="cartLink" focusTraversable="false" onAction="#linkClicked" prefHeight="65.0" prefWidth="265.0" text="Varukorg">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label text="&gt;" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="deliveryLink" focusTraversable="false" onAction="#linkClicked" text="Leverans" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label text="&gt;" GridPane.columnIndex="3">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="paymentLink" focusTraversable="false" onAction="#linkClicked" text="Betalning" GridPane.columnIndex="4">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="confirmationLink" focusTraversable="false" onAction="#linkClicked" prefHeight="65.0" prefWidth="165.0" text="Granskning" GridPane.columnIndex="6">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label text="&gt;" GridPane.columnIndex="5">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  </children>
+              </GridPane>
+         </top>
+         <center>
+            <StackPane prefHeight="150.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
                <children>
                   <fx:include fx:id="confirmationPane" source="confirmation.fxml" />
                   <fx:include fx:id="paymentPane" source="payment.fxml" />
@@ -100,6 +102,15 @@
                   <fx:include fx:id="cartPane" source="cart.fxml" />
                </children>
             </StackPane>
-         </children></AnchorPane>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="110.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                    <Button mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="70.0" prefWidth="150.0" text="Tillbaka" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" />
+                    <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextButtonPressed" prefHeight="70.0" prefWidth="150.0" text="Nästa" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="50.0" />
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
     </children>
 </AnchorPane>
