@@ -21,11 +21,13 @@ ReadME IMat:
 
     * .CSS
     * Choose a color scheme
+    * Specify our own categorization.
     
 3. Backend:
 
     * Create basic navigation interaction
     * Make adapter for backend to include util-methods
+    * Create category-handling for our own categories.
     
 4. Fix problems from testing:
 
