@@ -54,7 +54,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../resources/img/checkmark-256.png" />
+                                    <Image url="@../resources/img/checkmark.png" />
                                  </image>
                               </ImageView>
                               <Label text="Betala vid leverans! Blablablabla Ha en bra dag" />
