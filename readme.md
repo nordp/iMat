@@ -1,6 +1,9 @@
 ReadME IMat:
+
 **TODO:**
+
 1. Layouts:
+
     * My account (new)
     * Shopping lists
     * History
@@ -8,18 +11,24 @@ ReadME IMat:
     * Product grid
     * Payment (at delivery)
     * Product elements:
+    
         * History
         * Checkout
         * Cart (Main view)
         * Grid
+        
 2. Design:
+
     * .CSS
     * Choose a color scheme
+    
 3. Backend:
+
     * Create basic navigation interaction
     * Make adapter for backend to include util-methods
-    *
+    
 4. Fix problems from testing:
+
     * Create shopping lists without making a purchase.
     * You should be able to preview items shopping lists.
     * Make sure you can buy 1,5 KG of any lösviktsprodukt.
