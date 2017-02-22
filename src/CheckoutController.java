@@ -76,7 +76,7 @@ public class CheckoutController implements Initializable{
 
         @FXML protected void backButtonPressed(ActionEvent event){
             active--;
-            active = active%4;
+            active = Math.floorMod(active, 4);
             changePaneContent(active);
         }
 
