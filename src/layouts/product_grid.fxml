@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" />
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <FlowPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+            <fx:include source="product_element.fxml" />
+         </children>
+      </FlowPane>
+   </content>
+</ScrollPane>
