@@ -10,6 +10,7 @@ ReadME IMat:
     * Receipt
     * Product grid
     * Payment (at delivery)
+    * Confirmation
     * Product elements:
     
         * History
