@@ -37,7 +37,8 @@ ReadME IMat:
     
     Should program launch in maximized mode?
     How should resizing be handled?
-    Should the next and previous buttons actions be handled throgh an Interface? 
+    Should resources be released when not used to minimize Memory usage?
+    
 **FXML Files:** 
 
    **cart.fxml:** 

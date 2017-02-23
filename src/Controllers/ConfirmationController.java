@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import BackendMediators.*;
 /**
  * Created by gustav on 2017-02-23.
  */
@@ -21,24 +21,17 @@ public class ConfirmationController implements ISubCheckoutController{
     @FXML TextField validMonthTF;
     @FXML TextField validYearTF;
     @FXML Label sumLabel;
+    CustomerHandler customerHandler = new CustomerHandler();
+    StoreHandler storeHandler = new StoreHandler();
 
     @Override
-    public void nextPaneSelected() {
-
-    }
-
-    @Override
-    public void previousPaneSelected() {
-
-    }
-
-    @Override
-    public void paneLinkClicked() {
-
+    public void focusReceived() {
+        // How should this even be handled? from backend, or should we save it in other fashion.
+        // when focus is gained all previously entered and saved information should be displayed.
     }
 
     public void changeDeliveryClicked(ActionEvent event) {
-        // something about Opening deliveryPane and returning to Confirmation on nextButton clicked.
+
     }
 
     public void changePaymentClicked(ActionEvent event) {

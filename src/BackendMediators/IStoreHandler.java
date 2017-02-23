@@ -1,3 +1,5 @@
+package BackendMediators;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.Order;

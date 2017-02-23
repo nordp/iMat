@@ -60,7 +60,7 @@ public class CheckoutController implements Initializable{
                 parentList.get(i).setVisible(false);
             }
             parentList.get(paneIndex).setVisible(true);
-
+            controllerList.get(paneIndex).focusReceived();
         }
 
         @FXML protected void nextButtonPressed(ActionEvent event){

@@ -2,13 +2,9 @@ package Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Created by gustav on 2017-02-23.
@@ -22,18 +18,9 @@ public class CartController implements ISubCheckoutController{
     @FXML ComboBox<String> sortByCB;
 
     @Override
-    public void nextPaneSelected() {
-
-    }
-
-    @Override
-    public void previousPaneSelected() {
-
-    }
-
-    @Override
-    public void paneLinkClicked() {
-
+    public void focusReceived() {
+        // cartList should be populated when this method is called.
+        // the comboBox should be populated as well.
     }
 
     public void onComboBoxClicked(ActionEvent event) {

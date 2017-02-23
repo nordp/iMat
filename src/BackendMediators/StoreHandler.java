@@ -1,9 +1,10 @@
+package BackendMediators;
+
 import javafx.scene.image.Image;
 import se.chalmers.ait.dat215.project.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by gustav on 2017-02-22.
