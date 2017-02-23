@@ -1,19 +1,12 @@
 package Controllers;
 
-import com.sun.org.apache.bcel.internal.generic.LADD;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 import BackendMediators.*;
-/**
- * Created by gustav on 2017-02-23.
- */
+
 public class ConfirmationController implements ISubCheckoutController{
     @FXML TextArea deliveryInfoTA;
     @FXML TextField cardNumberTF;

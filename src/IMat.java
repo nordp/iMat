@@ -1,6 +1,4 @@
-/**
- * Created by Phnor on 2017-02-15.
- */
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
-
-import static java.lang.System.out;
 
 public class IMat extends Application {
 

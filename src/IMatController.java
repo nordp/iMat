@@ -1,15 +1,9 @@
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-
 import javafx.fxml.FXML;
-
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by Phnor on 2017-02-15.
- */
 public class IMatController implements Initializable {
 
     @FXML Parent popupPane;

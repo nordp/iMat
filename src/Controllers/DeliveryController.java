@@ -1,12 +1,8 @@
 package Controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 import BackendMediators.CustomerHandler;
 import se.chalmers.ait.dat215.project.Customer;
 
