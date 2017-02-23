@@ -11,16 +11,26 @@ import java.util.ResourceBundle;
 /**
  * Created by gustav on 2017-02-23.
  */
-public class DeliveryController implements Initializable{
+public class DeliveryController implements ISubCheckoutController{
     @FXML TextField nameTF;
     @FXML TextField addressTF;
     @FXML TextField postcodeTF;
     @FXML TextField cityTF;
     @FXML TextArea miscInfoTA;
 
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Saved Customer information should be loaded into the pane.
+    public void nextPaneSelected() {
+
     }
 
+    @Override
+    public void previousPaneSelected() {
+
+    }
+
+    @Override
+    public void paneLinkClicked() {
+
+    }
 }

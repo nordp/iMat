@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 /**
  * Created by gustav on 2017-02-23.
  */
-public class ConfirmationController implements Initializable{
+public class ConfirmationController implements ISubCheckoutController{
     @FXML TextArea deliveryInfoTA;
     @FXML TextField cardNumberTF;
     @FXML TextField cardNameTF;
@@ -23,9 +23,20 @@ public class ConfirmationController implements Initializable{
     @FXML Label sumLabel;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // initialize all information that's been entered.
+    public void nextPaneSelected() {
+
     }
+
+    @Override
+    public void previousPaneSelected() {
+
+    }
+
+    @Override
+    public void paneLinkClicked() {
+
+    }
+
     public void changeDeliveryClicked(ActionEvent event) {
         // something about Opening deliveryPane and returning to Confirmation on nextButton clicked.
     }

@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 /**
  * Created by gustav on 2017-02-23.
  */
-public class PaymentController implements Initializable{
+public class PaymentController implements ISubCheckoutController{
     @FXML RadioButton DeliveryPayment;
     @FXML TextField cardFirstFour;
     @FXML TextField cardSecondFour;
@@ -23,11 +23,21 @@ public class PaymentController implements Initializable{
     @FXML ComboBox<Integer> validMonth;
     @FXML TextField CVCCode;
 
+    @Override
+    public void nextPaneSelected() {
+
+    }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // initialize saved Payment information, if existing.
+    public void previousPaneSelected() {
+
     }
+
+    @Override
+    public void paneLinkClicked() {
+
+    }
+
     @FXML private void paymentChosen(ActionEvent event) {
         System.out.println("clicked");
     }

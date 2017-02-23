@@ -34,14 +34,11 @@ public class CheckoutController implements Initializable{
         @FXML Parent delivery;
         @FXML Parent payment;
         @FXML Parent confirmation;
-        @FXML
-        CartController cartController;
-        @FXML
-        DeliveryController deliveryController;
-        @FXML
-        PaymentController paymentController;
-        @FXML
-        ConfirmationController confirmationController;
+        @FXML CartController cartController;
+        @FXML DeliveryController deliveryController;
+        @FXML PaymentController paymentController;
+        @FXML ConfirmationController confirmationController;
+        List<ISubCheckoutController> controllerList = new ArrayList<>();
         List<Parent> parentList = new ArrayList<>();
 
         @Override
@@ -50,6 +47,10 @@ public class CheckoutController implements Initializable{
             parentList.add(delivery);
             parentList.add(payment);
             parentList.add(confirmation);
+            controllerList.add(cartController);
+            controllerList.add(deliveryController);
+            controllerList.add(paymentController);
+            controllerList.add(confirmationController);
 
             changePaneContent(0);
         }
@@ -59,6 +60,7 @@ public class CheckoutController implements Initializable{
                 parentList.get(i).setVisible(false);
             }
             parentList.get(paneIndex).setVisible(true);
+
         }
 
         @FXML protected void nextButtonPressed(ActionEvent event){
