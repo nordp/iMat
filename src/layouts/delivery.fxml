@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeliveryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DeliveryController">
    <children>
       <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -59,19 +59,19 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="119.0" layoutY="14.0" prefWidth="300.0" promptText="Namn">
+            <TextField fx:id="nameTF" layoutX="119.0" layoutY="14.0" prefWidth="300.0" promptText="Namn">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TextField layoutX="119.0" layoutY="48.0" prefWidth="300.0" promptText="Adress">
+            <TextField fx:id="addressTF" layoutX="119.0" layoutY="48.0" prefWidth="300.0" promptText="Adress">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TextField layoutX="119.0" layoutY="82.0" prefHeight="25.0" prefWidth="100.0" promptText="Postnummer">
+            <TextField fx:id="postcodeTF" layoutX="119.0" layoutY="82.0" prefHeight="25.0" prefWidth="100.0" promptText="Postnummer">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TextField layoutX="220.0" layoutY="82.0" prefHeight="25.0" prefWidth="199.0" promptText="Ort">
+            <TextField fx:id="cityTF" layoutX="220.0" layoutY="82.0" prefHeight="25.0" prefWidth="199.0" promptText="Ort">
                <font>
                   <Font size="14.0" />
                </font></TextField>
@@ -205,7 +205,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea layoutX="119.0" layoutY="116.0" prefHeight="61.0" prefWidth="300.0" promptText="Övriga instruktioner, ex. portkod.">
+            <TextArea fx:id="miscInfoTA" layoutX="119.0" layoutY="116.0" prefHeight="61.0" prefWidth="300.0" promptText="Övriga instruktioner, ex. portkod.">
                <font>
                   <Font size="14.0" />
                </font>

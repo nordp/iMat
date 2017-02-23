@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CartController">
    <children>
       <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -34,14 +34,14 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ComboBox layoutX="143.0" layoutY="11.0" prefHeight="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="10.0">
+            <ComboBox fx:id="sortByCB" layoutX="143.0" layoutY="11.0" onAction="#onComboBoxClicked" prefHeight="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="10.0">
 			</ComboBox>
-            <Button layoutX="549.0" layoutY="19.0" minHeight="40.0" mnemonicParsing="false" prefWidth="40.0" text="^" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <Button fx:id="sortFromButton" layoutX="549.0" layoutY="19.0" minHeight="40.0" mnemonicParsing="false" onAction="#onComboBoxClicked" prefWidth="40.0" text="^" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <tooltip>
                   <Tooltip text="Sortera från högsta till lägsta." />
                </tooltip>
             </Button>
-            <ListView layoutX="100.0" layoutY="123.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
+            <ListView fx:id="cartList" layoutX="100.0" layoutY="123.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
             <Label layoutX="160.0" layoutY="457.0" minHeight="50.0" text="Summa:" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="100.0">
                <font>
                   <Font size="24.0" />

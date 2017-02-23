@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ConfirmationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConfirmationController">
    <children>
       <BorderPane prefHeight="50.0" prefWidth="488.0" style="-fx-background-color: #CCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -38,7 +38,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="170.0" layoutY="14.0" mnemonicParsing="false" text="Ändra" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                  <Button layoutX="170.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeDeliveryClicked" text="Ändra" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
@@ -47,7 +47,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea disable="true" editable="false" layoutX="16.0" layoutY="101.0" prefHeight="184.0" prefWidth="200.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="101.0" />
+                  <TextArea fx:id="deliveryInfoTA" disable="true" editable="false" layoutX="16.0" layoutY="101.0" prefHeight="184.0" prefWidth="200.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="101.0" />
                   <Label layoutX="16.0" layoutY="302.0" text="Vald leveranstid:" AnchorPane.leftAnchor="16.0">
                      <font>
                         <Font size="18.0" />
@@ -58,7 +58,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="90.0" layoutY="329.0" text="12-15">
+                  <Label fx:id="deliveryTimeLabel" layoutX="90.0" layoutY="329.0" text="12-15">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -72,7 +72,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="186.0" layoutY="14.0" mnemonicParsing="false" text="Ändra" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                  <Button layoutX="186.0" layoutY="14.0" mnemonicParsing="false" onAction="#changePaymentClicked" text="Ändra" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
@@ -82,19 +82,19 @@
                      </font>
                   </Label>
                   <Label layoutX="21.0" layoutY="101.0" text="Kortnummer:" AnchorPane.leftAnchor="16.0" />
-                  <TextField disable="true" editable="false" layoutX="17.0" layoutY="118.0" AnchorPane.leftAnchor="16.0" />
+                  <TextField fx:id="cardNumberTF" disable="true" editable="false" layoutX="17.0" layoutY="118.0" AnchorPane.leftAnchor="16.0" />
                   <Label layoutX="21.0" layoutY="143.0" text="Namn på kort:" AnchorPane.leftAnchor="16.0" />
-                  <TextField disable="true" editable="false" layoutX="23.0" layoutY="160.0" AnchorPane.leftAnchor="16.0" />
+                  <TextField fx:id="cardNameTF" disable="true" editable="false" layoutX="23.0" layoutY="160.0" AnchorPane.leftAnchor="16.0" />
                   <Label layoutX="16.0" layoutY="199.0" text="Datum på kort:" AnchorPane.leftAnchor="16.0" />
                   <Label layoutX="117.0" layoutY="199.0" text="CVC:" />
-                  <TextField disable="true" editable="false" layoutX="14.0" layoutY="221.0" prefHeight="25.0" prefWidth="80.0" AnchorPane.leftAnchor="16.0" />
-                  <TextField disable="true" editable="false" layoutX="117.0" layoutY="221.0" prefHeight="25.0" prefWidth="48.0" />
+                  <TextField fx:id="validYearTF" disable="true" editable="false" layoutX="14.0" layoutY="221.0" prefHeight="25.0" prefWidth="80.0" AnchorPane.leftAnchor="16.0" />
+                  <TextField fx:id="validMonthTF" disable="true" editable="false" layoutX="117.0" layoutY="221.0" prefHeight="25.0" prefWidth="48.0" />
                   <Label layoutX="14.0" layoutY="326.0" text="Summa:" AnchorPane.leftAnchor="16.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="91.0" layoutY="326.0" text="50kr">
+                  <Label fx:id="sumLabel" layoutX="91.0" layoutY="326.0" text="50kr">
                      <font>
                         <Font size="18.0" />
                      </font>

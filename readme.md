@@ -37,8 +37,7 @@ ReadME IMat:
     
     Should program launch in maximized mode?
     How should resizing be handled?
-    According to recomendations using one controller for every part of the layout is not recomended.
-
+    Should the next and previous buttons actions be handled throgh an Interface? 
 **FXML Files:** 
 
    **cart.fxml:** 

@@ -1,19 +1,17 @@
+package Controllers;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
-import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static java.lang.System.out;
 
@@ -36,10 +34,14 @@ public class CheckoutController implements Initializable{
         @FXML Parent delivery;
         @FXML Parent payment;
         @FXML Parent confirmation;
-        @FXML CartController cartController;
-        @FXML DeliveryController deliveryController;
-        @FXML PaymentController paymentController;
-        @FXML ConfirmationController confirmationController;
+        @FXML
+        CartController cartController;
+        @FXML
+        DeliveryController deliveryController;
+        @FXML
+        PaymentController paymentController;
+        @FXML
+        ConfirmationController confirmationController;
         List<Parent> parentList = new ArrayList<>();
 
         @Override
@@ -62,7 +64,6 @@ public class CheckoutController implements Initializable{
         @FXML protected void nextButtonPressed(ActionEvent event){
             active++;
             active = active%4;
-            out.println(active);
             changePaneContent(active);
         }
 
