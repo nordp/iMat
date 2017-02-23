@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="674.0" prefWidth="1004.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="674.0" prefWidth="1004.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IMatController">
    <children>
       <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <menus>
@@ -63,17 +63,17 @@
          <left>
             <AnchorPane prefHeight="649.0" prefWidth="172.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="BASELINE_LEFT" layoutX="55.0" layoutY="132.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="200.0" text="Orderhistorik" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button alignment="BASELINE_LEFT" layoutX="55.0" layoutY="132.0" mnemonicParsing="false" onAction="#openHistory" prefHeight="55.0" prefWidth="200.0" text="Orderhistorik" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutY="566.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="200.0" text="Inköpslistor" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button alignment="BASELINE_LEFT" layoutY="566.0" mnemonicParsing="false" onAction="#openShoppingLists" prefHeight="64.0" prefWidth="200.0" text="Inköpslistor" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="64.0" prefWidth="200.0" text="Mitt konto" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#openMyAccount" prefHeight="64.0" prefWidth="200.0" text="Mitt konto" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -126,7 +126,7 @@
                         </TitledPane>
                     </panes>
                   </Accordion>
-                  <ImageView fitHeight="72.0" fitWidth="196.0" layoutX="-3.0" layoutY="1.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ImageView fitHeight="72.0" fitWidth="196.0" layoutX="-3.0" layoutY="1.0" onMouseClicked="#toHome" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <image>
                         <Image url="@../resources/img/logo.png" />
                      </image>
@@ -137,7 +137,7 @@
          <right>
             <AnchorPane prefHeight="649.0" prefWidth="206.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="74.0" layoutY="606.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="190.0" text="Till kassa" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                  <Button layoutX="74.0" layoutY="606.0" mnemonicParsing="false" onAction="#toCheckout" prefHeight="63.0" prefWidth="190.0" text="Till kassa" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -170,7 +170,7 @@
                         <Font size="27.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="526.0" layoutY="25.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="65.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <Button layoutX="526.0" layoutY="25.0" mnemonicParsing="false" onAction="#searchPerformed" prefHeight="63.0" prefWidth="65.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -179,12 +179,12 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="75.0" text="Bakåt" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
+                  <Button mnemonicParsing="false" onAction="#backPressed" prefHeight="63.0" prefWidth="75.0" text="Bakåt" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="88.0" text="Nästa" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                  <Button mnemonicParsing="false" onAction="#nextPressed" prefHeight="63.0" prefWidth="88.0" text="Nästa" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
                      <font>
                         <Font size="16.0" />
                      </font>

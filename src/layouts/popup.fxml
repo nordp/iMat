@@ -21,7 +21,17 @@
       </Polygon>
       <AnchorPane layoutX="325.0" layoutY="79.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <StackPane layoutX="185.0" layoutY="125.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Polygon fill="WHITE" rotate="-90.0" stroke="WHITE" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-29.0">
+               <points>
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-60.0" />
+               </points>
+            </Polygon>
+            <StackPane alignment="TOP_LEFT" layoutX="185.0" layoutY="125.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="0.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <fx:include fx:id="historyPane" source="history.fxml" />
                   <fx:include fx:id="shoppingListsPane" source="shopping_lists.fxml" />
@@ -34,15 +44,5 @@
             </StackPane>
          </children>
       </AnchorPane>
-      <Polygon fill="WHITE" layoutX="24.0" layoutY="364.0" rotate="-90.0" stroke="WHITE" strokeType="INSIDE" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="2.0">
-         <points>
-            <Double fx:value="-50.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="-60.0" />
-         </points>
-      </Polygon>
    </children>
 </AnchorPane>

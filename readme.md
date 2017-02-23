@@ -5,18 +5,12 @@ ReadME IMat:
 1. Layouts:
 
     * My account (new)
-    * Shopping lists
     * History
-    * Receipt
-    * Product grid
-    * Payment (at delivery)
-    * Confirmation
     * Product elements:
     
         * History
         * Checkout
         * Cart (Main view)
-        * Grid
         
 2. Design:
 
@@ -118,9 +112,11 @@ ReadME IMat:
         notes for popup:
    **product_element.fxml**
    
-   The layout for each of the products, that will later be added to each of the product lists.
+   The layout for each of the products, that will later be added to each of the product grid.
    
         notes for product element: 
+        
+        Textfield for amount should be restricted to only numbers and should also mark all at mouseclick
    **product_grid.fxml**
 
    The the entire section containing product elements, the main label, sorting etc.
