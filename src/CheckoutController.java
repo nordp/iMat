@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -12,6 +13,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 import static java.lang.System.out;
 
@@ -30,41 +32,31 @@ public class CheckoutController implements Initializable{
         @FXML Hyperlink confirmationLink;
         @FXML Hyperlink paymentLink;
 
-        @FXML AnchorPane confirmationPane;
-        @FXML AnchorPane paymentPane;
-        @FXML AnchorPane deliveryPane;
-        @FXML AnchorPane cartPane;
-        private final java.util.List<AnchorPane> activePane = new ArrayList();
+        @FXML Parent cart;
+        @FXML Parent delivery;
+        @FXML Parent payment;
+        @FXML Parent confirmation;
+        @FXML CartController cartController;
+        @FXML DeliveryController deliveryController;
+        @FXML PaymentController paymentController;
+        @FXML ConfirmationController confirmationController;
+        List<Parent> parentList = new ArrayList<>();
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
-            activePane.add(cartPane);
-            activePane.add(deliveryPane);
-            activePane.add(paymentPane);
-            activePane.add(confirmationPane);
+            parentList.add(cart);
+            parentList.add(delivery);
+            parentList.add(payment);
+            parentList.add(confirmation);
+
             changePaneContent(0);
         }
 
-        public void getCurrentController(){
-            URL url = getClass().getResource("");
-            FXMLLoader loader = new FXMLLoader();
-            activePane.get(active);
-           // FXMLLoader loader = new FXMLLoader();
-            loader.setClassLoader(cartPane.getClass().getClassLoader());
-            out.println(loader.getLocation());
-        }
         private void changePaneContent(int paneIndex){
-            try {
-                for (int i = 0; i < activePane.size(); i++) {
-                    activePane.get(i).setVisible(false);
-                }
-                activePane.get(paneIndex).setVisible(true);
+            for(int i = 0; i<parentList.size(); i++){
+                parentList.get(i).setVisible(false);
             }
-            catch (IndexOutOfBoundsException exception){
-                exception.printStackTrace();
-                active = 0;     //Temporary
-                changePaneContent(active);
-            }
+            parentList.get(paneIndex).setVisible(true);
         }
 
         @FXML protected void nextButtonPressed(ActionEvent event){

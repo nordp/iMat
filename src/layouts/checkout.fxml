@@ -37,10 +37,10 @@
          <center>
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <fx:include fx:id="confirmationPane" source="confirmation.fxml" />
-                  <fx:include fx:id="paymentPane" source="payment.fxml" />
-                  <fx:include fx:id="deliveryPane" source="delivery.fxml" />
-                  <fx:include fx:id="cartPane" source="cart.fxml" />
+                  <fx:include fx:id="confirmation" source="confirmation.fxml" />
+                  <fx:include fx:id="payment" source="payment.fxml" />
+                  <fx:include fx:id="delivery" source="delivery.fxml" />
+                  <fx:include fx:id="cart" source="cart.fxml" />
                </children>
             </StackPane>
          </center>

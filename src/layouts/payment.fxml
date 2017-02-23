@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -14,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PaymentController">
    <children>
       <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -33,7 +38,7 @@
       </BorderPane>
       <AnchorPane layoutX="219.0" layoutY="210.0" prefHeight="297.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <RadioButton layoutX="31.0" layoutY="23.0" mnemonicParsing="false" text="Betala vid leverans" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <RadioButton fx:id="DeliveryPayment" layoutX="31.0" layoutY="23.0" mnemonicParsing="false" text="Betala vid leverans" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -41,7 +46,7 @@
                   <ToggleGroup fx:id="paymentMethod" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="10.0" layoutY="58.0" mnemonicParsing="false" text="Direktbetalning" toggleGroup="$paymentMethod" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
+            <RadioButton layoutX="10.0" layoutY="58.0" mnemonicParsing="false" onAction="#cardPaymentClicked" text="Direktbetalning" toggleGroup="$paymentMethod" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
                <font>
                   <Font size="18.0" />
                </font>

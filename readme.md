@@ -43,6 +43,7 @@ ReadME IMat:
     
     Should program launch in maximized mode?
     How should resizing be handled?
+    According to recomendations using one controller for every part of the layout is not recomended.
 
 **FXML Files:** 
 
@@ -53,7 +54,7 @@ ReadME IMat:
    
    ![cart](http://gdurl.com/8udp)
         
-        Notes for cart: 
+        Notes for cart: A button for editing amount etc. 
 
 
         
@@ -90,7 +91,7 @@ ReadME IMat:
         
    **history.fxml**
           
-   The UI for the purchase history(Orderhistorik)
+   The UI for the purchase history(orderhistorik)
    
    ![history](http://gdurl.com/pwcG)
    
