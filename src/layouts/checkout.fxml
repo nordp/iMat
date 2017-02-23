@@ -35,7 +35,7 @@
         </MenuBar>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
          <center>
-            <StackPane prefHeight="150.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
+            <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <fx:include fx:id="confirmationPane" source="confirmation.fxml" />
                   <fx:include fx:id="paymentPane" source="payment.fxml" />
