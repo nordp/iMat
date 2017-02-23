@@ -10,7 +10,6 @@ import java.util.Locale;
  */
 public class StoreHandler implements IStoreHandler{
     IMatDataHandler handler = IMatDataHandler.getInstance();
-    Order order = new Order();
 
     @Override
     public void addToCart(ShoppingItem product, int amount) {
@@ -81,61 +80,61 @@ public class StoreHandler implements IStoreHandler{
 
     @Override
     public List<Product> getProductsFromCategories(ProductCategory category) {
-        return null;
+        return handler.getProducts(category);
     }
 
     @Override
     public List<Product> getProductsFromSearch(String search) {
-        return null;
+        return handler.findProducts(search);
     }
 
     @Override
     public void shutDown() {
-
+        handler.shutDown();
     }
 
     @Override
     public void clearCurrentShoppingCart() {
-
+        handler.getShoppingCart().clear();
     }
 
     @Override
     public Date getDate(Order order) {
-        return null;
+        return order.getDate();
     }
 
     @Override
     public Date getDate(int orderIndex) {
-        return null;
+        return getDate(handler.getOrders().get(orderIndex));
     }
 
     @Override
     public boolean hasImage(Product product) {
-        return false;
+        return handler.hasImage(product);
     }
 
     @Override
     public boolean hasImage(int productID) {
-        return false;
+        return hasImage(handler.getProduct(productID));
     }
 
     @Override
     public Image getImage(Product product) {
-        return null;
+        return handler.getFXImage(product);
     }
 
     @Override
     public Image getImage(int productID) {
-        return null;
+        return getImage(handler.getProduct(productID));
     }
 
     @Override
     public Image getImage(Product product, int width, int height) {
-        return null;
+        return handler.getFXImage(product, width, height);
     }
 
     @Override
     public Image getImage(int productID, int width, int height) {
-        return null;
+        return getImage(handler.getProduct(productID), width, height);
     }
 }

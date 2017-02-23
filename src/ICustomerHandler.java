@@ -9,14 +9,13 @@ import java.util.List;
  */
 public interface ICustomerHandler {
     Customer getCustomer();
-    void setSavedCreditCard(CreditCard creditCard);
     CreditCard getSavedCreditCard();
     void addFavorite(Product product);
     void addFavorite(int productID);
     void removeFavorite(Product product);
     void removeFavorite(int productID);
     boolean isFavorite(Product product);
-    boolean isFavorite(int ProductID);
+    boolean isFavorite(int productID);
     List<Product> getFavorites();
     //List<> //Method to return a favorites shopping cart.
 
