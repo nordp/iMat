@@ -1,13 +1,13 @@
 .root {
-    -fx-background-color: linear-gradient(#F2F2EF);
+    -fx-background-color: linear-gradient(#F2F2EF, #13A3A5);
 }
 .button {
     -fx-background-color: #DBC390;
 }
-.button: hover {
+.button:hover {
     -fx-effect: dropshadow(gaussian, #808080, 10, 0.2, 0, 0);
 }
-.button: pressed {
+.button:pressed {
     -fx-background-color: linear-gradient(#DBAB6C, #DBC390);
 }
 .titled-pane {
