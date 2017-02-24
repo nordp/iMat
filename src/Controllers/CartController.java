@@ -1,6 +1,7 @@
 package Controllers;
 
 import BackendMediators.StoreHandler;
+import ListCells.CartElement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
-import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import static java.lang.System.out;
@@ -32,7 +31,7 @@ public class CartController implements ISubCheckoutController{
         out.println(handler.getCurrentShoppingCart().get(0).getProduct());
         ObservableList<ShoppingItem> list = FXCollections.observableList(handler.getCurrentShoppingCart());
         cartList.setItems(list);
-        cartList.setCellFactory(param -> new ListCells.cartElement());
+        cartList.setCellFactory(param -> new CartElement());
         // cartList should be populated when this method is called.
         // the comboBox should be populated as well.
     }
@@ -42,7 +41,7 @@ public class CartController implements ISubCheckoutController{
 
     }
 
-    public void onComboBoxClicked(ActionEvent event) {
+    public void onComboBoxClicked(ActionEvent event) { //TODO Borde uppdatera oavsett om man klickar eller använder andra sätt att välja.
         int selectedIndex = sortByCB.getSelectionModel().getSelectedIndex();
         //Way to select direction.
         switch (selectedIndex){

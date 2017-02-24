@@ -3,19 +3,10 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.FlowPane?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ProductGridController">
    <content>
-      <FlowPane prefHeight="200.0" prefWidth="200.0">
+      <FlowPane fx:id="productGrid" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
-            <fx:include source="product_element.fxml" />
          </children>
       </FlowPane>
    </content>

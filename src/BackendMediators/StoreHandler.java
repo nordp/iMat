@@ -10,7 +10,15 @@ import java.util.List;
  * Created by gustav on 2017-02-22.
  */
 public class StoreHandler implements IStoreHandler{
+    private static IStoreHandler instance;
+
     IMatDataHandler handler = IMatDataHandler.getInstance();
+
+    public static IStoreHandler getInstance(){if(instance == null) {
+        instance = new StoreHandler();
+        //instance.init();
+    }
+        return instance;}
 
     @Override
     public void addToCart(ShoppingItem product, int amount) {

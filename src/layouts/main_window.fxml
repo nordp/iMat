@@ -168,7 +168,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField layoutX="-157.0" layoutY="56.0" prefHeight="64.0" prefWidth="525.0" promptText="Sök..." AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="5.0">
+                  <TextField fx:id="searchField" layoutX="-157.0" layoutY="56.0" onAction="#searchPerformed" onKeyTyped="#searchPerformed" prefHeight="64.0" prefWidth="525.0" promptText="Sök..." AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font size="27.0" />
                      </font>
