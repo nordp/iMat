@@ -19,7 +19,8 @@ public class IMat extends Application {
     public void start(Stage primaryStage) throws IOException {
         ResourceBundle bundle = java.util.ResourceBundle.getBundle("resources/iMat");
 
-        Parent root = FXMLLoader.load(getClass().getResource("layouts/checkout.fxml"), bundle);
+        Parent root = FXMLLoader.load(getClass().getResource("layouts/main_window.fxml"), bundle);
+
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

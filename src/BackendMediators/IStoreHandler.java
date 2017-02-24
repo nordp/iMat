@@ -14,7 +14,7 @@ import java.util.Locale;
 /**
  * Created by gustav on 2017-02-22.
  */
-    interface IStoreHandler{
+    public interface IStoreHandler{
     void addToCart(ShoppingItem product, int amount);
     void addToCart(ShoppingItem product);
     ProductCategory getCategory(Product product);
@@ -29,6 +29,7 @@ import java.util.Locale;
     double getCartPrice(Order order);
     List<Product> getProductsFromCategories(ProductCategory category);
     List<Product> getProductsFromSearch(String search);
+    List<Product> getAllProducts(String search);
     void shutDown();
     void clearCurrentShoppingCart();
     Date getDate(Order order);
