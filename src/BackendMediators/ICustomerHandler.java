@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by gustav on 2017-02-22.
  */
-    interface ICustomerHandler {
+    public interface ICustomerHandler {
     Customer getCustomer();
     CreditCard getSavedCreditCard();
     void addFavorite(Product product);

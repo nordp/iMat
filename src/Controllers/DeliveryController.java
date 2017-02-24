@@ -21,7 +21,9 @@ public class DeliveryController implements ISubCheckoutController{
     @Override
     public void focusReceived() {
         Customer customer = handler.getCustomer();
-        nameTF.setText(customer.getFirstName() + " " + customer.getLastName());
+        if(!(customer.getFirstName().isEmpty() && customer.getLastName().isEmpty())) {
+            nameTF.setText(customer.getFirstName() + " " + customer.getLastName());
+        }
         addressTF.setText(customer.getAddress());
         postcodeTF.setText(customer.getPostCode());
       //  cityTF.setText(customer.get); Storing a city is not possible with the current backend.
@@ -33,8 +35,12 @@ public class DeliveryController implements ISubCheckoutController{
         String name[] = nameTF.getText().split(" ");
         String address = addressTF.getText();
         String postcode = postcodeTF.getText();
-        customer.setFirstName(name[0]);
-        customer.setLastName(name[1]);
+        if(name.length<0) {
+            customer.setFirstName(name[0]);
+        }
+        if(name.length>1) {
+            customer.setLastName(name[1]);
+        }
         customer.setAddress(address);
         customer.setPostCode(postcode);
     }

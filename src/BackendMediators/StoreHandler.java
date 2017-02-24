@@ -16,6 +16,7 @@ public class StoreHandler implements IStoreHandler{
     public void addToCart(ShoppingItem product, int amount) {
         for(int i = 1; i<=amount; i++) {
             handler.getShoppingCart().addItem(product);
+
         }
     }
 
@@ -26,7 +27,9 @@ public class StoreHandler implements IStoreHandler{
 
     @Override
     public ProductCategory getCategory(Product product) {
+
         return product.getCategory();
+
     }
 
     @Override
@@ -87,6 +90,11 @@ public class StoreHandler implements IStoreHandler{
     @Override
     public List<Product> getProductsFromSearch(String search) {
         return handler.findProducts(search);
+    }
+
+    @Override
+    public List<Product> getAllProducts(String search) {
+        return handler.getProducts();
     }
 
     @Override

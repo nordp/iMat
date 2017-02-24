@@ -1,9 +1,6 @@
 package BackendMediators;
 
-import se.chalmers.ait.dat215.project.CreditCard;
-import se.chalmers.ait.dat215.project.Customer;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.*;
 
 import java.util.List;
 

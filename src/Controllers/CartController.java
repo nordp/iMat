@@ -1,10 +1,19 @@
 package Controllers;
 
+import BackendMediators.StoreHandler;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ProductCategory;
+import se.chalmers.ait.dat215.project.ShoppingCart;
+import se.chalmers.ait.dat215.project.ShoppingItem;
+
+import static java.lang.System.out;
 
 /**
  * Created by gustav on 2017-02-23.
@@ -16,10 +25,14 @@ public class CartController implements ISubCheckoutController{
     @FXML ListView cartList;
     @FXML Button sortFromButton;
     @FXML ComboBox<String> sortByCB;
-
+    StoreHandler handler = new StoreHandler();
     @Override
     public void focusReceived() {
-
+        handler.addToCart(new ShoppingItem(handler.getProductsFromCategories(ProductCategory.BERRY).get(1)));
+        out.println(handler.getCurrentShoppingCart().get(0).getProduct());
+        ObservableList<ShoppingItem> list = FXCollections.observableList(handler.getCurrentShoppingCart());
+        cartList.setItems(list);
+        cartList.setCellFactory(param -> new ListCells.cartElement());
         // cartList should be populated when this method is called.
         // the comboBox should be populated as well.
     }
@@ -40,7 +53,7 @@ public class CartController implements ISubCheckoutController{
             case SORT_BY_SUBCATEGORY:
                 return;
             default:
-                System.out.println("Inte ett möjligt val.");
+                out.println("Inte ett möjligt val.");
                 return;
         }
     }
