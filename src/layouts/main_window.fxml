@@ -63,17 +63,17 @@
          <left>
             <AnchorPane prefHeight="649.0" prefWidth="172.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="BASELINE_LEFT" layoutX="55.0" layoutY="132.0" mnemonicParsing="false" onAction="#openHistory" prefHeight="55.0" prefWidth="200.0" text="Orderhistorik" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button alignment="BASELINE_LEFT" layoutX="55.0" layoutY="132.0" mnemonicParsing="false" onAction="#historyClicked" prefHeight="55.0" prefWidth="200.0" text="Orderhistorik" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutY="566.0" mnemonicParsing="false" onAction="#openShoppingLists" prefHeight="64.0" prefWidth="200.0" text="Inköpslistor" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button alignment="BASELINE_LEFT" layoutY="566.0" mnemonicParsing="false" onAction="#shoppingListsClicked" prefHeight="64.0" prefWidth="200.0" text="Inköpslistor" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#openMyAccount" prefHeight="64.0" prefWidth="200.0" text="Mitt konto" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#myAccountClicked" prefHeight="64.0" prefWidth="200.0" text="Mitt konto" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -192,7 +192,7 @@
                   <StackPane layoutX="201.0" layoutY="250.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                      <children>
                         <fx:include fx:id="productGrid" source="product_grid.fxml" />
-                        <fx:include fx:id="popupPane" source="popup.fxml" />
+                        <fx:include fx:id="lightbox" source="lightbox.fxml" />
                      </children>
                   </StackPane>
                </children>

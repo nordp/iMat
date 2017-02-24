@@ -1,3 +1,4 @@
+import Controllers.LightboxController;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
@@ -6,26 +7,25 @@ import java.util.ResourceBundle;
 
 public class IMatController implements Initializable {
 
-    @FXML Parent popupPane;
+    @FXML Parent lightbox;
+    @FXML LightboxController lightboxController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        popupPane.setVisible(false);
+        lightbox.setVisible(false);
     }
 
-    @FXML private void openMyAccount(){
-
-    }
-
-    @FXML private void categoryClicked(){ //Bör ta en kategori som indata.
-    }
-
-    @FXML private void openShoppingLists(){
+    @FXML private void myAccountClicked(){
+        lightboxController.myAccount();
 
     }
 
-    @FXML private void openHistory(){
+    @FXML private void shoppingListsClicked(){
+        lightboxController.shoppingLists();
+    }
 
+    @FXML private void historyClicked(){
+        lightboxController.history();
     }
 
     @FXML private void toCheckout(){
@@ -33,6 +33,10 @@ public class IMatController implements Initializable {
     }
 
     @FXML private void toHome(){
+
+    }
+
+    @FXML private void categoryClicked(){ //Bör ta en kategori som indata.
 
     }
 
