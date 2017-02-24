@@ -15,6 +15,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
@@ -63,21 +64,6 @@
          <left>
             <AnchorPane prefHeight="649.0" prefWidth="172.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button alignment="BASELINE_LEFT" layoutX="55.0" layoutY="132.0" mnemonicParsing="false" onAction="#historyClicked" prefHeight="55.0" prefWidth="200.0" text="Orderhistorik" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" layoutY="566.0" mnemonicParsing="false" onAction="#shoppingListsClicked" prefHeight="64.0" prefWidth="200.0" text="Inköpslistor" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#myAccountClicked" prefHeight="64.0" prefWidth="200.0" text="Mitt konto" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
                   <Accordion layoutX="-4.0" layoutY="67.0" prefHeight="314.0" prefWidth="202.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
                     <panes>
                       <TitledPane collapsible="false" expanded="false" prefHeight="224.0" prefWidth="202.0" text="Favoritvaror">
@@ -131,6 +117,22 @@
                         <Image url="@../resources/img/logo.png" />
                      </image>
                   </ImageView>
+                  <Pane fx:id="shadow" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#shadowClicked" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Button alignment="BASELINE_LEFT" layoutX="55.0" layoutY="132.0" mnemonicParsing="false" onAction="#historyClicked" prefHeight="55.0" prefWidth="200.0" text="Orderhistorik" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutY="566.0" mnemonicParsing="false" onAction="#shoppingListsClicked" prefHeight="64.0" prefWidth="200.0" text="Inköpslistor" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#myAccountClicked" prefHeight="64.0" prefWidth="200.0" text="Mitt konto" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </left>
@@ -159,6 +161,7 @@
                         <Font size="27.0" />
                      </font>
                   </Label>
+                  <Pane fx:id="shadow3" layoutX="30.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#shadowClicked" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </right>
@@ -189,9 +192,11 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
+                  <Pane fx:id="shadow1" layoutX="30.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#shadowClicked" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <StackPane layoutX="201.0" layoutY="250.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                      <children>
                         <fx:include fx:id="productGrid" source="product_grid.fxml" />
+                        <Pane fx:id="shadow2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#shadowClicked" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" />
                         <fx:include fx:id="lightbox" source="lightbox.fxml" />
                      </children>
                   </StackPane>
