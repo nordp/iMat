@@ -19,8 +19,14 @@ public class CartController implements ISubCheckoutController{
 
     @Override
     public void focusReceived() {
+
         // cartList should be populated when this method is called.
         // the comboBox should be populated as well.
+    }
+
+    @Override
+    public void focusLost() {
+
     }
 
     public void onComboBoxClicked(ActionEvent event) {

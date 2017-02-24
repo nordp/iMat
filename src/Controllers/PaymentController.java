@@ -34,6 +34,12 @@ public class PaymentController implements ISubCheckoutController{
         validMonth.setItems();  is there a better way to handle this, than manually adding 1, 2, 3, etc */
         CVCCode.setText(String.valueOf(creditCard.getVerificationCode()));
     }
+
+    @Override
+    public void focusLost() {
+
+    }
+
     @FXML private void paymentChosen(ActionEvent event) {
         System.out.println("clicked");
     }

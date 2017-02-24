@@ -26,4 +26,16 @@ public class DeliveryController implements ISubCheckoutController{
         postcodeTF.setText(customer.getPostCode());
       //  cityTF.setText(customer.get); Storing a city is not possible with the current backend.
     }
+
+    @Override
+    public void focusLost() {
+        Customer customer = handler.getCustomer();
+        String name[] = nameTF.getText().split(" ");
+        String address = addressTF.getText();
+        String postcode = postcodeTF.getText();
+        customer.setFirstName(name[0]);
+        customer.setLastName(name[1]);
+        customer.setAddress(address);
+        customer.setPostCode(postcode);
+    }
 }

@@ -23,6 +23,11 @@ public class ConfirmationController implements ISubCheckoutController{
         // when focus is gained all previously entered and saved information should be displayed.
     }
 
+    @Override
+    public void focusLost() {
+
+    }
+
     public void changeDeliveryClicked(ActionEvent event) {
 
     }

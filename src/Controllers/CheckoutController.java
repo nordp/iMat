@@ -22,6 +22,7 @@ public class CheckoutController implements Initializable{
     public final static int PAYMENT = 3;
     public final static int CONFIRMATION = 4;
     private int active = 0;
+    private int lastActive = 0;
 
         @FXML AnchorPane pane;
         @FXML Button nextButton;
@@ -40,7 +41,6 @@ public class CheckoutController implements Initializable{
         @FXML ConfirmationController confirmationController;
         List<ISubCheckoutController> controllerList = new ArrayList<>();
         List<Parent> parentList = new ArrayList<>();
-
         @Override
         public void initialize(URL location, ResourceBundle resources) {
             parentList.add(cart);
@@ -59,12 +59,15 @@ public class CheckoutController implements Initializable{
             for(int i = 0; i<parentList.size(); i++){
                 parentList.get(i).setVisible(false);
             }
+            controllerList.get(lastActive).focusLost();
             parentList.get(paneIndex).setVisible(true);
             controllerList.get(paneIndex).focusReceived();
+            lastActive = active;
         }
 
         @FXML protected void nextButtonPressed(ActionEvent event){
             active++;
+            // Temporary to avoid crashes.
             active = active%4;
             changePaneContent(active);
         }

@@ -9,4 +9,5 @@ public interface ISubCheckoutController {
         in view, and gives them the responsibility to handle when next button is Enabled.
      */
     void focusReceived();
+    void focusLost();
 }
