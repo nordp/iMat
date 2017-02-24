@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PaymentController">
+    <children>
+        <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Mitt Konto" textAlignment="CENTER">
+                            <font>
+                                <Font size="32.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <BorderPane.margin>
+                    </BorderPane.margin>
+                </HBox>
+            </top>
+        </BorderPane>
+        <AnchorPane layoutX="219.0" layoutY="210.0" prefHeight="297.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Label layoutX="35.0" layoutY="14.0" text="Namn" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="170.0" layoutY="171.0" text="Stad" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="115.0" text="Adress" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="105.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="96.0" layoutY="127.0" text="Postnummer" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="272.0" text="Kortnummer" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="240.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="332.0" text="Giltligt till" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="330.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="302.0" text="CVC Kod" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="285.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="300.0" layoutY="339.0" prefHeight="40.0" prefWidth="110.0" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="325.0" />
+            <ComboBox layoutX="439.0" layoutY="339.0" prefHeight="40.0" prefWidth="110.0" AnchorPane.leftAnchor="295.0" AnchorPane.topAnchor="325.0" />
+            <Label layoutX="209.0" layoutY="117.0" text="Kort Information:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="200.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="165.0" layoutY="10.0" prefWidth="240.0" text="Mitt Namn" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="350.0" layoutY="158.0" prefWidth="240.0" text="448 97" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="55.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="209.0" layoutY="105.0" prefWidth="240.0" text="Gatan 180" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="200.0" layoutY="181.0" prefWidth="240.0" text="Staden" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="145.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="165.0" layoutY="234.0" prefWidth="60.0" text="****" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="235.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="165.0" layoutY="279.0" prefWidth="240.0" text="***" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="280.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="251.0" layoutY="412.0" text="/" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="325.0">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <TextField layoutX="234.0" layoutY="235.0" prefWidth="60.0" text="****" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="235.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="300.0" layoutY="235.0" prefWidth="60.0" text="****" AnchorPane.leftAnchor="285.0" AnchorPane.topAnchor="235.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="368.0" layoutY="235.0" prefWidth="60.0" text="*012" AnchorPane.leftAnchor="345.0" AnchorPane.topAnchor="235.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
