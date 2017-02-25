@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import static java.lang.System.out;
@@ -27,7 +26,7 @@ public class CartController implements ISubCheckoutController{
     StoreHandler handler = new StoreHandler();
     @Override
     public void focusReceived() {
-        //handler.addToCart(new ShoppingItem(handler.getProductsFromCategories(ProductCategory.BERRY).get(1)));
+        handler.addToCart(new ShoppingItem(handler.getAllProducts().get(0)));
         out.println(handler.getCurrentShoppingCart().get(0).getProduct());
         ObservableList<ShoppingItem> list = FXCollections.observableList(handler.getCurrentShoppingCart());
         cartList.setItems(list);

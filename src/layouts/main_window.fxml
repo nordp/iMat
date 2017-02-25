@@ -117,7 +117,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <ListView layoutY="71.0" prefHeight="462.0" prefWidth="196.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="71.0" />
+                  <ListView fx:id="currentCartList" layoutY="71.0" prefHeight="462.0" prefWidth="196.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="71.0" />
                   <Separator layoutX="11.0" layoutY="151.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Label alignment="CENTER" layoutX="71.0" layoutY="15.0" text="Kundvagn" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
                      <font>

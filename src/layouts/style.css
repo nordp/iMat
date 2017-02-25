@@ -4,6 +4,9 @@
 .button {
     -fx-background-color: #DBC390;
 }
+.ImageButton{
+    -fx-background-color: rgba(0,0,0,0);
+}
 .button:hover {
     -fx-effect: dropshadow(gaussian, #808080, 10, 0.2, 0, 0);
 }

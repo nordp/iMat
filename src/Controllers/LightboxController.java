@@ -19,6 +19,7 @@ public class LightboxController implements Initializable{
     @FXML Parent history;
     @FXML Parent shoppingLists;
     @FXML Parent myAccount;
+    @FXML Parent checkout;
 
     List<Parent> panes;
     List<Pane> shadows;
@@ -30,12 +31,17 @@ public class LightboxController implements Initializable{
         panes.add(history);
         panes.add(shoppingLists);
         panes.add(myAccount);
+        panes.add(checkout);
         close();
     }
 
     public void shoppingLists(){
         setView(shoppingLists);
+    }
 
+    public void checkout(){
+        // if this should be opened in the lightbox, we might want to resize the checkout to reflect this.
+        setView(checkout);
     }
 
     public void history(){

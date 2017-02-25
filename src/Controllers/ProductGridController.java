@@ -24,6 +24,7 @@ public class ProductGridController {
         for (Product product : products){
             AnchorPane element = new ProductElement(product);
             productGrid.getChildren().add(element);
+            //shouldn't this be a listpane containing a grid, containing a product_element.
             //Add products to flowpane in the shape of product_element.
         }
     }
