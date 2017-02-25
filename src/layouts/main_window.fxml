@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,7 +24,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="674.0" prefWidth="1004.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IMatController">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="674.0" prefWidth="1004.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IMatController">
    <children>
       <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <menus>
@@ -64,7 +69,7 @@
          <left>
             <AnchorPane prefHeight="649.0" prefWidth="172.0" BorderPane.alignment="CENTER">
                <children>
-                  <Accordion layoutX="-4.0" layoutY="67.0" prefHeight="314.0" prefWidth="202.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                  <Accordion fx:id="products_accordion" layoutX="-4.0" layoutY="67.0" prefHeight="314.0" prefWidth="202.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
                     <panes>
                       <TitledPane collapsible="false" expanded="false" prefHeight="224.0" prefWidth="202.0" text="Favoritvaror">
                            <font>
@@ -78,38 +83,6 @@
                               </ImageView>
                            </graphic>
                       </TitledPane>
-                      <TitledPane text="Kategori 2">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <content>
-                              <ListView prefHeight="200.0" prefWidth="200.0" />
-                           </content>
-                      </TitledPane>
-                      <TitledPane text="Kategori 3">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <content>
-                              <ListView prefHeight="200.0" prefWidth="200.0" />
-                           </content>
-                      </TitledPane>
-                        <TitledPane text="Kategori 4">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <content>
-                              <ListView prefHeight="200.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
-                        <TitledPane text="Kategori 5">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <content>
-                              <ListView prefHeight="200.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
                     </panes>
                   </Accordion>
                   <ImageView fitHeight="72.0" fitWidth="196.0" layoutX="-3.0" layoutY="1.0" onMouseClicked="#toHome" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
