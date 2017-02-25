@@ -88,8 +88,9 @@ public class ProductContainer {
     public List<Product> searchProducts(String name)
     {
         name = name.toLowerCase();
-        ProductParentCategory par = ProductParentCategory.valueOf(name);
-        ProductSubCategory sub = ProductSubCategory.valueOf(name);
+
+        ProductParentCategory par = getParentCategory(name);
+        ProductSubCategory sub = getSubCategory(name);
         ProductCategory_ cat = new ProductCategory_(par,sub);
         List<Product> output = getProductsFromCategory(cat);
 

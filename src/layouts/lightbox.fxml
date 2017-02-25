@@ -35,7 +35,7 @@
                <children>
                   <fx:include fx:id="history" source="history.fxml" />
                   <fx:include fx:id="shoppingLists" source="shopping_lists.fxml" />
-                  <fx:include fx:id="myAccount" source="my_account.fxml" />
+                  <fx:include fx:id="myAccount" source="account.fxml" />
                   <Button mnemonicParsing="false" onAction="#close" style="-fx-background-color: red;" text="X" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
                      <cursor>
                         <Cursor fx:constant="HAND" />

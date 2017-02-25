@@ -92,7 +92,10 @@ public class IMatController implements Initializable {
     @FXML private void categoryClicked(){ //Bör ta en kategori som indata.
     }
 
-    @FXML private void searchPerformed(){ productGridController.fillGrid(store.getProductsFromSearch(searchField.getText())); }
+    @FXML private void searchPerformed()
+    {
+        productGridController.fillGrid(store.getProductsFromSearch(searchField.getText()));
+    }
 
     @FXML private void nextPressed(){    }
 
