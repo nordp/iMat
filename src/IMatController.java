@@ -13,6 +13,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.text.Font;
 import se.chalmers.ait.dat215.project.Product;
 
 import java.net.URL;
@@ -46,10 +47,13 @@ public class IMatController implements Initializable {
         lightboxController.addShadow(shadow2);
         lightboxController.addShadow(shadow3);
 
+
+
         List<String> parentCategories = ProductContainer.getInstance().getParentCategories();
         for(String cat : parentCategories)
         {
             TitledPane pane = new TitledPane();
+            pane.setFont(new Font(16));
             pane.setText(cat);
             List<String> subCats = ProductContainer.getInstance().getSubCategories( ProductContainer.getInstance().getParentCategory(cat));
 

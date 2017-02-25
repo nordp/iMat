@@ -27,7 +27,7 @@ public class CartController implements ISubCheckoutController{
     StoreHandler handler = new StoreHandler();
     @Override
     public void focusReceived() {
-        handler.addToCart(new ShoppingItem(handler.getProductsFromCategories(ProductCategory.BERRY).get(1)));
+        //handler.addToCart(new ShoppingItem(handler.getProductsFromCategories(ProductCategory.BERRY).get(1)));
         out.println(handler.getCurrentShoppingCart().get(0).getProduct());
         ObservableList<ShoppingItem> list = FXCollections.observableList(handler.getCurrentShoppingCart());
         cartList.setItems(list);

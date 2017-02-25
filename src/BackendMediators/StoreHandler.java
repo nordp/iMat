@@ -1,5 +1,7 @@
 package BackendMediators;
 
+import BackendExtension.ProductCategory_;
+import BackendExtension.ProductContainer;
 import javafx.scene.image.Image;
 import se.chalmers.ait.dat215.project.*;
 
@@ -34,15 +36,13 @@ public class StoreHandler implements IStoreHandler{
     }
 
     @Override
-    public ProductCategory getCategory(Product product) {
-
-        return product.getCategory();
-
+    public ProductCategory_ getCategory(Product product) {
+        return ProductContainer.getInstance().getCategory(product);
     }
 
     @Override
-    public ProductCategory getCategory(int productID) {
-        return getCategory(handler.getProduct(productID));
+    public ProductCategory_ getCategory(int productID) {
+        return ProductContainer.getInstance().getCategory(productID);
     }
 
     @Override
@@ -91,17 +91,17 @@ public class StoreHandler implements IStoreHandler{
     }
 
     @Override
-    public List<Product> getProductsFromCategories(ProductCategory category) {
-        return handler.getProducts(category);
+    public List<Product> getProductsFromCategories(ProductCategory_ category) {
+        return ProductContainer.getInstance().getProductsFromCategory(category);
     }
 
     @Override
     public List<Product> getProductsFromSearch(String search) {
-        return handler.findProducts(search);
+        return ProductContainer.getInstance().searchProducts(search);
     }
 
     @Override
-    public List<Product> getAllProducts(String search) {
+    public List<Product> getAllProducts() {
         return handler.getProducts();
     }
 

@@ -1,5 +1,6 @@
 package BackendMediators;
 
+import BackendExtension.ProductCategory_;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.Order;
@@ -17,8 +18,8 @@ import java.util.Locale;
     public interface IStoreHandler{
     void addToCart(ShoppingItem product, int amount);
     void addToCart(ShoppingItem product);
-    ProductCategory getCategory(Product product);
-    ProductCategory getCategory(int productID);
+    ProductCategory_ getCategory(Product product);
+    ProductCategory_ getCategory(int productID);
     List<ShoppingItem> getCurrentShoppingCart();
     List<Order> getOrders();
     void getOrder(int index);
@@ -27,9 +28,9 @@ import java.util.Locale;
     double getProductPrice(int productID);
     double getCartPrice();
     double getCartPrice(Order order);
-    List<Product> getProductsFromCategories(ProductCategory category);
+    List<Product> getProductsFromCategories(ProductCategory_ category);
     List<Product> getProductsFromSearch(String search);
-    List<Product> getAllProducts(String search);
+    List<Product> getAllProducts();
     void shutDown();
     void clearCurrentShoppingCart();
     Date getDate(Order order);
