@@ -1,5 +1,7 @@
 package ListCells;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -54,11 +56,11 @@ public class ProductElement extends AnchorPane {
 
     public ProductElement(Product product) {
     //TODO Load product_element.fxml
-        Test();
+        CreateGUI();
         setValues(product);
     }
 
-    public void Test()
+    public void CreateGUI()
     {
         prefWidth(150);
         prefHeight(300);
@@ -171,7 +173,13 @@ public class ProductElement extends AnchorPane {
         btn.setMnemonicParsing(false);
         btn.setPrefHeight(0);
         btn.setPrefWidth(26);
-
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                int value = Integer.parseInt(amountField.getText());
+                amountField.setText(Integer.toString(Math.max(value - 1, 0)));
+            }
+        });
         Font f = new Font(12);
         btn.setFont(f);
         // Make the font System Bold somehow.
@@ -194,6 +202,13 @@ public class ProductElement extends AnchorPane {
         btn.setPrefWidth(25);
         btn.setFont(new Font(12));
         btn.setText("+");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                int value = Integer.parseInt(amountField.getText());
+                amountField.setText(Integer.toString(value + 1));
+            }
+        });
         hbox.getChildren().add(btn);
         hbox.setMargin(btn, new Insets(0,2,2,2));
 
