@@ -5,10 +5,50 @@ package BackendExtension;
  */
 // Uppercase ONLY
 public enum ProductSubCategory {
-    MEAT,
+    //Meat
+    BEEF,
+    CHICKEN,
+    FISH,
+
+    //Greens
+    VEGETABLE,
+    BERRY,
+    CITRUS,
     CABBAGE,
-    VEGETABLE_FRUIT,
+    FRUIT,
+    ROOT,
+    POD,
+    POTATO,
     HERB,
+    EXOTIC,
+    NUTS, //Some nuts are baking, some are fruits, some are snacks.
+    MELONS,
+
+    //Bread
+    SOFT,
+    HARD,
+
+    //Dairy
+    CHEESE,
+    MILK, //Milk-products
+    EGG, //Only one product?
+
+    //Drinks, only bottled ones.
+    JUICE,
+    SODA,
+    WATER,
+
+    //Pantry. Allt till skafferiet
+    TEA, //Kaffe och The
+    PASTA,
+    RICE,
+    BAKING, //Torrvaror / Bakartiklar
+
+    //Candy
     SWEET,
+    SNACKS,
+
+    ALL, //to be used to adress all items in parent category
+
     NO_CATEGORY;
 }

@@ -5,11 +5,11 @@ package BackendExtension;
  */
 public enum ProductParentCategory {
     MEAT,
-    VEGETABLES,
+    GREEN,
     BREAD,
     DAIRY,
     DRINKS,
-    CARBOHYDRATE,
+    PANTRY,
     CANDY,
     NO_CATEGORY;
 
