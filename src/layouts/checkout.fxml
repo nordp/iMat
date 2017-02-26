@@ -1,88 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CheckoutController">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CheckoutController">
     <children>
-        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
-         <top>
-              <GridPane alignment="CENTER" prefHeight="30.0" prefWidth="905.0" BorderPane.alignment="BOTTOM_CENTER">
-                  <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" percentWidth="0.0" />
-                  <ColumnConstraints minWidth="94.0" />
-                  <ColumnConstraints maxWidth="101.0" minWidth="0.0" prefWidth="28.0" />
-                  <ColumnConstraints minWidth="52.0" percentWidth="0.0" />
-                  <ColumnConstraints minWidth="0.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                  <children>
-                  <Hyperlink fx:id="cartLink" focusTraversable="false" onAction="#linkClicked" prefHeight="65.0" prefWidth="165.0" text="Varukorg">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Hyperlink>
-                  <Label text="&gt;" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="40.0" />
-                     </font>
-                  </Label>
-                  <Hyperlink fx:id="deliveryLink" focusTraversable="false" onAction="#linkClicked" text="Leverans" GridPane.columnIndex="2">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Hyperlink>
-                  <Label text="&gt;" GridPane.columnIndex="3">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Label>
-                  <Hyperlink fx:id="paymentLink" focusTraversable="false" onAction="#linkClicked" text="Betalning" GridPane.columnIndex="4">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Hyperlink>
-                  <Hyperlink fx:id="confirmationLink" focusTraversable="false" onAction="#linkClicked" prefHeight="65.0" prefWidth="212.0" text="Granskning" GridPane.columnIndex="6">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Hyperlink>
-                  <Label text="&gt;" GridPane.columnIndex="5">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Label>
-                  </children>
-              </GridPane>
-         </top>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
@@ -99,46 +28,47 @@
                </padding>
             </StackPane>
          </center>
-         <bottom>
-            <AnchorPane prefHeight="110.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+            <HBox alignment="CENTER" prefHeight="39.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
                <children>
-                    <Button mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="60.0" prefWidth="160.0" styleClass="ImageButton" stylesheets="@style.css" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0">
-                     <graphic>
-                        <StackPane prefHeight="150.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="71.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/img/previousArrow.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Tillbaka">
-                                 <font>
-                                    <Font size="36.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </StackPane>
-                     </graphic></Button>
-                    <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextButtonPressed" prefHeight="60.0" prefWidth="160.0" styleClass="ImageButton" stylesheets="@style.css" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0">
-                     <graphic>
-                        <StackPane prefHeight="150.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="71.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/img/NextArrow.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Nästa">
-                                 <font>
-                                    <Font size="36.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </StackPane>
-                     </graphic></Button>
+                  <Hyperlink fx:id="cartLink" focusTraversable="false" onAction="#linkClicked" text="Varukorg" visited="true" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label text="&gt;" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="deliveryLink" focusTraversable="false" onAction="#linkClicked" text="Leverans" visited="true" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label text="&gt;" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="paymentLink" focusTraversable="false" onAction="#linkClicked" text="Betalning" visited="true" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label text="&gt;" wrapText="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="confirmationLink" focusTraversable="false" onAction="#linkClicked" text="Granskning" visited="true">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Hyperlink>
                </children>
-            </AnchorPane>
-         </bottom>
+            </HBox>
+         </top>
       </BorderPane>
     </children>
 </AnchorPane>

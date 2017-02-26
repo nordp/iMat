@@ -1,206 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DeliveryController">
+<AnchorPane prefHeight="297.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DeliveryController">
    <children>
-      <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Leverans" textAlignment="CENTER">
-                     <font>
-                        <Font size="32.0" />
-                     </font>
-                  </Label>
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </HBox>
-         </top>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </BorderPane>
-      <AnchorPane layoutX="219.0" layoutY="210.0" prefHeight="297.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <children>
-            <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="48.0" prefWidth="135.0" text="Adress:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="14.0" prefWidth="135.0" text="Namn:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="82.0" prefWidth="135.0" text="Postadress:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="116.0" prefWidth="135.0" text="Övrigt:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nameTF" layoutX="119.0" layoutY="14.0" prefWidth="300.0" promptText="Namn">
-               <font>
-                  <Font size="14.0" />
-               </font></TextField>
-            <TextField fx:id="addressTF" layoutX="119.0" layoutY="48.0" prefWidth="300.0" promptText="Adress">
-               <font>
-                  <Font size="14.0" />
-               </font></TextField>
-            <TextField fx:id="postcodeTF" layoutX="119.0" layoutY="82.0" prefHeight="25.0" prefWidth="100.0" promptText="Postnummer">
-               <font>
-                  <Font size="14.0" />
-               </font></TextField>
-            <TextField fx:id="cityTF" layoutX="220.0" layoutY="82.0" prefHeight="25.0" prefWidth="199.0" promptText="Ort">
-               <font>
-                  <Font size="14.0" />
-               </font></TextField>
-            <Label layoutX="23.0" layoutY="191.0" text="Leveranstid:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ToggleButton layoutX="94.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="214.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="334.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="454.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="454.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="334.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="214.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="94.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="454.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="334.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="214.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="94.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="454.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="334.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="214.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="94.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="94.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="214.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="334.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="454.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </ToggleButton>
-            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="235.0" prefWidth="75.0" text="Idag:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="285.0" prefWidth="75.0" text="Imorgon:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="335.0" prefWidth="75.0" text="Mån:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="385.0" prefWidth="75.0" text="Tis:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="435.0" prefWidth="75.0" text="Ons:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="miscInfoTA" layoutX="119.0" layoutY="116.0" prefHeight="61.0" prefWidth="300.0" promptText="Övriga instruktioner, ex. portkod.">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextArea>
-            <Separator layoutX="1.0" layoutY="183.0" prefHeight="10.0" prefWidth="600.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" />
-         </children>
-      </AnchorPane>
+      <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="48.0" prefWidth="135.0" text="Adress:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="14.0" prefWidth="135.0" text="Namn:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="82.0" prefWidth="135.0" text="Postadress:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="116.0" prefWidth="135.0" text="Övrigt:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTF" layoutX="119.0" layoutY="14.0" prefWidth="300.0" promptText="Namn">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="addressTF" layoutX="119.0" layoutY="48.0" prefWidth="300.0" promptText="Adress">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="postcodeTF" layoutX="119.0" layoutY="82.0" prefHeight="25.0" prefWidth="100.0" promptText="Postnummer">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="cityTF" layoutX="220.0" layoutY="82.0" prefHeight="25.0" prefWidth="199.0" promptText="Ort">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="23.0" layoutY="191.0" text="Leveranstid:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ToggleButton layoutX="94.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="214.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="334.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="454.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="454.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="334.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="214.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="94.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="454.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="334.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="214.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="94.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="454.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="334.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="214.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="94.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="94.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="214.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="334.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="454.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </ToggleButton>
+      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="235.0" prefWidth="75.0" text="Idag:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="285.0" prefWidth="75.0" text="Imorgon:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="335.0" prefWidth="75.0" text="Mån:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="385.0" prefWidth="75.0" text="Tis:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="435.0" prefWidth="75.0" text="Ons:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="miscInfoTA" layoutX="119.0" layoutY="116.0" prefHeight="61.0" prefWidth="300.0" promptText="Övriga instruktioner, ex. portkod.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Separator layoutX="1.0" layoutY="183.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="10.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

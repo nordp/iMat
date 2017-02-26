@@ -1,127 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PaymentController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PaymentController">
    <children>
-      <BorderPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <RadioButton fx:id="DeliveryPayment" layoutX="31.0" layoutY="23.0" mnemonicParsing="false" onAction="#paymentChosen" text="Betala vid leverans" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="paymentMethod" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="10.0" layoutY="58.0" mnemonicParsing="false" onAction="#paymentChosen" text="Direktbetalning" toggleGroup="$paymentMethod" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Betalning" textAlignment="CENTER">
+                  <VBox alignment="CENTER" layoutX="201.0" layoutY="66.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/img/checkmark.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Betala vid leverans! Blablablabla Ha en bra dag" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane style="-fx-border-color: black;">
+               <children>
+                  <Label layoutX="10.0" layoutY="10.0" text="Kortnummer" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cardFirstFour" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cardSecondFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cardThirdFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cardFourthFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cardName" layoutX="10.0" layoutY="115.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="10.0" layoutY="100.0" text="Namn på kort" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="validMonth" layoutX="250.0" layoutY="137.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0" />
+                  <Label layoutX="235.0" layoutY="100.0" text="Giltigt till:" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="validYear" layoutX="430.0" layoutY="148.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="130.0" />
+                  <Label layoutX="363.0" layoutY="127.0" text="/" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Label>
+                  <Label layoutY="195.0" text="CVC Kod" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="190.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="CVCCode" layoutY="210.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="165.0" fitWidth="300.0" layoutX="255.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="191.0">
+                     <image>
+                        <Image url="@../resources/img/cvc.png" />
+                     </image>
+                  </ImageView>
                </children>
-               <BorderPane.margin>
-               </BorderPane.margin>
-            </HBox>
-         </top>
-      </BorderPane>
-      <AnchorPane layoutX="219.0" layoutY="210.0" prefHeight="297.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <children>
-            <RadioButton fx:id="DeliveryPayment" layoutX="31.0" layoutY="23.0" mnemonicParsing="false" onAction="#paymentChosen" text="Betala vid leverans" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <toggleGroup>
-                  <ToggleGroup fx:id="paymentMethod" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton layoutX="10.0" layoutY="58.0" mnemonicParsing="false" onAction="#paymentChosen" text="Direktbetalning" toggleGroup="$paymentMethod" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <VBox alignment="CENTER" layoutX="201.0" layoutY="66.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/img/checkmark.png" />
-                                 </image>
-                              </ImageView>
-                              <Label text="Betala vid leverans! Blablablabla Ha en bra dag" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane style="-fx-border-color: black;">
-                     <children>
-                        <Label layoutX="10.0" layoutY="10.0" text="Kortnummer" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="cardFirstFour" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="cardSecondFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="40.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="cardThirdFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="40.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="cardFourthFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="40.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="cardName" layoutX="10.0" layoutY="115.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="10.0" layoutY="100.0" text="Namn på kort" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ComboBox fx:id="validMonth" layoutX="250.0" layoutY="137.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0" />
-                        <Label layoutX="235.0" layoutY="100.0" text="Giltigt till:" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="100.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ComboBox fx:id="validYear" layoutX="430.0" layoutY="148.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="130.0" />
-                        <Label layoutX="363.0" layoutY="127.0" text="/" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="125.0">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Label>
-                        <Label layoutY="195.0" text="CVC Kod" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="190.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="CVCCode" layoutY="210.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <ImageView fitHeight="165.0" fitWidth="300.0" layoutX="255.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="191.0">
-                           <image>
-                              <Image url="@../resources/img/cvc.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </StackPane>
+            </AnchorPane>
          </children>
-      </AnchorPane>
+      </StackPane>
    </children>
 </AnchorPane>
