@@ -21,13 +21,15 @@ public class ProductGridController {
     @FXML public void fillGrid(List<Product> products){
         System.out.println("fillgrid");
         productGrid.getChildren().clear();
-
+        int i = 0;
         for (Product product : products){
+            i++;
             AnchorPane element = new ProductElement(product);
             productGrid.getChildren().add(new Label(product.getName() + "\n")); //TODO Add element instead of placeholder label
             //shouldn't this be a listpane containing a grid, containing a product_element.
             //Add products to flowpane in the shape of product_element.
         }
+        System.out.println("i =" + i);
     }
 
 }

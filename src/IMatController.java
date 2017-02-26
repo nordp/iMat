@@ -14,6 +14,7 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
@@ -57,26 +58,28 @@ public class IMatController implements Initializable {
         lightboxController.addShadow(shadow2);
         lightboxController.addShadow(shadow3);
 
-        List<String> parentCategories = ProductContainer.getInstance().getParentCategories();
-        for(String cat : parentCategories)
+        List<ProductParentCategory> parentCategories = ProductContainer.getInstance().getParentCategories();
+        for(ProductParentCategory cat : parentCategories)
         {
+            ProductContainer products = ProductContainer.getInstance();
             TitledPane pane = new TitledPane();
             pane.setFont(new Font(16));
-            pane.setText(cat);
-            List<String> subCats = ProductContainer.getInstance().getSubCategories( ProductContainer.getInstance().getParentCategory(cat));
+            pane.setText(cat.toString());
+            List<ProductSubCategory> subCats = products.getSubCategories( products.getParentCategory(cat.toString()));
 
-            GridPane grid = new GridPane();
+            FlowPane grid = new FlowPane();
             grid.setVgap(4);
-            grid.setPadding(new Insets(5, 5, 5, 5));
-            for(int i = 0; i < subCats.size(); i++){
-                grid.add(new Button(subCats.get(i)), 0, i);
+            grid.setHgap(4);
+            for(ProductSubCategory subCat : subCats){
+                Button b = new Button(subCat.toString());
+                b.setOnMouseClicked(sub -> categoryClicked(new ProductCategory_(null,subCat)));
+                grid.getChildren().add(b);
             }
             pane.setContent(grid);
+            pane.setOnMouseClicked(sup -> categoryClicked(new ProductCategory_(cat,null)));
 
             products_accordion.getPanes().add(pane);
         }
-        //new TitledPane();
-       // products_accordion.getPanes().add()
 
         store = StoreHandler.getInstance();
     }
@@ -97,8 +100,10 @@ public class IMatController implements Initializable {
 
     @FXML private void toHome(){ lightboxController.close();  }
 
-    @FXML private void categoryClicked(){ //Bör ta en kategori som indata.
+    @FXML private void categoryClicked(ProductCategory_ cat){ //Bör ta en kategori som indata.
+        productGridController.fillGrid(store.getProductsFromCategories(cat));
     }
+
     @FXML private void searchPerformed()
     {
         productGridController.fillGrid(store.getProductsFromSearch(searchField.getText()));
@@ -112,4 +117,6 @@ public class IMatController implements Initializable {
         currentCartList.getItems().add(shoppingItem);
         currentCartList.setCellFactory(param -> new CartElement());
     }
+
+
 }

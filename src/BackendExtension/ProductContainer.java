@@ -39,24 +39,24 @@ public class ProductContainer {
         return m_container;
     }
 
-    public List<String> getParentCategories()
+    public List<ProductParentCategory> getParentCategories()
     {
-        List<String> output = new ArrayList<>();
+        List<ProductParentCategory> output = new ArrayList<>();
         for(Map.Entry<ProductParentCategory, HashSet<ProductSubCategory>> entry : categoryMapping.entrySet())
         {
-            output.add(entry.getKey().toString());
+            output.add(entry.getKey());
         }
         java.util.Collections.sort(output);
 
         return output;
     }
 
-    public List<String> getSubCategories(ProductParentCategory cat)
+    public List<ProductSubCategory> getSubCategories(ProductParentCategory cat)
     {
-        List<String> output = new ArrayList<>();
+        List<ProductSubCategory> output = new ArrayList<>();
         for(ProductSubCategory c : categoryMapping.get(cat))
         {
-            output.add(c.toString());
+            output.add(c);
         }
         java.util.Collections.sort(output);
 
