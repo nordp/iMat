@@ -14,8 +14,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,10 +38,12 @@ public class ProductElement extends AnchorPane {
 
     private void setValues(Product product) {
         //TODO
-        productName.setText("Namn");
-        productPrice.setText("50kr");
-        productUnit.setText("enhet");
-        unitPrice.setText("15kr/liter");
+        productName.setText(product.getName());
+        productPrice.setText(Double.toString(product.getPrice()));
+        productUnit.setText(product.getUnit());
+        unitPrice.setText("NOT SET");
+
+        icon.setImage(IMatDataHandler.getInstance().getFXImage(product));
 
     }
     @FXML
@@ -51,6 +55,8 @@ public class ProductElement extends AnchorPane {
 
     public ProductElement(Product product) {
     //TODO Load product_element.fxml
+        Test();
+        setValues(product);
     }
 
     public void Test()
@@ -134,10 +140,10 @@ public class ProductElement extends AnchorPane {
         icon.setFitWidth(100);
         icon.setPickOnBounds(true);
         icon.setPreserveRatio(true);
-        Image img = new Image("@../../../DAT216-LAB/Lab2/RecipeSearch/src/resources/laxpaket-med-fankal-och-spenat.jpg");
-        icon.setImage(img);
+        //Image img = new Image("file:../../../DAT216-LAB/Lab2/RecipeSearch/src/resources/laxpaket-med-fankal-och-spenat.jpg");
+        //icon.setImage(img);
 
-        grid.getChildren().addAll(icon);
+        grid.getChildren().add(icon);
         grid.setRowIndex(icon, 1);
         grid.setHalignment(icon, HPos.RIGHT);
         grid.setValignment(icon, VPos.BOTTOM);
@@ -236,7 +242,7 @@ public class ProductElement extends AnchorPane {
         heartIcon.setFitWidth(25);
         heartIcon.setPickOnBounds(true);
         heartIcon.setPreserveRatio(true);
-        heartIcon.setImage(new Image("@../resources/img/heart.png"));
+        heartIcon.setImage(new Image("resources/img/heart.png"));
         btn.setGraphic(heartIcon);
 
         grid.getChildren().add(btn);
