@@ -19,11 +19,12 @@ public class ProductGridController {
     @FXML private FlowPane productGrid;
 
     @FXML public void fillGrid(List<Product> products){
-        productGrid.getChildren().removeAll();
+        System.out.println("fillgrid");
+        productGrid.getChildren().clear();
 
         for (Product product : products){
             AnchorPane element = new ProductElement(product);
-            productGrid.getChildren().add(element);
+            productGrid.getChildren().add(new Label(product.getName() + "\n")); //TODO Add element instead of placeholder label
             //shouldn't this be a listpane containing a grid, containing a product_element.
             //Add products to flowpane in the shape of product_element.
         }

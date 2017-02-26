@@ -50,7 +50,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <TextField alignment="CENTER" prefHeight="35.0" prefWidth="40.0" text="1">
+                  <TextField fx:id="amountField" alignment="CENTER" prefHeight="35.0" prefWidth="40.0" text="1">
                      <HBox.margin>
                         <Insets left="2.0" right="2.0" />
                      </HBox.margin>
@@ -68,29 +68,29 @@
                   </Button>
                </children>
             </HBox>
-            <Label text="Varunamn" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+            <Label fx:id="productName" text="Varunamn" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="Kilopris" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Label fx:id="unitPrice" text="Kilopris" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="500 g" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+            <Label fx:id="productUnit" text="500 g" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="60 kr" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Label fx:id="productPrice" text="60 kr" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="heartIcon" fitHeight="25.0" fitWidth="25.0" onMouseEntered="#invertIcon" onMouseExited="#invertIcon" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/img/heart.png" />
                      </image>
