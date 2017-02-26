@@ -37,7 +37,6 @@ public class ProductElement extends AnchorPane {
     @FXML public Label unitPrice;
 
     private void setValues(Product product) {
-        //TODO
         productName.setText(product.getName());
         productPrice.setText(Double.toString(product.getPrice()));
         productUnit.setText(product.getUnit());
