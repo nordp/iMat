@@ -39,7 +39,6 @@ public class CheckoutController implements Initializable{
         @FXML DeliveryController deliveryController;
         @FXML PaymentController paymentController;
         @FXML ConfirmationController confirmationController;
-        List<ISubCheckoutController> controllerList = new ArrayList<>();
         List<Parent> parentList = new ArrayList<>();
         @Override
         public void initialize(URL location, ResourceBundle resources) {
@@ -47,11 +46,6 @@ public class CheckoutController implements Initializable{
             parentList.add(delivery);
             parentList.add(payment);
             parentList.add(confirmation);
-            controllerList.add(cartController);
-            controllerList.add(deliveryController);
-            controllerList.add(paymentController);
-            controllerList.add(confirmationController);
-
             changePaneContent(0);
         }
 
@@ -59,9 +53,7 @@ public class CheckoutController implements Initializable{
             for(int i = 0; i<parentList.size(); i++){
                 parentList.get(i).setVisible(false);
             }
-            controllerList.get(lastActive).focusLost();
             parentList.get(paneIndex).setVisible(true);
-            controllerList.get(paneIndex).focusReceived();
             lastActive = active;
         }
 

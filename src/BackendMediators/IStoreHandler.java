@@ -3,10 +3,7 @@ package BackendMediators;
 import BackendExtension.ProductCategory_;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import se.chalmers.ait.dat215.project.Order;
-import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ProductCategory;
-import se.chalmers.ait.dat215.project.ShoppingItem;
+import se.chalmers.ait.dat215.project.*;
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +13,6 @@ import java.util.Locale;
  * Created by gustav on 2017-02-22.
  */
     public interface IStoreHandler{
-    void addToCart(ShoppingItem product, int amount);
     void addToCart(ShoppingItem product);
     ProductCategory_ getCategory(Product product);
     ProductCategory_ getCategory(int productID);
@@ -33,6 +29,7 @@ import java.util.Locale;
     List<Product> getAllProducts();
     void shutDown();
     void clearCurrentShoppingCart();
+    public void addShoppingCartListener(ShoppingCartListener scl);
     Date getDate(Order order);
     Date getDate(int orderIndex);
     boolean hasImage(Product product);

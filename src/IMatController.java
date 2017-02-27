@@ -3,10 +3,7 @@ import BackendMediators.IStoreHandler;
 import BackendMediators.StoreHandler;
 import Controllers.*;
 import ListCells.CartElement;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -15,23 +12,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.TilePane;
 import javafx.scene.text.Font;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import BackendExtension.*;
-import BackendMediators.*;
-import se.chalmers.ait.dat215.project.ProductCategory;
+import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
-public class IMatController implements Initializable {
+public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML Parent lightbox;
     @FXML Parent productGrid;
@@ -46,11 +39,12 @@ public class IMatController implements Initializable {
     @FXML Accordion products_accordion;
 
     private List<Product> testList;
-    StoreHandler handler = new StoreHandler();
+    IStoreHandler store = new StoreHandler();
 
-    private IStoreHandler store;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        store.addShoppingCartListener(this);
+        currentCartList.setCellFactory(param -> new CartElement());
 
         lightbox.setVisible(false);
         lightboxController.addShadow(shadow);
@@ -101,22 +95,25 @@ public class IMatController implements Initializable {
     @FXML private void toHome(){ lightboxController.close();  }
 
     @FXML private void categoryClicked(ProductCategory_ cat){ //Bör ta en kategori som indata.
-        productGridController.fillGrid(store.getProductsFromCategories(cat));
+        productGridController.fillGrid("HEADER", store.getProductsFromCategories(cat));
     }
 
     @FXML private void searchPerformed()
     {
-        productGridController.fillGrid(store.getProductsFromSearch(searchField.getText()));
+        productGridController.fillGrid("SEARCH RESULTS", store.getProductsFromSearch(searchField.getText()));
     }
 
     @FXML private void nextPressed(){    }
 
     @FXML private void backPressed(){    }
 
-    private void updateCurrentCart(ShoppingItem shoppingItem){  // this should be changed so size matches better
-        currentCartList.getItems().add(shoppingItem);
-        currentCartList.setCellFactory(param -> new CartElement());
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        if (cartEvent.isAddEvent()){
+            currentCartList.getItems().add(cartEvent.getShoppingItem());
+        } else {
+            currentCartList.getItems().remove(cartEvent.getShoppingItem());
+        }
     }
-
-
 }

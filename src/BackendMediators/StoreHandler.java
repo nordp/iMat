@@ -23,16 +23,13 @@ public class StoreHandler implements IStoreHandler{
         return instance;}
 
     @Override
-    public void addToCart(ShoppingItem product, int amount) {
-        for(int i = 1; i<=amount; i++) {
-            handler.getShoppingCart().addItem(product);
-
-        }
+    public void addToCart(ShoppingItem product) {
+        handler.getShoppingCart().addItem(product);
     }
 
     @Override
-    public void addToCart(ShoppingItem product) {
-        addToCart(product, 1);
+    public void addShoppingCartListener(ShoppingCartListener scl) {
+        IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(scl);
     }
 
     @Override
