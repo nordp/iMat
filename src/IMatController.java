@@ -146,13 +146,11 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-
-        currentCartList.getItems().add(cartEvent.getShoppingItem());
-        /*if (cartEvent.isAddEvent()){
+        if (cartEvent.isAddEvent()){
             currentCartList.getItems().add(cartEvent.getShoppingItem());
         } else {
             currentCartList.getItems().remove(cartEvent.getShoppingItem());
-        }*/
+        }
     }
 
     public void nextCheckout() {
