@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import BackendMediators.*;
 
-public class ConfirmationController implements ISubCheckoutController{
+public class ConfirmationController{
     @FXML TextArea deliveryInfoTA;
     @FXML TextField cardNumberTF;
     @FXML TextField cardNameTF;
@@ -16,17 +16,6 @@ public class ConfirmationController implements ISubCheckoutController{
     @FXML Label sumLabel;
     CustomerHandler customerHandler = new CustomerHandler();
     StoreHandler storeHandler = new StoreHandler();
-
-    @Override
-    public void focusReceived() {
-        // How should this even be handled? from backend, or should we save it in other fashion.
-        // when focus is gained all previously entered and saved information should be displayed.
-    }
-
-    @Override
-    public void focusLost() {
-
-    }
 
     public void changeDeliveryClicked(ActionEvent event) {
 

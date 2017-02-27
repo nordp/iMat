@@ -54,7 +54,6 @@ public class CheckoutController implements Initializable{
                 parentList.get(i).setVisible(false);
             }
             parentList.get(paneIndex).setVisible(true);
-            lastActive = active;
         }
 
         @FXML protected void nextButtonPressed(ActionEvent event){
