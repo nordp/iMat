@@ -51,9 +51,9 @@ public class CartElement extends ListCell<ShoppingItem>{
                 }
                 this.item = item;
                 productName.setText(item.getProduct().getName());
-                pricePerUnit.setText(String.valueOf(item.getProduct().getPrice()));
-                totalPrice.setText(String.valueOf(item.getTotal()));
-                amountTF.setText(String.valueOf(item.getAmount()));
+                pricePerUnit.setText(String.valueOf(item.getProduct().getPrice()) + item.getProduct().getUnit());
+                totalPrice.setText(String.valueOf(item.getTotal()) + " Kr");
+                amountTF.setText(String.valueOf(item.getAmount()) + item.getProduct().getUnitSuffix());
                 setGraphic(grid);
             }
         }

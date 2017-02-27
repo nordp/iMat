@@ -3,6 +3,7 @@ import BackendMediators.IStoreHandler;
 import BackendMediators.StoreHandler;
 import Controllers.*;
 import ListCells.CartElement;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
@@ -24,6 +25,10 @@ import BackendExtension.*;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
+import javax.swing.*;
+
+import static java.lang.System.out;
+
 public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML Parent lightbox;
@@ -38,11 +43,17 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML TextField searchField;
     @FXML Accordion products_accordion;
 
+    @FXML Button nextButton;
+    @FXML Button backButton;
+
     private List<Product> testList;
     IStoreHandler store = new StoreHandler();
-
+    SequenceHandler sequenceHandler;
+    int activePane = 1;
+    List<ProductParentCategory> parentCategories;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        sequenceHandler = new SequenceHandler(this, nextButton, backButton);
         store.addShoppingCartListener(this);
         currentCartList.setCellFactory(param -> new CartElement());
 
@@ -52,7 +63,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         lightboxController.addShadow(shadow2);
         lightboxController.addShadow(shadow3);
 
-        List<ProductParentCategory> parentCategories = ProductContainer.getInstance().getParentCategories();
+        parentCategories = ProductContainer.getInstance().getParentCategories();
         for(ProductParentCategory cat : parentCategories)
         {
             ProductContainer products = ProductContainer.getInstance();
@@ -78,21 +89,38 @@ public class IMatController implements Initializable, ShoppingCartListener{
         store = StoreHandler.getInstance();
     }
 
-    @FXML private void myAccountClicked(){ lightboxController.myAccount();}
+    @FXML private void myAccountClicked(){
+        lightboxController.myAccount();
+        sequenceHandler.setCheckoutActive(false);
+        sequenceHandler.setCategoriesActive(false);}
 
     @FXML private void shoppingListsClicked(){
         lightboxController.shoppingLists();
+        sequenceHandler.setCheckoutActive(false);
+        sequenceHandler.setCategoriesActive(false);
     }
 
     @FXML private void historyClicked(){
         lightboxController.history();
+        sequenceHandler.setCheckoutActive(false);
+        sequenceHandler.setCategoriesActive(false);
     }
 
-    @FXML private void shadowClicked() { lightboxController.close(); }
+    @FXML private void shadowClicked() {
+        lightboxController.close();
+        sequenceHandler.setCategoriesActive(true);
+        sequenceHandler.setCheckoutActive(false);
+    }
 
-    @FXML private void toCheckout(){lightboxController.checkout();    }
+    @FXML private void toCheckout(){
+        lightboxController.checkout();
+        sequenceHandler.setCheckoutActive(true);
+        sequenceHandler.setCategoriesActive(false);
+    }
 
-    @FXML private void toHome(){ lightboxController.close();  }
+    @FXML private void toHome(){ lightboxController.close();
+        sequenceHandler.setCheckoutActive(false);
+        sequenceHandler.setCategoriesActive(true);}
 
     @FXML private void categoryClicked(ProductCategory_ cat){ //Bör ta en kategori som indata.
         productGridController.fillGrid(store.getProductsFromCategories(cat));
@@ -103,9 +131,17 @@ public class IMatController implements Initializable, ShoppingCartListener{
         productGridController.fillGrid(store.getProductsFromSearch(searchField.getText()));
     }
 
-    @FXML private void nextPressed(){    }
+    @FXML private void nextPressed(ActionEvent event){
+        sequenceHandler.nextButton();
+    }
 
-    @FXML private void backPressed(){    }
+    public void nextCategory(int categoryIndex) {
+      //   productGridController.fillGrid(store.getProductsFromCategories();
+    }
+
+    @FXML private void backPressed(ActionEvent event){
+        sequenceHandler.previousButton();
+    }
 
 
     @Override
@@ -115,5 +151,9 @@ public class IMatController implements Initializable, ShoppingCartListener{
         } else {
             currentCartList.getItems().remove(cartEvent.getShoppingItem());
         }
+    }
+
+    public void nextCheckout() {
+        lightboxController.nextCheckoutPaneSelected();
     }
 }
