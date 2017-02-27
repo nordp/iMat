@@ -39,11 +39,13 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML Accordion products_accordion;
 
     private List<Product> testList;
-    IStoreHandler store = new StoreHandler();
+    IStoreHandler store;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        store = StoreHandler.getInstance();
         store.addShoppingCartListener(this);
+        currentCartList.getItems().addAll(store.getCurrentShoppingCart());
         currentCartList.setCellFactory(param -> new CartElement());
 
         lightbox.setVisible(false);
@@ -75,7 +77,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
             products_accordion.getPanes().add(pane);
         }
 
-        store = StoreHandler.getInstance();
+
     }
 
     @FXML private void myAccountClicked(){ lightboxController.myAccount();}
@@ -115,5 +117,6 @@ public class IMatController implements Initializable, ShoppingCartListener{
         } else {
             currentCartList.getItems().remove(cartEvent.getShoppingItem());
         }
+
     }
 }

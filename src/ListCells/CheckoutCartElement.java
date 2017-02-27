@@ -1,37 +1,31 @@
 package ListCells;
 
-import BackendMediators.CustomerHandler;
-import BackendMediators.StoreHandler;
-import Controllers.CartController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
+import javax.xml.soap.Text;
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.IntSummaryStatistics;
 
-import static java.lang.System.load;
 import static java.lang.System.out;
 
 /**
  * Created by gustav on 2017-02-24.
  */
-public class CartElement extends ListCell<ShoppingItem>{
+public class CheckoutCartElement extends ListCell<ShoppingItem>{
     @FXML Label productName;
     @FXML Label pricePerUnit;
     @FXML GridPane grid;
     @FXML Label totalPrice;
-    @FXML Label amountTF;
+    @FXML TextField amountTF;
     private ShoppingItem item;
     FXMLLoader mLLoader;
-    public CartElement(){
+    public CheckoutCartElement(){
     }
     @Override
     public void updateItem(ShoppingItem item, boolean empty) {
@@ -41,7 +35,7 @@ public class CartElement extends ListCell<ShoppingItem>{
             return;
         } else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/layouts/cart_element.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("/layouts/product_element_checkout.fxml"));
                 mLLoader.setController(this);
 
                 try {
@@ -53,7 +47,7 @@ public class CartElement extends ListCell<ShoppingItem>{
                 productName.setText(item.getProduct().getName());
                 pricePerUnit.setText(String.valueOf((int)item.getProduct().getPrice()) + item.getProduct().getUnit());
                 totalPrice.setText(String.valueOf((int)item.getTotal()) + " kr");
-                amountTF.setText(String.valueOf(item.getAmount()) + item.getProduct().getUnitSuffix());
+                amountTF.setText(String.valueOf((int)item.getAmount()));
                 setGraphic(grid);
             }
         }

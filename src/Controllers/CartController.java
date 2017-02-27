@@ -3,6 +3,7 @@ package Controllers;
 import BackendMediators.IStoreHandler;
 import BackendMediators.StoreHandler;
 import ListCells.CartElement;
+import ListCells.CheckoutCartElement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,7 +40,7 @@ public class CartController implements ShoppingCartListener, Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<ShoppingItem> list = FXCollections.observableList(handler.getCurrentShoppingCart());
         cartList.setItems(list);
-        cartList.setCellFactory(param -> new CartElement());
+        cartList.setCellFactory(param -> new CheckoutCartElement());
     }
 
     @Override
