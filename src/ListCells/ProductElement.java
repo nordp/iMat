@@ -53,7 +53,9 @@ public class ProductElement extends AnchorPane {
             productName.setText(p.getName());
             icon.setImage(storeHandler.getImage(p.getProductId()));
             productPrice.setText(String.valueOf(p.getPrice()));
+
             addToCartButton.setOnAction(params-> storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText()))));
+
             addAmount.setOnAction(params -> {
                 Double amount = Double.parseDouble(amountField.getText());
                 amount+=1;
