@@ -20,10 +20,11 @@ public class LightboxController implements Initializable{
     @FXML Parent shoppingLists;
     @FXML Parent myAccount;
     @FXML Parent checkout;
+    @FXML CheckoutController checkoutController;
 
     List<Parent> panes;
     List<Pane> shadows;
-
+    private LightBoxEnum activeView = LightBoxEnum.NONE;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         panes = new ArrayList<>();
@@ -35,21 +36,35 @@ public class LightboxController implements Initializable{
         close();
     }
 
-    public void shoppingLists(){
+    public LightBoxEnum getActiveView()
+    {
+        return activeView;
+    }
+
+    public void shoppingLists()
+    {
         setView(shoppingLists);
+        activeView = LightBoxEnum.SHOPPINGLIST;
     }
 
     public void checkout(){
         // if this should be opened in the lightbox, we might want to resize the checkout to reflect this.
         setView(checkout);
+        activeView = LightBoxEnum.CHECKOUT;
+    }
+    public void nextCheckoutPaneSelected(){
+        checkoutController.nextButtonPressed(null);
     }
 
     public void history(){
         setView(history);
+        activeView = LightBoxEnum.HISTORY;
     }
 
-    public void myAccount(){
+    public void myAccount()
+    {
         setView(myAccount);
+        activeView = LightBoxEnum.MYACCOUNT;
     }
 
     private void setView(Parent parent){
@@ -65,7 +80,6 @@ public class LightboxController implements Initializable{
         root.setVisible(toggle);
         setShadows(toggle);
         parent.setVisible(toggle);
-
     }
 
     public void close(){
@@ -74,6 +88,7 @@ public class LightboxController implements Initializable{
         }
         root.setVisible(false);
         setShadows(false);
+        activeView = LightBoxEnum.NONE;
     }
 
     private void setShadows(boolean bool){

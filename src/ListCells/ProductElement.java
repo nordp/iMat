@@ -15,6 +15,8 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.io.IOException;
 
+import static java.lang.System.out;
+
 
 /**
  * Created by gustav on 2017-02-24.
@@ -31,6 +33,8 @@ public class ProductElement extends AnchorPane {
     @FXML private AnchorPane backgroundPane;
     @FXML private Label productName;
     @FXML private Button addToCartButton;
+    @FXML private Button addAmount;
+    @FXML private Button removeAmount;
 
     private StoreHandler storeHandler = new StoreHandler();
     private CustomerHandler customerHandler = new CustomerHandler();
@@ -48,10 +52,23 @@ public class ProductElement extends AnchorPane {
             }
             productName.setText(p.getName());
             icon.setImage(storeHandler.getImage(p.getProductId()));
-            addToCartButton.setOnAction(params->{storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText())));});
+            productPrice.setText(String.valueOf(p.getPrice()));
 
+            addToCartButton.setOnAction(params-> storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText()))));
+
+            addAmount.setOnAction(params -> {
+                Double amount = Double.parseDouble(amountField.getText());
+                amount+=1;
+                amountField.setText(amount.toString());
+            });
+            removeAmount.setOnAction(params ->{
+                Double amount = Double.parseDouble(amountField.getText());
+                amount-=1;
+                amountField.setText(amount.toString());
+            });
         }
         public void invertIcon(ActionEvent event){
+
         }
         public AnchorPane getBackgroundPane(){
             return backgroundPane;

@@ -60,24 +60,28 @@ public class CartElement extends ListCell<ShoppingItem>{
     }
 
     public void onRemove(ActionEvent event) {   //Should be changed to only handle integers. the listeners should also be looked over.
-        Double amount = Double.parseDouble(amountTF.getText());
+        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix(),"");
+        Double amount = Double.parseDouble(nr);
         amount-=1;
-        amountTF.setText(amount.toString());
+        amount = Math.max(0,amount);
+        amountTF.setText(amount.toString() + item.getProduct().getUnitSuffix());
         valueChanged(null);
     }
 
     public void onAdd(ActionEvent event) {
-        out.println("pressed");
-        Double amount = Double.parseDouble(amountTF.getText());
+        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix().toString(),"");
+        Double amount = Double.parseDouble(nr);
         amount+=1;
-        amountTF.setText(amount.toString());
+        amountTF.setText(amount.toString() + item.getProduct().getUnitSuffix());
         valueChanged(null);
     }
     @FXML private void valueChanged(ActionEvent event){
-        if(Double.parseDouble(amountTF.getText())<=0){
+        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix().toString(),"");
+        // How could this happend?
+        /*if(Double.parseDouble(amountTF.getText())<=0){
             amountTF.setText("0");
-        }
-        item.setAmount(Double.parseDouble(amountTF.getText()));
-        totalPrice.setText(String.valueOf(item.getTotal()));
+        }*/
+        item.setAmount(Double.parseDouble(nr));
+        totalPrice.setText(String.valueOf(item.getTotal() + " Kr"));
     }
 }

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
@@ -8,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="297.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DeliveryController">
+<AnchorPane prefHeight="297.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DeliveryController">
    <children>
       <Label alignment="CENTER_RIGHT" layoutX="-21.0" layoutY="48.0" prefWidth="135.0" text="Adress:">
          <font>
@@ -55,102 +59,102 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ToggleButton layoutX="94.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+      <ToggleButton fx:id="t0_0" layoutX="94.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="214.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+      <ToggleButton fx:id="t1_0" layoutX="214.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="334.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+      <ToggleButton fx:id="t2_0" layoutX="334.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="454.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+      <ToggleButton fx:id="t3_0" layoutX="454.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="454.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+      <ToggleButton fx:id="t3_1" layoutX="454.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="334.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+      <ToggleButton fx:id="t2_1" layoutX="334.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="214.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+      <ToggleButton fx:id="t1_1" layoutX="214.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="94.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+      <ToggleButton fx:id="t0_1" layoutX="94.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="454.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+      <ToggleButton fx:id="t3_2" layoutX="454.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="334.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+      <ToggleButton fx:id="t2_2" layoutX="334.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="214.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+      <ToggleButton fx:id="t1_2" layoutX="214.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="94.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+      <ToggleButton fx:id="t0_2" layoutX="94.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="454.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+      <ToggleButton fx:id="t3_3" layoutX="454.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="334.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+      <ToggleButton fx:id="t2_3" layoutX="334.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="214.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+      <ToggleButton fx:id="t1_3" layoutX="214.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="94.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+      <ToggleButton fx:id="t0_3" layoutX="94.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="94.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
+      <ToggleButton fx:id="t0_4" layoutX="94.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="9-12">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="214.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
+      <ToggleButton fx:id="t1_4" layoutX="214.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="12-15">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="334.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
+      <ToggleButton fx:id="t2_4" layoutX="334.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="15-18">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="454.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
+      <ToggleButton fx:id="t3_4" layoutX="454.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="18-21">
          <font>
             <Font size="18.0" />
          </font>

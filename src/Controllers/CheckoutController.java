@@ -49,7 +49,7 @@ public class CheckoutController implements Initializable{
             changePaneContent(0);
         }
 
-        private void changePaneContent(int paneIndex){
+        public void changePaneContent(int paneIndex){
             for(int i = 0; i<parentList.size(); i++){
                 parentList.get(i).setVisible(false);
             }

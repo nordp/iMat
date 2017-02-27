@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -12,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PaymentController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PaymentController">
    <children>
       <RadioButton fx:id="invoicePayment" layoutX="31.0" layoutY="23.0" mnemonicParsing="false" onAction="#paymentChosen" text="Betala vid leverans" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -50,27 +55,27 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="cardFirstFour" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardFirstFour" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="62.0" promptText="1234" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cardSecondFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardSecondFour" prefHeight="39.0" prefWidth="62.0" promptText="5678" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="40.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cardThirdFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardThirdFour" prefHeight="39.0" prefWidth="62.0" promptText="9012" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="40.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cardFourthFour" prefHeight="39.0" prefWidth="62.0" text="1234-5678-9012-3456" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardFourthFour" prefHeight="39.0" prefWidth="62.0" promptText="3456" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="40.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cardName" layoutX="10.0" layoutY="115.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0">
+                  <TextField fx:id="cardName" layoutX="10.0" layoutY="115.0" prefWidth="200.0" promptText="För och efternamn" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -80,13 +85,13 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="validMonth" layoutX="250.0" layoutY="137.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0" />
+                  <ComboBox fx:id="validMonth" layoutX="250.0" layoutY="137.0" prefHeight="40.0" prefWidth="100.0" promptText="Månad" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0" />
                   <Label layoutX="235.0" layoutY="100.0" text="Giltigt till:" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="100.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="validYear" layoutX="430.0" layoutY="148.0" prefHeight="40.0" prefWidth="100.0" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="130.0" />
+                  <ComboBox fx:id="validYear" layoutX="430.0" layoutY="148.0" prefHeight="40.0" prefWidth="100.0" promptText="År" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="130.0" />
                   <Label layoutX="363.0" layoutY="127.0" text="/" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font size="32.0" />
@@ -97,7 +102,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="CVCCode" layoutY="210.0" prefWidth="200.0" text="Stål Mannen" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0">
+                  <TextField fx:id="CVCCode" layoutY="210.0" prefWidth="200.0" promptText="123" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0">
                      <font>
                         <Font size="18.0" />
                      </font>
