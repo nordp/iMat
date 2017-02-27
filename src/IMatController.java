@@ -95,12 +95,12 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML private void toHome(){ lightboxController.close();  }
 
     @FXML private void categoryClicked(ProductCategory_ cat){ //Bör ta en kategori som indata.
-        productGridController.fillGrid("HEADER", store.getProductsFromCategories(cat));
+        productGridController.fillGrid(store.getProductsFromCategories(cat));
     }
 
     @FXML private void searchPerformed()
     {
-        productGridController.fillGrid("SEARCH RESULTS", store.getProductsFromSearch(searchField.getText()));
+        productGridController.fillGrid(store.getProductsFromSearch(searchField.getText()));
     }
 
     @FXML private void nextPressed(){    }
