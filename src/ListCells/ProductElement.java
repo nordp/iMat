@@ -65,6 +65,7 @@ public class ProductElement extends AnchorPane {
             removeAmount.setOnAction(params ->{
                 Double amount = Double.parseDouble(amountField.getText());
                 amount-=1;
+                amount = Math.max(amount, 0);
                 amountField.setText(amount.toString());
             });
         }

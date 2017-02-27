@@ -24,7 +24,24 @@ public class StoreHandler implements IStoreHandler{
 
     @Override
     public void addToCart(ShoppingItem product) {
-        handler.getShoppingCart().addItem(product);
+        // fulhack :p
+        boolean found = false;
+        for(ShoppingItem item : handler.getShoppingCart().getItems())
+        {
+            if(item.getProduct().equals(product.getProduct()))
+            {
+                found = true;
+                handler.getShoppingCart().removeItem(item);
+                item.setAmount(item.getAmount() + product.getAmount());
+                handler.getShoppingCart().addItem(item);
+                break;
+            }
+        }
+
+        if(!found)
+        {
+            handler.getShoppingCart().addItem(product);
+        }
     }
 
     @Override
