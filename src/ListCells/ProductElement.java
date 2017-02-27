@@ -36,6 +36,7 @@ public class ProductElement extends AnchorPane {
     @FXML private Button addToCartButton;
     @FXML private Button addAmount;
     @FXML private Button removeAmount;
+    @FXML private Button addToFavoritesBtn;
 
     private StoreHandler storeHandler = new StoreHandler();
     private CustomerHandler customerHandler = new CustomerHandler();
@@ -67,6 +68,10 @@ public class ProductElement extends AnchorPane {
                 amount-=1;
                 amount = Math.max(amount, 0);
                 amountField.setText(amount.toString());
+            });
+            addToFavoritesBtn.setOnAction(q ->
+            {
+                customerHandler.addFavorite(p);
             });
         }
         public void invertIcon(ActionEvent event){

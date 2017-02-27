@@ -1,4 +1,5 @@
 import BackendExtension.ProductContainer;
+import BackendMediators.CustomerHandler;
 import BackendMediators.IStoreHandler;
 import BackendMediators.StoreHandler;
 import Controllers.*;
@@ -12,15 +13,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import se.chalmers.ait.dat215.project.CartEvent;
-import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.*;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import BackendExtension.*;
-import se.chalmers.ait.dat215.project.ShoppingCartListener;
-import se.chalmers.ait.dat215.project.ShoppingItem;
 
 public class IMatController implements Initializable, ShoppingCartListener{
 
@@ -60,6 +58,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
         lightboxController.addShadow(shadow2);
         lightboxController.addShadow(shadow3);
 
+        products_accordion.getPanes().get(0).setOnMouseClicked(a -> favoritesClicked());
+
         parentCategories = ProductContainer.getInstance().getParentCategories();
         for(ProductParentCategory cat : parentCategories)
         {
@@ -84,6 +84,11 @@ public class IMatController implements Initializable, ShoppingCartListener{
         }
 
 
+    }
+
+    private void favoritesClicked()
+    {
+        productGridController.fillGrid(IMatDataHandler.getInstance().favorites());
     }
 
     @FXML private void myAccountClicked(){

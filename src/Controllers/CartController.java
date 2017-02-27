@@ -1,5 +1,6 @@
 package Controllers;
 
+import BackendExtension.ProductContainer;
 import BackendMediators.IStoreHandler;
 import BackendMediators.StoreHandler;
 import ListCells.CartElement;
@@ -15,6 +16,9 @@ import javafx.scene.control.ListView;
 import se.chalmers.ait.dat215.project.*;
 
 import java.net.URL;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static java.lang.System.out;
@@ -24,11 +28,13 @@ import static java.lang.System.out;
  */
 public class CartController implements ShoppingCartListener, Initializable{
     private final int SORT_BY_PRICE = 0;
-    private final int SORT_BY_ALPHABETICAL_ORDER = 1;
-    private final int SORT_BY_SUBCATEGORY = 2;
+    private final int SORT_BY_TOTAL_PRICE = 1;
+    private final int SORT_BY_ALPHABETICAL_ORDER = 2;
+    private final int SORT_BY_SUBCATEGORY = 3;
     @FXML ListView cartList;
     @FXML Button sortFromButton;
     @FXML ComboBox<String> sortByCB;
+    boolean ascSort = true;
     IStoreHandler handler;
 
     public CartController(){
@@ -38,6 +44,12 @@ public class CartController implements ShoppingCartListener, Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        sortFromButton.setOnAction(a ->
+        {
+            ascSort = !ascSort;
+            onComboBoxClicked(null);
+        });
+        sortByCB.getItems().addAll(new String[]{"Pris/ST","Total Pris", "Alphabetisk", "Subcategori"});
         ObservableList<ShoppingItem> list = FXCollections.observableList(handler.getCurrentShoppingCart());
         cartList.setItems(list);
         cartList.setCellFactory(param -> new CheckoutCartElement());
@@ -53,10 +65,53 @@ public class CartController implements ShoppingCartListener, Initializable{
         //Way to select direction.
         switch (selectedIndex){
             case SORT_BY_PRICE:
-                return;
+            {
+                ObservableList<ShoppingItem> list = cartList.getItems();
+                Collections.sort(list, new Comparator<ShoppingItem>() {
+                    @Override
+                    public int compare(ShoppingItem o1, ShoppingItem o2) {
+                        int val = o1.getProduct().getPrice() > o2.getProduct().getPrice() ? -1 : (o1.getProduct().getPrice() == o2.getProduct().getPrice() ? 0 : 1);
+                        return ascSort ? val : -val;
+                    }
+                });
+            }
+            return;
+            case SORT_BY_TOTAL_PRICE:
+            {
+                ObservableList<ShoppingItem> list = cartList.getItems();
+                Collections.sort(list, new Comparator<ShoppingItem>() {
+                    @Override
+                    public int compare(ShoppingItem o1, ShoppingItem o2) {
+                        int val =  o1.getTotal() > o2.getTotal() ? -1 : (o1.getTotal() == o2.getTotal() ? 0 : 1);
+                        return ascSort ? val : -val;
+                    }
+                });
+            }
+            return;
             case SORT_BY_ALPHABETICAL_ORDER:
+            {
+                ObservableList<ShoppingItem> list = cartList.getItems();
+                Collections.sort(list, new Comparator<ShoppingItem>() {
+                    @Override
+                    public int compare(ShoppingItem o1, ShoppingItem o2) {
+                        int val =  o1.getProduct().getName().compareToIgnoreCase(o2.getProduct().getName());
+                        return ascSort ? val : -val;
+                    }
+                });
+            }
                 return;
             case SORT_BY_SUBCATEGORY:
+            {
+                ObservableList<ShoppingItem> list = cartList.getItems();
+                Collections.sort(list, new Comparator<ShoppingItem>() {
+                    @Override
+                    public int compare(ShoppingItem o1, ShoppingItem o2) {
+                        int val =  ProductContainer.getInstance().getCategory(o1.getProduct()).subCategory.toString().compareToIgnoreCase(
+                                ProductContainer.getInstance().getCategory(o2.getProduct()).subCategory.toString());
+                        return ascSort ? val : -val;
+                    }
+                });
+            }
                 return;
             default:
                 out.println("Inte ett möjligt val.");
