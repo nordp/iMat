@@ -39,6 +39,7 @@ public class ProductGridController{
             ProductElement p = new ProductElement(product);
             productGrid.getChildren().add(p.getBackgroundPane());
         }
+
     }
 
 }

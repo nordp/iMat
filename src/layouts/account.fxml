@@ -155,7 +155,7 @@
                         <Image url="@../resources/img/payment.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" text="Ta bort konto" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                  <Button mnemonicParsing="false" text="Ta bort konto" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -165,6 +165,7 @@
                         <Image url="@../resources/img/delivery.png" />
                      </image>
                   </ImageView>
+                  <Button mnemonicParsing="false" text="Spara" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </children>
