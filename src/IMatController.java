@@ -7,11 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
@@ -52,8 +49,10 @@ public class IMatController implements Initializable, ShoppingCartListener{
         store = StoreHandler.getInstance();
         sequenceHandler = new SequenceHandler(this, nextButton, backButton);
         store.addShoppingCartListener(this);
-        currentCartList.getItems().addAll(store.getCurrentShoppingCart());
+
         currentCartList.setCellFactory(param -> new CartElement());
+        currentCartList.getItems().addAll(store.getCurrentShoppingCart());
+
 
         lightbox.setVisible(false);
         lightboxController.addShadow(shadow);

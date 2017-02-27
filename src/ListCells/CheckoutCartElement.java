@@ -30,7 +30,7 @@ public class CheckoutCartElement extends ListCell<ShoppingItem>{
     @Override
     public void updateItem(ShoppingItem item, boolean empty) {
         super.updateItem(item, empty);
-        if (empty || item == null) {
+        if (empty || (item == null)) {
             setGraphic(null);
             return;
         } else {
@@ -43,13 +43,15 @@ public class CheckoutCartElement extends ListCell<ShoppingItem>{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                this.item = item;
-                productName.setText(item.getProduct().getName());
-                pricePerUnit.setText(String.valueOf((int)item.getProduct().getPrice()) + item.getProduct().getUnit());
-                totalPrice.setText(String.valueOf((int)item.getTotal()) + " kr");
-                amountTF.setText(String.valueOf((int)item.getAmount()));
-                setGraphic(grid);
             }
+
+            this.item = item;
+            productName.setText(item.getProduct().getName());
+            pricePerUnit.setText(String.valueOf((int)item.getProduct().getPrice()) + item.getProduct().getUnit());
+            totalPrice.setText(String.valueOf((int)item.getTotal()) + " kr");
+            amountTF.setText(String.valueOf((int)item.getAmount()));
+            setGraphic(grid);
+            setText(null);
         }
     }
 

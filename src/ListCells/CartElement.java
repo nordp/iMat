@@ -49,13 +49,14 @@ public class CartElement extends ListCell<ShoppingItem>{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                this.item = item;
-                productName.setText(item.getProduct().getName());
-                pricePerUnit.setText(String.valueOf((int)item.getProduct().getPrice()) + item.getProduct().getUnit());
-                totalPrice.setText(String.valueOf((int)item.getTotal()) + " kr");
-                amountTF.setText(String.valueOf(item.getAmount()) + item.getProduct().getUnitSuffix());
-                setGraphic(grid);
+
             }
+            this.item = item;
+            productName.setText(item.getProduct().getName());
+            pricePerUnit.setText(String.valueOf((int)item.getProduct().getPrice()) + item.getProduct().getUnit());
+            totalPrice.setText(String.valueOf((int)item.getTotal()) + " kr");
+            amountTF.setText(String.valueOf(item.getAmount()) + item.getProduct().getUnitSuffix());
+            setGraphic(grid);
         }
     }
 
