@@ -2,17 +2,24 @@ package Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import BackendMediators.*;
-import se.chalmers.ait.dat215.project.CreditCard;
+import javafx.scene.layout.AnchorPane;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created by gustav on 2017-02-23.
  */
-public class PaymentController{
-    @FXML RadioButton DeliveryPayment;
+public class PaymentController implements Initializable{
+    @FXML RadioButton invoicePayment;
+    @FXML RadioButton cardPayment;
+    @FXML AnchorPane invoicePane;
+    @FXML AnchorPane cardPane;
     @FXML TextField cardFirstFour;
     @FXML TextField cardSecondFour;
     @FXML TextField cardThirdFour;
@@ -20,14 +27,26 @@ public class PaymentController{
     @FXML ComboBox<Integer> validYear;
     @FXML ComboBox<Integer> validMonth;
     @FXML TextField CVCCode;
-    CustomerHandler handler = new CustomerHandler();
+    CustomerHandler customerHandler;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        customerHandler = new CustomerHandler();
+        if(true){ //TODO REPLACE WITH customerHandler.isFirstRun()
+            cardPane.setVisible(false);
+            invoicePane.setVisible(false);
+        }
+    }
+
 
     @FXML private void paymentChosen(ActionEvent event) {
+        invoicePane.setVisible(event.getSource() == invoicePayment);
+        cardPane.setVisible(event.getSource() == cardPayment);
         System.out.println("clicked");
     }
 
-    public RadioButton getDeliveryPayment() {
-        return DeliveryPayment;
+    public RadioButton getInvoiceButton() {
+        return invoicePayment;
     }
 
     public TextField getCardFirstFour() {
@@ -57,4 +76,6 @@ public class PaymentController{
     public TextField getCVCCode() {
         return CVCCode;
     }
+
+
 }

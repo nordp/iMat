@@ -1,7 +1,9 @@
 package BackendMediators;
 
+import BackendExtension.CustomerListener;
 import se.chalmers.ait.dat215.project.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,6 +11,13 @@ import java.util.List;
  */
 public class CustomerHandler implements ICustomerHandler {
     IMatDataHandler handler = IMatDataHandler.getInstance();
+    List<CustomerListener> listeners = new ArrayList<>();
+
+    @Override
+    public boolean isFirstRun(){
+        return handler.isFirstRun();
+    }
+
     @Override
     public Customer getCustomer() {
         return handler.getCustomer();
@@ -27,6 +36,17 @@ public class CustomerHandler implements ICustomerHandler {
     @Override
     public void addFavorite(int productID) {
         addFavorite(handler.getProduct(productID));
+    }
+
+    @Override
+    public void addCustomerListener(CustomerListener cls) {
+        listeners.add(cls);
+    }
+
+    public void fireCustomerChangedEvent(Customer customer){
+        for (CustomerListener customerListener : listeners){
+            customerListener.customerInfoChanged(getCustomer(),getSavedCreditCard());
+        }
     }
 
     @Override

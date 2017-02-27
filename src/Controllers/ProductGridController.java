@@ -34,6 +34,7 @@ public class ProductGridController{
     }
 
     @FXML public void fillGrid(List<Product> products){
+        productGrid.getChildren().clear();
         for(Product product: products) {
             ProductElement p = new ProductElement(product);
             productGrid.getChildren().add(p.getBackgroundPane());

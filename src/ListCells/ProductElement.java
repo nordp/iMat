@@ -1,5 +1,6 @@
 package ListCells;
 
+import BackendMediators.CustomerHandler;
 import BackendMediators.StoreHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -21,6 +23,7 @@ public class ProductElement extends AnchorPane {
 
     private FXMLLoader loader;
     @FXML private ImageView icon;
+    @FXML private ImageView heartIcon;
     @FXML private TextField amountField;
     @FXML private Label productPrice;
     @FXML private Label productUnit;
@@ -30,6 +33,7 @@ public class ProductElement extends AnchorPane {
     @FXML private Button addToCartButton;
 
     private StoreHandler storeHandler = new StoreHandler();
+    private CustomerHandler customerHandler = new CustomerHandler();
 
         public ProductElement(se.chalmers.ait.dat215.project.Product p) {
             if (loader == null) {
@@ -45,9 +49,9 @@ public class ProductElement extends AnchorPane {
             productName.setText(p.getName());
             icon.setImage(storeHandler.getImage(p.getProductId()));
             addToCartButton.setOnAction(params->{storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText())));});
+
         }
         public void invertIcon(ActionEvent event){
-
         }
         public AnchorPane getBackgroundPane(){
             return backgroundPane;

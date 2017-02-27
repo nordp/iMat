@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PaymentController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccountController">
     <children>
         <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -63,22 +63,22 @@
                         <Insets right="5.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="40.0" prefWidth="240.0" promptText="För- och efternamn" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.valignment="CENTER">
+                  <TextField fx:id="nameTF" onAction="#saveText" prefHeight="40.0" prefWidth="240.0" promptText="För- och efternamn" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.valignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField prefWidth="240.0" promptText="Gatuadress" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <TextField fx:id="addressTF" onAction="#saveText" prefWidth="240.0" promptText="Gatuadress" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="39.0" prefWidth="77.0" promptText="Postnr" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <TextField fx:id="postCodeTF" onAction="#saveText" prefHeight="39.0" prefWidth="77.0" promptText="Postnr" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="39.0" prefWidth="133.0" promptText="Ort" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
+                  <TextField fx:id="cityTF" onAction="#saveText" prefHeight="39.0" prefWidth="133.0" promptText="Ort" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -86,22 +86,22 @@
                         <Insets left="3.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="firstFour" onAction="#saveText" prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                  <TextField fx:id="secondFour" onAction="#saveText" prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                  <TextField fx:id="thirdFour" onAction="#saveText" prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="4" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                  <TextField fx:id="lastFour" onAction="#saveText" prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="5" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -114,7 +114,7 @@
                         <Insets right="5.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="40.0" prefWidth="240.0" promptText="För- och efternamn" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="4">
+                  <TextField fx:id="cardHolderTF" onAction="#saveText" prefHeight="40.0" prefWidth="240.0" promptText="För- och efternamn" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -127,9 +127,9 @@
                         <Insets right="5.0" />
                      </padding>
                   </Label>
-                  <ComboBox maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <ComboBox maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="0.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-                  <TextField prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                  <ComboBox fx:id="monthExp" maxWidth="1.7976931348623157E308" onAction="#saveText" prefHeight="32.0" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <ComboBox fx:id="yearExp" maxWidth="1.7976931348623157E308" onAction="#saveText" prefHeight="32.0" prefWidth="0.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                  <TextField fx:id="cvcTF" onAction="#saveText" prefHeight="39.0" prefWidth="77.0" promptText="1234" GridPane.columnIndex="5" GridPane.rowIndex="5">
                      <font>
                         <Font size="18.0" />
                      </font>
