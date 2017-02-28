@@ -56,6 +56,7 @@ public class CheckoutController implements Initializable{
         }
 
         public void changePaneContent(int paneIndex){
+            System.out.println("called");
             for(int i = 0; i<parentList.size(); i++){
                 parentList.get(i).setVisible(false);
             }

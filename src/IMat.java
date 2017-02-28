@@ -1,5 +1,3 @@
-
-
 import BackendMediators.StoreHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
