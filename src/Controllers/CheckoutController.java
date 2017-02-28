@@ -56,14 +56,14 @@ public class CheckoutController implements Initializable{
             parentList.get(paneIndex).setVisible(true);
         }
 
-        @FXML protected void nextButtonPressed(ActionEvent event){
+        @FXML protected void nextButtonPressed(){
             active++;
             // Temporary to avoid crashes.
             active = active%4;
             changePaneContent(active);
         }
 
-        @FXML protected void backButtonPressed(ActionEvent event){
+        @FXML protected void backButtonPressed(){
             active--;
             active = Math.floorMod(active, 4);
             changePaneContent(active);

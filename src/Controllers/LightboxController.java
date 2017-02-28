@@ -53,7 +53,7 @@ public class LightboxController implements Initializable{
         activeView = LightBoxEnum.CHECKOUT;
     }
     public void nextCheckoutPaneSelected(){
-        checkoutController.nextButtonPressed(null);
+        checkoutController.nextButtonPressed();
     }
 
     public void history(){
@@ -101,4 +101,6 @@ public class LightboxController implements Initializable{
         shadows.add(shadow);
     }
 
+    public void previousCheckoutPaneSelected() {checkoutController.backButtonPressed();
+    }
 }
