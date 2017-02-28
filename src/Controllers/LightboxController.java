@@ -3,6 +3,7 @@ package Controllers;
 /**
  * Created by Phnor on 2017-02-24.
  */
+import Main.SequenceHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -89,6 +90,7 @@ public class LightboxController implements Initializable{
         root.setVisible(false);
         setShadows(false);
         activeView = LightBoxEnum.NONE;
+        SequenceHandler.getInstance().setCheckoutActive(true);
     }
 
     private void setShadows(boolean bool){

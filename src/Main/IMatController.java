@@ -1,3 +1,5 @@
+package Main;
+
 import BackendExtension.ProductContainer;
 import BackendMediators.CustomerHandler;
 import BackendMediators.IStoreHandler;
@@ -40,12 +42,13 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     private List<Product> testList;
     IStoreHandler store = new StoreHandler();
-    SequenceHandler sequenceHandler;
     List<ProductParentCategory> parentCategories;
+    SequenceHandler sequenceHandler;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        store = StoreHandler.getInstance();
         sequenceHandler = new SequenceHandler(this, nextButton, backButton);
+        store = StoreHandler.getInstance();
+
         store.addShoppingCartListener(this);
         shoppingCartChanged(null);
 
@@ -115,7 +118,6 @@ public class IMatController implements Initializable, ShoppingCartListener{
         lightboxController.close();
         sequenceHandler.setCategoriesActive(true);
         sequenceHandler.setCheckoutActive(false);
-        System.out.println("clicked");
     }
 
     @FXML private void toCheckout(){
@@ -132,11 +134,15 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML private void categoryClicked(ProductCategory_ cat){ //Bör ta en kategori som indata.
         productGridController.fillGrid(store.getProductsFromCategories(cat));
         sequenceHandler.setCategoriesIndex(Integer.parseInt(products_accordion.getExpandedPane().getId()));
+        sequenceHandler.setCategoriesActive(true);
+        sequenceHandler.setCheckoutActive(false);
     }
 
     @FXML private void searchPerformed()
     {
         productGridController.fillGrid(store.getProductsFromSearch(searchField.getText()));
+        sequenceHandler.setCategoriesActive(false);
+        sequenceHandler.setCheckoutActive(false);
     }
 
     @FXML private void nextPressed(ActionEvent event){
@@ -176,5 +182,6 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     public void nextCheckout() {
+        lightboxController.nextCheckoutPaneSelected();
     }
 }

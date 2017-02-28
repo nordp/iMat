@@ -33,6 +33,7 @@ ReadME IMat:
     * Ask before saving credit-card.
     * Structured input for credit-card.
     * Clicking twice on a Category causes an exception. 
+    * How should nextButton behave on Search
 
 **Notes**
     

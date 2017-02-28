@@ -1,3 +1,5 @@
+package Main;
+
 import javafx.scene.control.Button;
 
 /**
@@ -9,20 +11,30 @@ public class SequenceHandler {
     private int checkoutIndex = 0;
     private int categoryIndex = -1;
     private boolean checkoutActive = false;
+    private static Main.SequenceHandler instance = null;
 
+    public static SequenceHandler getInstance(){
+        if(instance == null) {
+            return new SequenceHandler();
+        }
+        return instance;
+    }
+
+    private SequenceHandler(){}
     public void setCategoriesActive(boolean categoriesActive) {
         this.categoriesActive = categoriesActive;
         updateButtonStatus();
     }
 
     boolean categoriesActive = true;
-    IMatController iMatController;
+    Main.IMatController iMatController;
     Button next;
     Button back;
-    SequenceHandler(IMatController iMatController, Button next, Button back){
+    protected SequenceHandler(IMatController iMatController, Button next, Button back){
         this.iMatController = iMatController;
         this.next = next;
         this.back = back;
+        instance = this;
         updateButtonStatus();
     }
     public void nextButton(){
@@ -46,8 +58,10 @@ public class SequenceHandler {
     }
 
     public void updateButtonStatus(){
-        next.setDisable(!isNextButtonActive());
-        back.setDisable(!isBackButtonActive());
+        if(next!= null && back != null) {
+            next.setDisable(!isNextButtonActive());
+            back.setDisable(!isBackButtonActive());
+        }
     }
     public void previousButton(){
         if(checkoutActive){
