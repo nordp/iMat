@@ -27,7 +27,7 @@ public class SequenceHandler {
     }
 
     boolean categoriesActive = true;
-    Main.IMatController iMatController;
+    IMatController iMatController;
     Button next;
     Button back;
     protected SequenceHandler(IMatController iMatController, Button next, Button back){
@@ -47,7 +47,7 @@ public class SequenceHandler {
         else{
             if(categoryIndex<MAX_CATEGORY_VALUE) {
                 categoryIndex++;
-                iMatController.toCategory(categoryIndex);
+                iMatController.nextCategory(categoryIndex);
             }
         }
         updateButtonStatus();
@@ -70,7 +70,7 @@ public class SequenceHandler {
         }
         else{
             categoryIndex--;
-            iMatController.toCategory(categoryIndex);
+            iMatController.previousCategory(categoryIndex);
         }
         updateButtonStatus();
     }

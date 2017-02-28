@@ -1,9 +1,12 @@
+package Main;
+
 import BackendExtension.ProductContainer;
 import BackendMediators.CustomerHandler;
 import BackendMediators.IStoreHandler;
 import BackendMediators.StoreHandler;
 import Controllers.*;
 import ListCells.CartElement;
+import Main.SequenceHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -78,7 +81,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
             grid.setHgap(4);
             for(ProductSubCategory subCat : subCats){
                 Button b = new Button(subCat.toString());
-                b.setOnMouseClicked(sub -> categoryClicked(new ProductCategory_(cat,subCat)));
+                b.setOnMouseClicked(sub -> categoryClicked(new ProductCategory_(null,subCat)));
                 grid.getChildren().add(b);
             }
             pane.setContent(grid);
@@ -129,30 +132,26 @@ public class IMatController implements Initializable, ShoppingCartListener{
         sequenceHandler.setCategoriesActive(true);
     }
 
-    @FXML private void categoryClicked(ProductCategory_ cat){ //Bör ta en kategori som indata.
-        productGridController.fillGrid(store.getProductsFromCategories(cat));
+    @FXML private void categoryClicked(ProductCategory_ cat) { //Bör ta en kategori som indata.
+        productGridController.fillGrid(cat.toString(),store.getProductsFromCategories(cat));
         sequenceHandler.setCategoriesIndex(Integer.parseInt(products_accordion.getExpandedPane().getId()));
         sequenceHandler.setCategoriesActive(true);
         sequenceHandler.setCheckoutActive(false);
-    @FXML private void categoryClicked(ProductCategory_ cat){
-        productGridController.fillGrid(cat.toString(), store.getProductsFromCategories(cat));
-        //sequenceHandler.setCategoriesIndex(Integer.parseInt(products_accordion.getExpandedPane().getId()));
     }
 
     @FXML private void searchPerformed()
     {
         productGridController.fillGrid("Sökresultat",store.getProductsFromSearch(searchField.getText()));
-        productGridController.fillGrid(store.getProductsFromSearch(searchField.getText()));
         sequenceHandler.setCategoriesActive(false);
         sequenceHandler.setCheckoutActive(false);
     }
 
-    @FXML private void nextPressed(ActionEvent event){
+    @FXML private void nextPressed(ActionEvent e){
         sequenceHandler.nextButton();
     }
 
     public void nextCategory(int categoryIndex) {
-         productGridController.fillGrid(store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
+         productGridController.fillGrid(parentCategories.get(categoryIndex).toString(),store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
     }
 
     @FXML private void backPressed(ActionEvent event){
@@ -180,7 +179,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     public void previousCategory(int categoryIndex) {
-        productGridController.fillGrid(store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
+        productGridController.fillGrid(parentCategories.get(categoryIndex).toString(), store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
     }
 
     public void nextCheckout() {

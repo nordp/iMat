@@ -20,4 +20,12 @@ public class ProductCategory_ {
         ProductSubCategory[] subValues = ProductSubCategory.values();
         // not finished dont touch. will probably switch to strings instead....
     }
+
+    @Override
+    public String toString(){
+        if (parentCategory!=null)
+            return parentCategory.toString();
+        else
+            return "";
+    }
 }
