@@ -20,7 +20,7 @@ public class LightboxController implements Initializable{
     @FXML Parent shoppingLists;
     @FXML Parent myAccount;
     @FXML Parent checkout;
-    @FXML CheckoutController checkoutController;
+    @FXML public CheckoutController checkoutController;
 
     List<Parent> panes;
     List<Pane> shadows;

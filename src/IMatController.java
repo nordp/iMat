@@ -27,6 +27,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML ProductGridController productGridController;
 
     @FXML ListView<ShoppingItem> currentCartList;
+    @FXML Label sumLabel;
 
     @FXML Pane shadow, shadow1, shadow2, shadow3;
     @FXML LightboxController lightboxController;
@@ -46,6 +47,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         store = StoreHandler.getInstance();
         sequenceHandler = new SequenceHandler(this, nextButton, backButton);
         store.addShoppingCartListener(this);
+        shoppingCartChanged(null);
 
         currentCartList.setCellFactory(param -> new CartElement());
         currentCartList.getItems().addAll(store.getCurrentShoppingCart());
@@ -152,6 +154,9 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
+        sumLabel.setText((int)store.getCartPrice() + " kr");
+        if (cartEvent==null)
+                return;
         if (cartEvent.isAddEvent()){
             currentCartList.getItems().add(cartEvent.getShoppingItem());
         } else {
@@ -159,8 +164,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
         }
     }
 
-    public void nextCheckout() {
-        lightboxController.nextCheckoutPaneSelected();
+    public void setCheckoutPane(int activePane) {
+        lightboxController.checkoutController.changePaneContent(activePane);
     }
     public void previousCheckout(){
         lightboxController.previousCheckoutPaneSelected();
@@ -168,5 +173,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     public void previousCategory(int categoryIndex) {
         productGridController.fillGrid(store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
+    }
+
+    public void nextCheckout() {
     }
 }

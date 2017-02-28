@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import se.chalmers.ait.dat215.project.*;
 
@@ -32,6 +33,7 @@ public class CartController implements ShoppingCartListener, Initializable{
     private final int SORT_BY_ALPHABETICAL_ORDER = 2;
     private final int SORT_BY_SUBCATEGORY = 3;
     @FXML ListView cartList;
+    @FXML Label sumLabel;
     @FXML Button sortFromButton;
     @FXML ComboBox<String> sortByCB;
     boolean ascSort = true;
@@ -44,6 +46,7 @@ public class CartController implements ShoppingCartListener, Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        shoppingCartChanged(null);
         sortFromButton.setOnAction(a ->
         {
             ascSort = !ascSort;
@@ -58,6 +61,8 @@ public class CartController implements ShoppingCartListener, Initializable{
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
             cartList.setItems(FXCollections.observableList(handler.getCurrentShoppingCart()));
+            sumLabel.setText((int)handler.getCartPrice() + " kr");
+
     }
 
     public void onComboBoxClicked(ActionEvent event) { //TODO Borde uppdatera oavsett om man klickar eller använder andra sätt att välja.
