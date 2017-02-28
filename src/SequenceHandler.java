@@ -7,7 +7,7 @@ public class SequenceHandler {
     private int MAX_CHECKOUT_VALUE = 3;
     private int MAX_CATEGORY_VALUE = 6;
     private int checkoutIndex = 0;
-    private int categoryIndex = -1;
+    private int categoryIndex = -1; //TODO Is it wise to use instance values since it is possible to use different means of navigating?
     private boolean checkoutActive = false;
 
     public void setCategoriesActive(boolean categoriesActive) {
@@ -35,7 +35,7 @@ public class SequenceHandler {
         else{
             if(categoryIndex<MAX_CATEGORY_VALUE) {
                 categoryIndex++;
-                iMatController.nextCategory(categoryIndex);
+                iMatController.toCategory(categoryIndex);
             }
         }
         updateButtonStatus();
@@ -56,7 +56,7 @@ public class SequenceHandler {
         }
         else{
             categoryIndex--;
-            iMatController.previousCategory(categoryIndex);
+            iMatController.toCategory(categoryIndex);
         }
         updateButtonStatus();
     }

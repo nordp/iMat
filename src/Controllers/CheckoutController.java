@@ -21,6 +21,8 @@ public class CheckoutController implements Initializable{
     public final static int DELIVERY = 2;
     public final static int PAYMENT = 3;
     public final static int CONFIRMATION = 4;
+    public final static int RECEIPT = 5;
+
     private int active = 0;
     private int lastActive = 0;
 
@@ -35,10 +37,13 @@ public class CheckoutController implements Initializable{
         @FXML Parent delivery;
         @FXML Parent payment;
         @FXML Parent confirmation;
+        @FXML Parent receipt;
+
         @FXML CartController cartController;
         @FXML DeliveryController deliveryController;
         @FXML PaymentController paymentController;
         @FXML ConfirmationController confirmationController;
+        @FXML ReceiptController receiptController;
         List<Parent> parentList = new ArrayList<>();
         @Override
         public void initialize(URL location, ResourceBundle resources) {
@@ -46,6 +51,7 @@ public class CheckoutController implements Initializable{
             parentList.add(delivery);
             parentList.add(payment);
             parentList.add(confirmation);
+            parentList.add(receipt);
             changePaneContent(0);
         }
 

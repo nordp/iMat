@@ -19,6 +19,7 @@
                   <fx:include fx:id="payment" source="payment.fxml" />
                   <fx:include fx:id="delivery" source="delivery.fxml" />
                   <fx:include fx:id="cart" source="cart.fxml" />
+                  <fx:include fx:id="receipt" source="receipt.fxml" />
                </children>
                <BorderPane.margin>
                   <Insets />
