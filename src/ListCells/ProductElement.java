@@ -2,6 +2,7 @@ package ListCells;
 
 import BackendMediators.CustomerHandler;
 import BackendMediators.StoreHandler;
+import Utility.Util;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -62,14 +63,14 @@ public class ProductElement extends AnchorPane {
 
             addAmount.setOnAction(params -> {
                 Double amount = Double.parseDouble(amountField.getText());
-                amount+=1;
-                amountField.setText(amount.toString());
+                amount += 1;
+                amountField.setText(Util.format(amount));
             });
             removeAmount.setOnAction(params ->{
                 Double amount = Double.parseDouble(amountField.getText());
                 amount-=1;
                 amount = Math.max(amount, 0);
-                amountField.setText(amount.toString());
+                amountField.setText(Util.format(amount));
             });
             addToFavoritesBtn.setOnAction(q ->
             {

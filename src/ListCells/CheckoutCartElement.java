@@ -1,5 +1,7 @@
 package ListCells;
 
+import BackendMediators.StoreHandler;
+import Utility.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import javax.xml.soap.Text;
@@ -55,25 +58,26 @@ public class CheckoutCartElement extends ListCell<ShoppingItem>{
         }
     }
 
-    public void onRemove(ActionEvent event) {   //Should be changed to only handle integers. the listeners should also be looked over.
+    public void onRemove() {   //Should be changed to only handle integers. the listeners should also be looked over.
         Double amount = Double.parseDouble(amountTF.getText());
         amount-=1;
-        amountTF.setText(amount.toString());
-        valueChanged(null);
+        amountTF.setText(amount.toString()); //TODO Update cart when item removed (Not supported by backend)
+        valueChanged();
     }
 
-    public void onAdd(ActionEvent event) {
+
+    public void onAdd() {
         out.println("pressed");
         Double amount = Double.parseDouble(amountTF.getText());
         amount+=1;
-        amountTF.setText(amount.toString());
-        valueChanged(null);
+        amountTF.setText(Util.format(amount));
+        valueChanged();
     }
-    @FXML private void valueChanged(ActionEvent event){
+    @FXML private void valueChanged(){
         if(Double.parseDouble(amountTF.getText())<=0){
             amountTF.setText("0");
         }
         item.setAmount(Double.parseDouble(amountTF.getText()));
-        totalPrice.setText(String.valueOf(item.getTotal()));
+        totalPrice.setText(Util.format(item.getTotal()) + " kr");
     }
 }

@@ -59,4 +59,13 @@ public class Util {
         }
         return true;
     }
+
+    public static String format(Double amount) {
+        if (amount.doubleValue() == amount.intValue()){
+            System.out.println("formated");
+            return String.format("%d", amount.intValue());
+        } else {
+            return String.format("%s",amount.doubleValue());
+        }
+    }
 }

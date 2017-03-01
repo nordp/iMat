@@ -3,6 +3,7 @@ package ListCells;
 import BackendMediators.CustomerHandler;
 import BackendMediators.StoreHandler;
 import Controllers.CartController;
+import Utility.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,8 +30,11 @@ public class CartElement extends ListCell<ShoppingItem>{
     @FXML GridPane grid;
     @FXML Label totalPrice;
     @FXML Label amountTF;
+    @FXML Label unitLabel;
     private ShoppingItem item;
     FXMLLoader mLLoader;
+
+
     public CartElement(){
     }
     @Override
@@ -52,9 +56,10 @@ public class CartElement extends ListCell<ShoppingItem>{
             }
             this.item = item;
             productName.setText(item.getProduct().getName());
-            pricePerUnit.setText(String.valueOf((int)item.getProduct().getPrice()) + item.getProduct().getUnit());
-            totalPrice.setText(String.valueOf((int)item.getTotal()) + " kr");
-            amountTF.setText(String.valueOf(item.getAmount()) + item.getProduct().getUnitSuffix());
+            pricePerUnit.setText(Util.format(item.getProduct().getPrice()));
+            unitLabel.setText(item.getProduct().getUnitSuffix());
+            totalPrice.setText(Util.format(item.getTotal()) + " kr");
+            amountTF.setText(Util.format(item.getAmount()));
             setGraphic(grid);
         }
     }
@@ -64,24 +69,24 @@ public class CartElement extends ListCell<ShoppingItem>{
         Double amount = Double.parseDouble(nr);
         amount-=1;
         amount = Math.max(0,amount);
-        amountTF.setText(amount.toString() + item.getProduct().getUnitSuffix());
-        valueChanged(null);
+        amountTF.setText(Util.format(amount) + item.getProduct().getUnitSuffix());
+        valueChanged();
     }
 
     public void onAdd(ActionEvent event) {
-        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix().toString(),"");
+        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix(),"");
         Double amount = Double.parseDouble(nr);
         amount+=1;
-        amountTF.setText(amount.toString() + item.getProduct().getUnitSuffix());
-        valueChanged(null);
+        amountTF.setText(Util.format(amount) + item.getProduct().getUnitSuffix());
+        valueChanged();
     }
-    @FXML private void valueChanged(ActionEvent event){
-        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix().toString(),"");
+    @FXML private void valueChanged(){
+        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix(),"");
         // How could this happend?
         /*if(Double.parseDouble(amountTF.getText())<=0){
             amountTF.setText("0");
         }*/
         item.setAmount(Double.parseDouble(nr));
-        totalPrice.setText(String.valueOf(item.getTotal() + " Kr"));
+        totalPrice.setText(Util.format(item.getTotal()) + " Kr");
     }
 }

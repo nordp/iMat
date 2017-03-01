@@ -52,9 +52,9 @@ public class CartController implements ShoppingCartListener, Initializable, Acti
         sortFromButton.setOnAction(a ->
         {
             ascSort = !ascSort;
-            onComboBoxClicked(null);
+            onComboBoxClicked();
         });
-        sortByCB.getItems().addAll(new String[]{"Pris/ST","Total Pris", "Alphabetisk", "Subcategori"});
+        sortByCB.getItems().addAll(new String[]{"Jämförpris","Pris", "A-Ö", "Kategori"});
         ObservableList<ShoppingItem> list = FXCollections.observableList(handler.getCurrentShoppingCart());
         cartList.setItems(list);
         cartList.setCellFactory(param -> new CheckoutCartElement());
@@ -67,7 +67,7 @@ public class CartController implements ShoppingCartListener, Initializable, Acti
 
     }
 
-    public void onComboBoxClicked(ActionEvent event) { //TODO Borde uppdatera oavsett om man klickar eller använder andra sätt att välja.
+    public void onComboBoxClicked() { //TODO Borde uppdatera oavsett om man klickar eller använder andra sätt att välja.
         int selectedIndex = sortByCB.getSelectionModel().getSelectedIndex();
         //Way to select direction.
         switch (selectedIndex){

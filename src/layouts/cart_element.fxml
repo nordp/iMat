@@ -9,12 +9,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="grid" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="grid" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.5" minWidth="10.0" prefWidth="161.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="62.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="57.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="37.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.5" minWidth="10.0" prefWidth="146.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="29.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="45.75" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="58.75" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="33.25" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -25,28 +26,25 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="pricePerUnit" text="99 kr/kg" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
-         <padding>
-            <Insets left="7.0" />
-         </padding>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="totalPrice" text="99 kr" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-         <padding>
-            <Insets left="7.0" />
-         </padding>
+      <Label fx:id="pricePerUnit" text="999" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="amountTF" text="5 st á" GridPane.halignment="RIGHT">
+      <Label fx:id="totalPrice" text="9999 kr" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" style="-fx-background-color: red;" text="X" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label fx:id="amountTF" text="5" GridPane.halignment="RIGHT">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </Label>
+      <Button mnemonicParsing="false" style="-fx-background-color: red;" text="X" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -54,5 +52,18 @@
             <Insets />
          </GridPane.margin>
       </Button>
+      <Label fx:id="unitLabel" alignment="CENTER" text="kr/kg" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="LEFT">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <padding>
+            <Insets left="2.0" />
+         </padding>
+      </Label>
+      <Label fx:id="pricePerUnit1" text="x" wrapText="true" GridPane.halignment="RIGHT">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>
