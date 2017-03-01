@@ -16,3 +16,15 @@
 .titled-pane {
     -fx-background-color: #DBC390;
 }
+#deleteAccountButton {
+    -fx-font: bold 16px "Arial";
+}
+#saveAccountButton {
+    -fx-font: bold 15px "Arial";
+}
+#addToCart_ShoppingListButton {
+    -fx-font: bold 12px "Arial";
+}
+#shoppingListLabel {
+    -fx-font: bold 17px "Arial";
+}
