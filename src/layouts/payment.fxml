@@ -51,7 +51,7 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="cardPane" style="-fx-border-color: black;" visible="false">
+            <AnchorPane fx:id="cardPane" style="-fx-border-color: black;">
                <children>
                   <Label layoutX="10.0" layoutY="10.0" text="Kortnummer" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <font>

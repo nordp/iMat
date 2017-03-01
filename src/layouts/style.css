@@ -3,11 +3,19 @@
 }
 .button {
     -fx-background-color: #DBC390;
+    -fx-background-radius: 20px;
+    /*
+    -fx-border-radius: 20px;
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+    -fx-background-insets: 2;
+    */
 }
 .ImageButton{
     -fx-background-color: rgba(0,0,0,0);
 }
 .button:hover {
+    -fx-background-color: #DBC3CC;
     -fx-effect: dropshadow(gaussian, #808080, 10, 0.2, 0, 0);
 }
 .button:pressed {
