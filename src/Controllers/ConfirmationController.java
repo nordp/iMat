@@ -1,6 +1,7 @@
 package Controllers;
 
 import BackendExtension.CustomerListener;
+import Main.SequenceHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +17,7 @@ import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ConfirmationController implements CustomerListener, ShoppingCartListener, Initializable{
+public class ConfirmationController implements CustomerListener, ShoppingCartListener, Initializable, ActivePaneListener{
     @FXML TextArea deliveryInfoTA;
     @FXML TextField cardNumberTF;
     @FXML TextField cardNameTF;
@@ -56,6 +57,10 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
     public void shoppingCartChanged(CartEvent cartEvent) {
         sumLabel.setText((int)storeHandler.getCartPrice() + " kr");
         itemsLabel.setText(storeHandler.getCurrentShoppingCart().size() + " st");
+    }
+
+    @Override
+    public void receivedActive() {
     }
     // A Method that handels the next button clicked should be implemented. Interface or SuperClass?
 }

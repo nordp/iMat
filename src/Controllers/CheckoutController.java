@@ -1,5 +1,6 @@
 package Controllers;
 
+import Main.SequenceHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,6 +45,7 @@ public class CheckoutController implements Initializable{
         @FXML PaymentController paymentController;
         @FXML ConfirmationController confirmationController;
         @FXML ReceiptController receiptController;
+        List<ActivePaneListener> controllerList = new ArrayList<>();
         List<Parent> parentList = new ArrayList<>();
         @Override
         public void initialize(URL location, ResourceBundle resources) {
@@ -52,15 +54,20 @@ public class CheckoutController implements Initializable{
             parentList.add(payment);
             parentList.add(confirmation);
             parentList.add(receipt);
+            controllerList.add(cartController);
+            controllerList.add(deliveryController);
+            controllerList.add(paymentController);
+            controllerList.add(confirmationController);
+            controllerList.add(receiptController);
             changePaneContent(0);
         }
 
         public void changePaneContent(int paneIndex){
-            System.out.println("called");
             for(int i = 0; i<parentList.size(); i++){
                 parentList.get(i).setVisible(false);
             }
             parentList.get(paneIndex).setVisible(true);
+            controllerList.get(paneIndex).receivedActive();
         }
 
         @FXML protected void nextButtonPressed(){
@@ -93,6 +100,8 @@ public class CheckoutController implements Initializable{
             else{
                 out.println("not a viable link");
             }
+            SequenceHandler.getInstance().setCheckoutIndex(active);
+            SequenceHandler.getInstance().updateButtonStatus();
             changePaneContent(active);
         }
     }

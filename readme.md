@@ -55,8 +55,11 @@ Nästa och tillbaka knappar:
     * Structured input for credit-card.
     * Clicking twice on a Category causes an exception. 
     * How should nextButton behave on Search
+    
+
 
 **Notes**
+    
     
     Should program launch in maximized mode?
     How should resizing be handled?

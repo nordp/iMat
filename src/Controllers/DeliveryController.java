@@ -1,5 +1,9 @@
 package Controllers;
 
+import Main.SequenceHandler;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import BackendExtension.CustomerListener;
 import Utility.Util;
 import javafx.event.ActionEvent;
@@ -19,7 +23,7 @@ import java.util.ResourceBundle;
 /**
  * Created by gustav on 2017-02-23.
  */
-public class DeliveryController implements Initializable, CustomerListener{
+public class DeliveryController implements Initializable, CustomerListener, ActivePaneListener{
     @FXML TextField nameTF;
     @FXML TextField addressTF;
     @FXML TextField postcodeTF;
@@ -53,6 +57,36 @@ public class DeliveryController implements Initializable, CustomerListener{
         handler.addCustomerListener(this);
         customerInfoChanged();
         Util.setNumericTextField(postcodeTF);
+        nameTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            SequenceHandler.getInstance().setInputValid(isInputValid());});
+        addressTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            SequenceHandler.getInstance().setInputValid(isInputValid());});
+        postcodeTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            SequenceHandler.getInstance().setInputValid(isInputValid());});
+        cityTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            SequenceHandler.getInstance().setInputValid(isInputValid());});
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        t0_0.setToggleGroup(toggleGroup);
+        t1_0.setToggleGroup(toggleGroup);
+        t2_0.setToggleGroup(toggleGroup);
+        t3_0.setToggleGroup(toggleGroup);
+        t1_1.setToggleGroup(toggleGroup);
+        t2_1.setToggleGroup(toggleGroup);
+        t3_1.setToggleGroup(toggleGroup);
+        t0_1.setToggleGroup(toggleGroup);
+        t0_2.setToggleGroup(toggleGroup);
+        t1_2.setToggleGroup(toggleGroup);
+        t2_2.setToggleGroup(toggleGroup);
+        t3_2.setToggleGroup(toggleGroup);
+        t0_3.setToggleGroup(toggleGroup);
+        t1_3.setToggleGroup(toggleGroup);
+        t2_3.setToggleGroup(toggleGroup);
+        t3_3.setToggleGroup(toggleGroup);
+        t0_4.setToggleGroup(toggleGroup);
+        t1_4.setToggleGroup(toggleGroup);
+        t2_4.setToggleGroup(toggleGroup);
+        t3_4.setToggleGroup(toggleGroup);
     }
 
     @FXML private void saveText(ActionEvent actionEvent) {
@@ -74,8 +108,12 @@ public class DeliveryController implements Initializable, CustomerListener{
         }
     }
 
+    @FXML private void isDoneListener(ActionEvent event){
+        SequenceHandler.getInstance().setInputValid(isInputValid());
+    }
+
     public boolean isInputValid(){
-        return (Util.isInputValid(nameTF, addressTF, postcodeTF, cityTF) && t0_0.getToggleGroup().getSelectedToggle() == null);
+        return (Util.isInputValid(nameTF, addressTF, postcodeTF, cityTF) && !(t0_0.getToggleGroup().getSelectedToggle() == null));
     }
 
     @Override
@@ -84,5 +122,9 @@ public class DeliveryController implements Initializable, CustomerListener{
         addressTF.setText(handler.getAddress());
         postcodeTF.setText(handler.getPostCode());
         cityTF.setText(handler.getPostAddress());
+    }
+    @Override
+    public void receivedActive() {
+        SequenceHandler.getInstance().setInputValid(isInputValid());
     }
 }

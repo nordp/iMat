@@ -38,6 +38,9 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML TextField searchField;
     @FXML Accordion products_accordion;
 
+    @FXML Label nextLabel;
+    @FXML Label previousLabel;
+
     @FXML Button nextButton;
     @FXML Button backButton;
 
@@ -47,7 +50,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     SequenceHandler sequenceHandler;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        sequenceHandler = new SequenceHandler(this, nextButton, backButton);
+        sequenceHandler = SequenceHandler.getInstance(this, nextButton, backButton, nextLabel, previousLabel);
         store = StoreHandler.getInstance();
 
         store.addShoppingCartListener(this);
@@ -133,7 +136,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML private void categoryClicked(ProductCategory_ cat) { //Bör ta en kategori som indata.
         productGridController.fillGrid(cat.toString(),store.getProductsFromCategories(cat));
-        sequenceHandler.setCategoriesIndex(Integer.parseInt(products_accordion.getExpandedPane().getId()));
+        sequenceHandler.setCategoriesIndex(Integer.parseInt(products_accordion.getExpandedPane().getId()));     // Detta skapar en nullpointer när kategorin redan är vald.
         sequenceHandler.setCategoriesActive(true);
         sequenceHandler.setCheckoutActive(false);
     }
@@ -150,7 +153,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     public void nextCategory(int categoryIndex) {
-         productGridController.fillGrid(parentCategories.get(categoryIndex).toString(),store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
+        productGridController.fillGrid(parentCategories.get(categoryIndex).toString(),store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
+        products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex+1));
     }
 
     @FXML private void backPressed(ActionEvent event){
@@ -179,9 +183,11 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     public void previousCategory(int categoryIndex) {
         productGridController.fillGrid(parentCategories.get(categoryIndex).toString(), store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
+        products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex+1));
     }
 
     public void nextCheckout() {
         lightboxController.nextCheckoutPaneSelected();
+
     }
 }

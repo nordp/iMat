@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Phnor on 2017-02-28.
  */
-public class ReceiptController implements Initializable{
+public class ReceiptController implements Initializable, ActivePaneListener{
 
     @FXML Label dateLabel;
     @FXML Label sumLabel;
@@ -28,6 +28,11 @@ public class ReceiptController implements Initializable{
     }
 
     @FXML private void print(){
+
+    }
+
+    @Override
+    public void receivedActive() {
 
     }
 }

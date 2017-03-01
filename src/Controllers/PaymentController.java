@@ -1,6 +1,8 @@
 package Controllers;
 
+import Main.SequenceHandler;
 import BackendExtension.CustomerListener;
+import Utility.Util;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -8,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
 import BackendMediators.*;
 import javafx.scene.layout.AnchorPane;
@@ -21,7 +24,7 @@ import static Utility.Util.*;
 /**
  * Created by gustav on 2017-02-23.
  */
-public class PaymentController implements Initializable, CustomerListener{
+public class PaymentController implements Initializable, CustomerListener, ActivePaneListener{
     @FXML RadioButton invoicePayment;
     @FXML RadioButton cardPayment;
     @FXML AnchorPane invoicePane;
@@ -38,6 +41,23 @@ public class PaymentController implements Initializable, CustomerListener{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cardFirstFour.textProperty().addListener((observable, oldValue, newValue) ->
+                SequenceHandler.getInstance().setInputValid(isInputValid()));
+        cardSecondFour.textProperty().addListener((observable, oldValue, newValue) ->
+                SequenceHandler.getInstance().setInputValid(isInputValid()));
+        cardThirdFour.textProperty().addListener((observable, oldValue, newValue) ->
+                SequenceHandler.getInstance().setInputValid(isInputValid()));
+        cardFourthFour.textProperty().addListener((observable, oldValue, newValue) ->
+                SequenceHandler.getInstance().setInputValid(isInputValid()));
+        validYear.selectionModelProperty().addListener((observable, oldValue, newValue) -> {
+                SequenceHandler.getInstance().setInputValid(isInputValid());});
+        validMonth.selectionModelProperty().addListener((observable, oldValue, newValue) -> {
+                SequenceHandler.getInstance().setInputValid(isInputValid());});
+        CVCCode.textProperty().addListener((observable, oldValue, newValue) ->
+                SequenceHandler.getInstance().setInputValid(isInputValid()));
+        cardName.textProperty().addListener((observable, oldValue, newValue) ->
+                SequenceHandler.getInstance().setInputValid(isInputValid()));
+
         customerHandler = CustomerHandler.getInstance();
         customerHandler.addCustomerListener(this);
         customerInfoChanged();
@@ -69,9 +89,10 @@ public class PaymentController implements Initializable, CustomerListener{
     @FXML private void paymentChosen(ActionEvent event) {
         invoicePane.setVisible(event.getSource() == invoicePayment);
         cardPane.setVisible(event.getSource() == cardPayment);
+        SequenceHandler.getInstance().setInputValid(isInputValid());
     }
 
-    public boolean IsInputValid()
+    public boolean isInputValid()
     {
         if(invoicePayment.getToggleGroup().getSelectedToggle() == cardPayment)
         {
@@ -117,5 +138,34 @@ public class PaymentController implements Initializable, CustomerListener{
         cardName.setText(customerHandler.getCardHolder());
     }
 
+    public TextField getCardSecondFour() {
+        return cardSecondFour;
+    }
+
+    public TextField getCardThirdFour() {
+        return cardThirdFour;
+    }
+
+    public TextField getCardFourthFour() {
+        return cardFourthFour;
+    }
+
+    public ComboBox<Integer> getValidYear() {
+        return validYear;
+    }
+
+    public ComboBox<Integer> getValidMonth() {
+        return validMonth;
+    }
+
+    public TextField getCVCCode() {
+        return CVCCode;
+    }
+
+
+    @Override
+    public void receivedActive() {
+        SequenceHandler.getInstance().setInputValid(isInputValid());
+    }
     //TODO Implmenet save method.
 }

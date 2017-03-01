@@ -1,21 +1,34 @@
 package Main;
 
+import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 
-/**
- * Created by gustav on 2017-02-27.
- */
+import java.util.Stack;
+
 public class SequenceHandler {
+    private Label nextButtonLabel;
     private int MAX_CHECKOUT_VALUE = 4;
     private int MAX_CATEGORY_VALUE = 6;
     private int checkoutIndex = 0;
     private int categoryIndex = -1; //TODO Is it wise to use instance values since it is possible to use different means of navigating?
     private boolean checkoutActive = false;
     private static Main.SequenceHandler instance = null;
+    private boolean inputValid = false;
+    String[] categories = {"", "Kött", "Grönt", "Bröd", "Mejeri", "Dricka","Skafferi", "Godis", ""};
+    String[] checkout = {"", "Varukorg", "Leverans", "Betalning", "Granskning", "Bekräfta Köp", "Stäng"};
+    private Label previousButtonLabel;
 
     public static SequenceHandler getInstance(){
         if(instance == null) {
             return new SequenceHandler();
+        }
+        return instance;
+    }
+    protected static SequenceHandler getInstance(IMatController iMatController, Button next, Button back, Label nextButtonLabel, Label previousButtonLabel){
+        if(instance == null || instance.iMatController == null){
+            instance =  new SequenceHandler(iMatController, next, back, nextButtonLabel, previousButtonLabel);
         }
         return instance;
     }
@@ -24,16 +37,19 @@ public class SequenceHandler {
     public void setCategoriesActive(boolean categoriesActive) {
         this.categoriesActive = categoriesActive;
         updateButtonStatus();
+        updateButtonText();
     }
 
     boolean categoriesActive = true;
     IMatController iMatController;
     Button next;
     Button back;
-    protected SequenceHandler(IMatController iMatController, Button next, Button back){
+    private SequenceHandler(IMatController iMatController, Button next, Button back, Label nextButtonLabel, Label previousButtonLabel){
         this.iMatController = iMatController;
         this.next = next;
         this.back = back;
+        this.nextButtonLabel = nextButtonLabel;
+        this.previousButtonLabel = previousButtonLabel;
         instance = this;
         updateButtonStatus();
     }
@@ -50,17 +66,22 @@ public class SequenceHandler {
                 iMatController.nextCategory(categoryIndex);
             }
         }
+        updateButtonText();
         updateButtonStatus();
     }
     public void setCheckoutActive(boolean checkoutActive){
         this.checkoutActive = checkoutActive;
         updateButtonStatus();
+        updateButtonText();
     }
 
     public void updateButtonStatus(){
         if(next!= null && back != null) {
             next.setDisable(!isNextButtonActive());
             back.setDisable(!isBackButtonActive());
+            if(checkoutActive && (checkoutIndex == 1 || checkoutIndex == 2)){
+                next.setDisable(!inputValid);
+            }
         }
     }
     public void previousButton(){
@@ -73,13 +94,16 @@ public class SequenceHandler {
             iMatController.previousCategory(categoryIndex);
         }
         updateButtonStatus();
+        updateButtonText();
     }
     public void setCheckoutIndex(int index){
         checkoutIndex = index;
+        updateButtonText();
     }
     public void setCategoriesIndex(int index){
         categoryIndex = index;
         updateButtonStatus();
+        updateButtonText();
     }
     private boolean isNextButtonActive(){
 
@@ -110,5 +134,23 @@ public class SequenceHandler {
                 }
             }
             return false;
+    }
+
+    public void setInputValid(boolean inputValid) {
+        this.inputValid = inputValid;
+        updateButtonStatus();
+    }
+    private void updateButtonText(){
+        System.out.println(nextButtonLabel + " " + previousButtonLabel);
+        if(nextButtonLabel != null && previousButtonLabel != null) {
+            System.out.println(categoriesActive);
+            if (categoriesActive) {
+                nextButtonLabel.setText(categories[categoryIndex + 2]);
+                previousButtonLabel.setText(categories[categoryIndex]);
+            } else {
+                nextButtonLabel.setText(checkout[checkoutIndex + 2]);
+                previousButtonLabel.setText(checkout[checkoutIndex]);
+            }
+        }
     }
 }
