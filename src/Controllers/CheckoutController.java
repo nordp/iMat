@@ -66,13 +66,13 @@ public class CheckoutController implements Initializable{
         @FXML protected void nextButtonPressed(){
             active++;
             // Temporary to avoid crashes.
-            active = active%4;
+            active = active%5;
             changePaneContent(active);
         }
 
         @FXML protected void backButtonPressed(){
             active--;
-            active = Math.floorMod(active, 4);
+            active = Math.floorMod(active, 5);
             changePaneContent(active);
         }
 

@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
  * Created by gustav on 2017-02-27.
  */
 public class SequenceHandler {
-    private int MAX_CHECKOUT_VALUE = 3;
+    private int MAX_CHECKOUT_VALUE = 4;
     private int MAX_CATEGORY_VALUE = 6;
     private int checkoutIndex = 0;
     private int categoryIndex = -1; //TODO Is it wise to use instance values since it is possible to use different means of navigating?

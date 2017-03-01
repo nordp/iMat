@@ -27,6 +27,7 @@ public class ProductElement extends AnchorPane {
     private FXMLLoader loader;
     @FXML private ImageView icon;
     @FXML private ImageView heartIcon;
+    @FXML private ImageView noHeartIcon;
     @FXML private TextField amountField;
     @FXML private Label productPrice;
     @FXML private Label productUnit;
@@ -40,6 +41,7 @@ public class ProductElement extends AnchorPane {
 
     private StoreHandler storeHandler = new StoreHandler();
     private CustomerHandler customerHandler = new CustomerHandler();
+    private boolean isFavourite;
 
         public ProductElement(se.chalmers.ait.dat215.project.Product p) {
             if (loader == null) {
@@ -71,11 +73,25 @@ public class ProductElement extends AnchorPane {
             });
             addToFavoritesBtn.setOnAction(q ->
             {
-                customerHandler.addFavorite(p);
+                if (!isFavourite) {
+                    customerHandler.addFavorite(p);
+                } else {
+                    customerHandler.removeFavorite(p);
+                }
+                isFavourite = !isFavourite;
+                updateHeart();
             });
+            isFavourite = customerHandler.isFavorite(p.getProductId());
+            addToFavoritesBtn.setOnMouseEntered(q -> invertIcon());
+            addToFavoritesBtn.setOnMouseExited(q -> updateHeart());
+            updateHeart();
         }
-        public void invertIcon(ActionEvent event){
+        public void updateHeart(){
 
+            heartIcon.setVisible(isFavourite);
+        }
+        public void invertIcon(){
+            heartIcon.setVisible(!isFavourite);
         }
         public AnchorPane getBackgroundPane(){
             return backgroundPane;
