@@ -1,5 +1,8 @@
 package Controllers;
 
+import BackendExtension.CustomerListener;
+import Utility.Util;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -7,6 +10,7 @@ import javafx.scene.control.TextField;
 import BackendMediators.CustomerHandler;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.Customer;
 
 import java.net.URL;
@@ -15,7 +19,7 @@ import java.util.ResourceBundle;
 /**
  * Created by gustav on 2017-02-23.
  */
-public class DeliveryController implements Initializable {
+public class DeliveryController implements Initializable, CustomerListener{
     @FXML TextField nameTF;
     @FXML TextField addressTF;
     @FXML TextField postcodeTF;
@@ -41,63 +45,44 @@ public class DeliveryController implements Initializable {
     @FXML ToggleButton t1_4;
     @FXML ToggleButton t2_4;
     @FXML ToggleButton t3_4;
-    CustomerHandler handler = new CustomerHandler();
+    CustomerHandler handler = CustomerHandler.getInstance();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        ToggleGroup toggleGroup = new ToggleGroup();
-        t0_0.setToggleGroup(toggleGroup);
-        t1_0.setToggleGroup(toggleGroup);
-        t2_0.setToggleGroup(toggleGroup);
-        t3_0.setToggleGroup(toggleGroup);
-        t1_1.setToggleGroup(toggleGroup);
-        t2_1.setToggleGroup(toggleGroup);
-        t3_1.setToggleGroup(toggleGroup);
-        t0_1.setToggleGroup(toggleGroup);
-        t0_2.setToggleGroup(toggleGroup);
-        t1_2.setToggleGroup(toggleGroup);
-        t2_2.setToggleGroup(toggleGroup);
-        t3_2.setToggleGroup(toggleGroup);
-        t0_3.setToggleGroup(toggleGroup);
-        t1_3.setToggleGroup(toggleGroup);
-        t2_3.setToggleGroup(toggleGroup);
-        t3_3.setToggleGroup(toggleGroup);
-        t0_4.setToggleGroup(toggleGroup);
-        t1_4.setToggleGroup(toggleGroup);
-        t2_4.setToggleGroup(toggleGroup);
-        t3_4.setToggleGroup(toggleGroup);
+        handler.addCustomerListener(this);
+        customerInfoChanged();
+        Util.setNumericTextField(postcodeTF);
     }
 
-    public boolean IsInputValid()
-    {
-        if(nameTF.getText().length() <= 0)
-        {
-            // Prompt user to enter his/her name.
-            return false;
+    @FXML private void saveText(ActionEvent actionEvent) {
+        if (actionEvent.getSource().equals(nameTF)) {
+            if (nameTF.getText().contains(" ") && nameTF.getText().trim().length() > 2) {
+                String[] names = nameTF.getText().split(" ");
+                handler.setFirstName(names[0]);
+                handler.setLastName(names[1]);
+            } else {
+                handler.setFirstName(nameTF.getText());
+                handler.setLastName("");
+            }
+        } else if (actionEvent.getSource().equals(addressTF)) {
+            handler.setAddress(addressTF.getText());
+        } else if (actionEvent.getSource().equals(postcodeTF)) {
+            handler.setPostCode(postcodeTF.getText());
+        } else if (actionEvent.getSource().equals(cityTF)) {
+            handler.setPostAddress(cityTF.getText());
         }
-        if(addressTF.getText().length() <= 0)
-        {
-            // Prompt user to enter the address.
-            return false;
-        }
-        if(postcodeTF.getText().length() != 5)
-        {
-            // I hope every postal code is 5 long. Promt user to enter postcode here
-            return false;
-        }
-        if(cityTF.getText().length() <= 0)
-        {
-            // Prompt user to enter the city
-            return false;
-        }
-        if(t0_0.getToggleGroup().getSelectedToggle() == null)
-        {
-            // Prompt user to select a time/date for the delivery
-            return false;
-        }
-        return true;
     }
 
+    public boolean isInputValid(){
+        return (Util.isInputValid(nameTF, addressTF, postcodeTF, cityTF) && t0_0.getToggleGroup().getSelectedToggle() == null);
+    }
+
+    @Override
+    public void customerInfoChanged() {
+        nameTF.setText(handler.getFirstName() + " " + handler.getLastName());
+        addressTF.setText(handler.getAddress());
+        postcodeTF.setText(handler.getPostCode());
+        cityTF.setText(handler.getPostAddress());
+    }
 }

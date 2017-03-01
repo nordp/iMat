@@ -1,5 +1,6 @@
 package Controllers;
 
+import BackendExtension.CustomerListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -15,10 +16,12 @@ import java.net.URL;
 import java.util.EventListener;
 import java.util.ResourceBundle;
 
+import static Utility.Util.*;
+
 /**
  * Created by gustav on 2017-02-23.
  */
-public class PaymentController implements Initializable{
+public class PaymentController implements Initializable, CustomerListener{
     @FXML RadioButton invoicePayment;
     @FXML RadioButton cardPayment;
     @FXML AnchorPane invoicePane;
@@ -35,7 +38,9 @@ public class PaymentController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        customerHandler = new CustomerHandler();
+        customerHandler = CustomerHandler.getInstance();
+        customerHandler.addCustomerListener(this);
+        customerInfoChanged();
         if(true){ //TODO REPLACE WITH customerHandler.isFirstRun()
             cardPane.setVisible(false);
             invoicePane.setVisible(false);
@@ -61,35 +66,9 @@ public class PaymentController implements Initializable{
         setNextTextFieldOn4Chars(cardFourthFour, cardName);
     }
 
-    private void setNextTextFieldOn4Chars(TextField a, TextField b)
-    {
-        a.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.length() == 4)
-                {
-                    b.requestFocus();
-                }
-            }
-        });
-    }
-
-    private void setNumericTextField(TextField field)
-    {
-        field.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    field.setText(newValue.replaceAll("[^\\d]", ""));
-                }
-            }
-        });
-    }
-
     @FXML private void paymentChosen(ActionEvent event) {
         invoicePane.setVisible(event.getSource() == invoicePayment);
         cardPane.setVisible(event.getSource() == cardPayment);
-        System.out.println("clicked");
     }
 
     public boolean IsInputValid()
@@ -124,37 +103,19 @@ public class PaymentController implements Initializable{
         }
     }
 
-    public RadioButton getInvoiceButton() {
-        return invoicePayment;
+
+    @Override
+    public void customerInfoChanged() {
+        System.out.println("Payment received");
+        cardFirstFour.setText(customerHandler.getCardFour(0));
+        cardSecondFour.setText(customerHandler.getCardFour(1));
+        cardThirdFour.setText(customerHandler.getCardFour(2));
+        cardFourthFour.setText(customerHandler.getCardFour(3));
+        validYear.getSelectionModel().select(customerHandler.getValidMonth());
+        validMonth.getSelectionModel().select(customerHandler.getValidMonth());
+        CVCCode.setText(customerHandler.getSecurityCode() + "");
+        cardName.setText(customerHandler.getCardHolder());
     }
 
-    public TextField getCardFirstFour() {
-        return cardFirstFour;
-    }
-
-    public TextField getCardSecondFour() {
-        return cardSecondFour;
-    }
-
-    public TextField getCardThirdFour() {
-        return cardThirdFour;
-    }
-
-    public TextField getCardFourthFour() {
-        return cardFourthFour;
-    }
-
-    public ComboBox<Integer> getValidYear() {
-        return validYear;
-    }
-
-    public ComboBox<Integer> getValidMonth() {
-        return validMonth;
-    }
-
-    public TextField getCVCCode() {
-        return CVCCode;
-    }
-
-
+    //TODO Implmenet save method.
 }

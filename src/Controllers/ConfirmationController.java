@@ -30,11 +30,11 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         storeHandler = new StoreHandler();
-        customerHandler = new CustomerHandler();
+        customerHandler = CustomerHandler.getInstance();
         storeHandler.addShoppingCartListener(this);
         customerHandler.addCustomerListener(this);
         shoppingCartChanged(null);
-        customerInfoChanged(customerHandler.getCustomer(), customerHandler.getSavedCreditCard());
+        customerInfoChanged();
     }
 
     public void changeDeliveryClicked(ActionEvent event) {
@@ -48,7 +48,7 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
     }
 
     @Override
-    public void customerInfoChanged(Customer customer, CreditCard card) {
+    public void customerInfoChanged() {
         //TODO Set labels to reflect current info
     }
 

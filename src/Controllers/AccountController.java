@@ -2,6 +2,7 @@ package Controllers;
 
 import BackendExtension.CustomerListener;
 import BackendMediators.CustomerHandler;
+import Utility.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,69 +28,68 @@ public class AccountController implements Initializable, CustomerListener {
     @FXML private TextField lastFour;
     @FXML private TextField cardHolderTF;
     @FXML private TextField cvcTF;
-    @FXML private ComboBox<String> monthExp;
-    @FXML private ComboBox<String> yearExp;
+    @FXML private ComboBox<Integer> monthExp;
+    @FXML private ComboBox<Integer> yearExp;
 
     CustomerHandler customerHandler;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-         customerHandler = new CustomerHandler();
+         customerHandler = CustomerHandler.getInstance();
          customerHandler.addCustomerListener(this);
-         customerInfoChanged(customerHandler.getCustomer(),customerHandler.getSavedCreditCard());
+         Util.setNumericTextField(firstFour);
+         Util.setNumericTextField(secondFour);
+         Util.setNumericTextField(thirdFour);
+         Util.setNumericTextField(lastFour);
+         Util.setNextTextFieldOn4Chars(firstFour, secondFour);
+         Util.setNextTextFieldOn4Chars(secondFour, thirdFour);
+         Util.setNextTextFieldOn4Chars(thirdFour, lastFour);
+         Util.setNextTextFieldOn4Chars(lastFour, cardHolderTF);
+         for(int i = 16; i < 27; i++)
+         {
+             yearExp.getItems().add(i);
+         }
+         for(int i = 1; i < 13; i++)
+         {
+             monthExp.getItems().add(i);
+         }
+         customerInfoChanged();
     }
 
-    @FXML private void saveText(ActionEvent actionEvent) {
-        Customer customer = customerHandler.getCustomer();
-        CreditCard card = customerHandler.getSavedCreditCard();
-        if (actionEvent.getSource().equals(nameTF)) {
-            if (nameTF.getText().contains(" ")) {
-                String[] names = nameTF.getText().split(" ");
-                customer.setFirstName(names[0]);
-                customer.setLastName(names[1]);
-            } else {
-                customer.setFirstName(nameTF.getText());
-                customer.setLastName("");
-            }
-        } else if (actionEvent.getSource().equals(addressTF)) {
-            customer.setAddress(addressTF.getText());
-        } else if (actionEvent.getSource().equals(postCodeTF)) {
-            customer.setPostCode(postCodeTF.getText());
-        } else if (actionEvent.getSource().equals(cityTF)) {
-            customer.setPostAddress(cityTF.getText());
-        } else if (actionEvent.getSource().equals(firstFour)) {
-            card.setCardNumber(firstFour.getText() + card.getCardNumber().substring(4, 15));
-        } else if (actionEvent.getSource().equals(secondFour)) {
-            card.setCardNumber(card.getCardNumber().substring(0, 3) + secondFour.getText() + card.getCardNumber().substring(8, 15));
-        } else if (actionEvent.getSource().equals(thirdFour)) {
-            card.setCardNumber(card.getCardNumber().substring(0, 7) + thirdFour.getText() + card.getCardNumber().substring(12, 15));
-        } else if (actionEvent.getSource().equals(lastFour)) {
-            card.setCardNumber(card.getCardNumber().substring(0, 11) + lastFour.getText());
-        } else if (actionEvent.getSource().equals(cardHolderTF)) {
-            card.setHoldersName(cardHolderTF.getText());
-        } else if (actionEvent.getSource().equals(cvcTF)) {
-            card.setVerificationCode(Integer.parseInt(cvcTF.getText()));
-        } else if (actionEvent.getSource().equals(monthExp)) {
-            card.setValidMonth(Integer.parseInt(monthExp.getSelectionModel().getSelectedItem()));
-        } else if (actionEvent.getSource().equals(yearExp)){
-            card.setValidYear(Integer.parseInt(yearExp.getSelectionModel().getSelectedItem()));
+    @FXML private void saveText() {
+        if (nameTF.getText().contains(" ")) {
+            String[] names = nameTF.getText().split(" ");
+            customerHandler.setFirstName(names[0]);
+            customerHandler.setLastName(names[1]);
+        } else {
+            customerHandler.setFirstName(nameTF.getText());
+            customerHandler.setLastName("");
         }
-        System.out.println(customer.getFirstName());
-        System.out.println(customer.getLastName());
+        customerHandler.setAddress(addressTF.getText());
+        customerHandler.setPostCode(postCodeTF.getText());
+        customerHandler.setPostAddress(cityTF.getText());
+        customerHandler.setCardNumber(firstFour.getText() + secondFour.getText() + thirdFour.getText() + lastFour.getText());
+        customerHandler.setHoldersName(cardHolderTF.getText());
+        if (!cvcTF.getText().equals("")){
+            customerHandler.setVerificationCode(Integer.valueOf(cvcTF.getText()));
+        }
+        customerHandler.setValidMonth(monthExp.getSelectionModel().getSelectedIndex());
+        customerHandler.setValidYear(yearExp.getSelectionModel().getSelectedIndex());
+        customerHandler.fireCustomerChangedEvent();
     }
 
     @Override
-    public void customerInfoChanged(Customer customer, CreditCard card) {
-        nameTF.setText(customer.getFirstName() + " " + customer.getLastName());
-        addressTF.setText(customer.getAddress());
-        postCodeTF.setText(customer.getPostCode());
-        cityTF.setText(customer.getPostAddress());
+    public void customerInfoChanged() {
+        nameTF.setText(customerHandler.getFirstName() + " " + customerHandler.getLastName());
+        addressTF.setText(customerHandler.getAddress());
+        postCodeTF.setText(customerHandler.getPostCode());
+        cityTF.setText(customerHandler.getPostAddress());
 
-        if (card.getCardNumber().length()<16) { return; }
-        firstFour.setText(card.getCardNumber().substring(0,3));
-        firstFour.setText(card.getCardNumber().substring(4,7));
-        firstFour.setText(card.getCardNumber().substring(8,11));
-        firstFour.setText(card.getCardNumber().substring(12,15));
+        if (customerHandler.getCardNumber().length()<16) { return; }
+        firstFour.setText(customerHandler.getCardFour(0));
+        secondFour.setText(customerHandler.getCardFour(1));
+        thirdFour.setText(customerHandler.getCardFour(2));
+        lastFour.setText(customerHandler.getCardFour(3));
     }
 }

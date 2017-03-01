@@ -165,7 +165,10 @@
                         <Image url="@../resources/img/delivery.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" text="Spara" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                  <Button mnemonicParsing="false" onAction="#saveText" text="Spara" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
                </children>
             </GridPane>
          </children>

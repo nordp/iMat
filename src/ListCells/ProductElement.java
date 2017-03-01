@@ -40,7 +40,7 @@ public class ProductElement extends AnchorPane {
     @FXML private Button addToFavoritesBtn;
 
     private StoreHandler storeHandler = new StoreHandler();
-    private CustomerHandler customerHandler = new CustomerHandler();
+    private CustomerHandler customerHandler = CustomerHandler.getInstance();
     private boolean isFavourite;
 
         public ProductElement(se.chalmers.ait.dat215.project.Product p) {

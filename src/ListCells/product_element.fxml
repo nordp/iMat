@@ -96,14 +96,14 @@
                <graphic>
                   <StackPane prefHeight="150.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="heartIcon" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/img/heart.png" />
-                           </image>
-                        </ImageView>
                         <ImageView fx:id="noHeartIcon" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/img/noheart.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="heartIcon" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/img/heart.png" />
                            </image>
                         </ImageView>
                      </children>
