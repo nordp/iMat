@@ -1,5 +1,26 @@
 ReadME IMat:
 
+Handling 1:
+Sökfuntionen, Lägg till fiskpinnar.
+1 JA
+2 Sökvyn var svår att hitta för vissa.
+3 JA
+4 JA
+
+Handling 2:
+Spara något som favorit.
+1 JA
+2 Detta var otydligt att hitta den, dom hittade favorit knappen men den var otydlig.
+3 JA
+4 JA
+
+Handling 3
+Nästa och tillbaka knappar: 
+1. Tillbaka var oklar, om det var tillbaka i menyn, eller ångra. Dynamisk text är en lösning på detta. 
+2. Inne i kassaVyn var det otydligt att de fortfarande hade effekt. 
+3. Ja
+4. Ja
+
 **TODO:**
 
 1. Layouts:

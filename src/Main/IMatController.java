@@ -75,7 +75,6 @@ public class IMatController implements Initializable, ShoppingCartListener{
             pane.setFont(new Font(16));
             pane.setText(cat.toString());
             List<ProductSubCategory> subCats = products.getSubCategories( products.getParentCategory(cat.toString()));
-
             FlowPane grid = new FlowPane();
             grid.setVgap(4);
             grid.setHgap(4);

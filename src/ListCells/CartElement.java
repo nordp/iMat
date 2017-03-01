@@ -49,7 +49,6 @@ public class CartElement extends ListCell<ShoppingItem>{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
             this.item = item;
             productName.setText(item.getProduct().getName());

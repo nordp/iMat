@@ -87,7 +87,7 @@ public class ProductContainer {
 
     public List<Product> searchProducts(String name)
     {
-        name = name.toLowerCase();
+        name = name.toUpperCase();
 
         ProductParentCategory par = getParentCategory(name);
         ProductSubCategory sub = getSubCategory(name);
@@ -98,7 +98,7 @@ public class ProductContainer {
         for(Map.Entry<Product, ProductCategory_> entry : productMap.entrySet())
         {
             Product p = entry.getKey();
-            String productName = p.getName().toLowerCase();
+            String productName = p.getName().toUpperCase();
             if(productName.indexOf(name) > -1) {
                 output.add(p);
             }
