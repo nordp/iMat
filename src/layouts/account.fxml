@@ -155,7 +155,7 @@
                         <Image url="@../resources/img/payment.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" text="Ta bort konto" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                  <Button id="deleteAccountButton" mnemonicParsing="false" prefHeight="52.0" prefWidth="116.0" text="Ta bort konto" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -165,7 +165,7 @@
                         <Image url="@../resources/img/delivery.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#saveText" text="Spara" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                  <Button id="saveAccountButton" mnemonicParsing="false" onAction="#saveText" prefHeight="52.0" prefWidth="69.0" text="Spara" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                      <font>
                         <Font size="18.0" />
                      </font></Button>

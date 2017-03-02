@@ -27,8 +27,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
         </rowConstraints>
          <children>
-            <Label text="Inköpslista 1" />
-            <Button mnemonicParsing="false" text="Lägg i varukorgen" GridPane.columnIndex="1">
+            <Label id="shoppingListLabel" text="Inköpslista 1" />
+            <Button id="addToCart_ShoppingListButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="153.0" text="Lägg i varukorgen" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="2.0" />
                </GridPane.margin>

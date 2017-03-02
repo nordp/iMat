@@ -4,6 +4,7 @@
 .button {
     -fx-background-color: #DBC390;
     -fx-background-radius: 20px;
+    -fx-font: Bold 14px "Arial";
     /*
     -fx-border-radius: 20px;
     -fx-border-color: red;
@@ -25,13 +26,13 @@
     -fx-background-color: #DBC390;
 }
 #deleteAccountButton {
-    -fx-font: bold 16px "Arial";
+    -fx-font: bold 15px "Arial";
 }
 #saveAccountButton {
     -fx-font: bold 15px "Arial";
 }
 #addToCart_ShoppingListButton {
-    -fx-font: bold 12px "Arial";
+    -fx-font: bold 14px "Arial";
 }
 #shoppingListLabel {
     -fx-font: bold 17px "Arial";
