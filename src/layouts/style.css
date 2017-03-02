@@ -37,7 +37,17 @@
 #shoppingListLabel {
     -fx-font: bold 17px "Arial";
 }
-#nextButton {
+#nextButton: hover {
+    -fx-background-color: transparent;
 }
-#backButton {
+#backButton: hover {
+    -fx-background-color: transparent;
+}
+#addToCarT_ItemButton: pressed {
+}
+#productElement_GP {
+    -fx-border-color: silver;
+    -fx-border-radius: 20px;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
 }
