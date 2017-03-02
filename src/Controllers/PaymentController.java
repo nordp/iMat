@@ -41,22 +41,14 @@ public class PaymentController implements Initializable, CustomerListener, Activ
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cardFirstFour.textProperty().addListener((observable, oldValue, newValue) ->
-                SequenceHandler.getInstance().setInputValid(isInputValid()));
-        cardSecondFour.textProperty().addListener((observable, oldValue, newValue) ->
-                SequenceHandler.getInstance().setInputValid(isInputValid()));
-        cardThirdFour.textProperty().addListener((observable, oldValue, newValue) ->
-                SequenceHandler.getInstance().setInputValid(isInputValid()));
-        cardFourthFour.textProperty().addListener((observable, oldValue, newValue) ->
-                SequenceHandler.getInstance().setInputValid(isInputValid()));
-        validYear.valueProperty().addListener((observable, oldValue, newValue) -> {
-                SequenceHandler.getInstance().setInputValid(isInputValid());});
-        validMonth.valueProperty().addListener((observable, oldValue, newValue) -> {
-                SequenceHandler.getInstance().setInputValid(isInputValid());});
-        CVCCode.textProperty().addListener((observable, oldValue, newValue) ->
-                SequenceHandler.getInstance().setInputValid(isInputValid()));
-        cardName.textProperty().addListener((observable, oldValue, newValue) ->
-                SequenceHandler.getInstance().setInputValid(isInputValid()));
+        cardFirstFour.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        cardSecondFour.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        cardThirdFour.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        cardFourthFour.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        validYear.valueProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        validMonth.valueProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        CVCCode.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        cardName.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
 
         customerHandler = CustomerHandler.getInstance();
         customerHandler.addCustomerListener(this);
@@ -85,11 +77,14 @@ public class PaymentController implements Initializable, CustomerListener, Activ
         setNextTextFieldOn4Chars(cardThirdFour, cardFourthFour);
         setNextTextFieldOn4Chars(cardFourthFour, cardName);
     }
-
+    private void updateButtonsAndLinks(){
+        SequenceHandler.getInstance().setInputValid(isInputValid());
+    }
     @FXML private void paymentChosen(ActionEvent event) {
         invoicePane.setVisible(event.getSource() == invoicePayment);
         cardPane.setVisible(event.getSource() == cardPayment);
-        SequenceHandler.getInstance().setInputValid(isInputValid());
+        customerHandler.directPaymentSelected(event.getSource() == cardPayment);
+        updateButtonsAndLinks();
     }
 
     public boolean isInputValid()
@@ -165,7 +160,7 @@ public class PaymentController implements Initializable, CustomerListener, Activ
 
     @Override
     public void receivedActive() {
-        SequenceHandler.getInstance().setInputValid(isInputValid());
+        updateButtonsAndLinks();
     }
     //TODO Implmenet save method.
 }

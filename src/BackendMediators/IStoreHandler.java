@@ -18,7 +18,6 @@ import java.util.Locale;
     ProductCategory_ getCategory(int productID);
     List<ShoppingItem> getCurrentShoppingCart();
     List<Order> getOrders();
-    void getOrder(int index);
     void placeOrder();
     double getProductPrice(Product product);
     double getProductPrice(int productID);
@@ -38,4 +37,5 @@ import java.util.Locale;
     Image getImage(int productID);
     Image getImage(Product product, int width, int height);
     Image getImage(int productID, int width, int height);
+    Order getOrder(int index);
 }

@@ -1,6 +1,7 @@
 package BackendMediators;
 
 import BackendExtension.CustomerListener;
+import javafx.fxml.FXML;
 import se.chalmers.ait.dat215.project.*;
 
 import java.io.FileInputStream;
@@ -17,7 +18,7 @@ public class CustomerHandler implements ICustomerHandler {
     private static CustomerHandler instance;
     List<CustomerListener> listeners = new ArrayList<>();
     HashMap<String, List<ShoppingItem>> shoppingLists = new HashMap<String, List<ShoppingItem>>();
-
+    private boolean directPayment;
     private CustomerHandler()
     {
         try {
@@ -37,7 +38,12 @@ public class CustomerHandler implements ICustomerHandler {
         }
         return instance;
     }
-
+    public void directPaymentSelected(boolean directPayment){
+        this.directPayment = directPayment;
+    }
+    public boolean isDirectPaymentSelcted(){
+        return directPayment;
+    }
     @Override
     public boolean isFirstRun(){
         return handler.isFirstRun();

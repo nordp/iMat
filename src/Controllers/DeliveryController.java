@@ -57,14 +57,10 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
         handler.addCustomerListener(this);
         customerInfoChanged();
         Util.setNumericTextField(postcodeTF);
-        nameTF.textProperty().addListener((observable, oldValue, newValue) -> {
-            SequenceHandler.getInstance().setInputValid(isInputValid());});
-        addressTF.textProperty().addListener((observable, oldValue, newValue) -> {
-            SequenceHandler.getInstance().setInputValid(isInputValid());});
-        postcodeTF.textProperty().addListener((observable, oldValue, newValue) -> {
-            SequenceHandler.getInstance().setInputValid(isInputValid());});
-        cityTF.textProperty().addListener((observable, oldValue, newValue) -> {
-            SequenceHandler.getInstance().setInputValid(isInputValid());});
+        nameTF.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        addressTF.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        postcodeTF.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
+        cityTF.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
 
         ToggleGroup toggleGroup = new ToggleGroup();
         t0_0.setToggleGroup(toggleGroup);
@@ -88,7 +84,9 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
         t2_4.setToggleGroup(toggleGroup);
         t3_4.setToggleGroup(toggleGroup);
     }
-
+    private void updateButtonsAndLinks(){
+        SequenceHandler.getInstance().setInputValid(isInputValid());
+    }
     @FXML private void saveText(ActionEvent actionEvent) {
         if (actionEvent.getSource().equals(nameTF)) {
             if (nameTF.getText().contains(" ") && nameTF.getText().trim().length() > 2) {
@@ -110,7 +108,7 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
 
     @FXML private void toggleButtonPressed(ActionEvent event){
         // Handle this via a new file? since backend has no support for deliveryTime
-        SequenceHandler.getInstance().setInputValid(isInputValid());
+        updateButtonsAndLinks();
     }
 
     public boolean isInputValid(){
@@ -126,6 +124,6 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     }
     @Override
     public void receivedActive() {
-        SequenceHandler.getInstance().setInputValid(isInputValid());
+        updateButtonsAndLinks();
     }
 }
