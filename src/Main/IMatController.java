@@ -148,6 +148,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML private void searchPerformed()
     {
+
         productGridController.fillGrid("Sökresultat",store.getProductsFromSearch(searchField.getText()));
         sequenceHandler.setCategoriesActive(false);
         sequenceHandler.setCheckoutActive(false);
