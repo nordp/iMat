@@ -1,9 +1,12 @@
+import BackendMediators.CustomerHandler;
 import BackendMediators.StoreHandler;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -15,6 +18,7 @@ public class IMat extends Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
                 StoreHandler.getInstance().shutDown();
+                CustomerHandler.getInstance().shutDown();
             }
         }));
     }

@@ -93,6 +93,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         }
 
 
+
     }
 
     private void favoritesClicked()
@@ -177,6 +178,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     public void setCheckoutPane(int activePane) {
         lightboxController.checkoutController.changePaneContent(activePane);
     }
+
     public void previousCheckout(){
         lightboxController.previousCheckoutPaneSelected();
     }

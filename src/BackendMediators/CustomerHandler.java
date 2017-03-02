@@ -3,8 +3,11 @@ package BackendMediators;
 import BackendExtension.CustomerListener;
 import se.chalmers.ait.dat215.project.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.*;
 
 /**
  * Created by gustav on 2017-02-23.
@@ -13,8 +16,20 @@ public class CustomerHandler implements ICustomerHandler {
     IMatDataHandler handler = IMatDataHandler.getInstance();
     private static CustomerHandler instance;
     List<CustomerListener> listeners = new ArrayList<>();
+    HashMap<String, List<ShoppingItem>> shoppingLists = new HashMap<String, List<ShoppingItem>>();
 
-    private CustomerHandler(){}
+    private CustomerHandler()
+    {
+        try {
+            FileInputStream fileIn = new FileInputStream("shoppinglists.dat");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            shoppingLists = (HashMap<String, List<ShoppingItem>>)in.readObject();
+            in.close();
+            fileIn.close();
+        }catch(Exception ex) {
+            // Filenotfound, memory ex blabla we cant do anything anyway so just continue.
+        }
+    }
 
     public static CustomerHandler getInstance(){
         if (instance == null){
@@ -161,5 +176,49 @@ public class CustomerHandler implements ICustomerHandler {
         return handler.getCreditCard().getHoldersName();
     }
 
+    public void addShoppingList(String name, List<ShoppingItem> list)
+    {
+        shoppingLists.put(name, list);
+    }
+
+    public void removeShoppingList(String name)
+    {
+        shoppingLists.remove(name);
+    }
+
+    public List<ShoppingItem> GetShoppingList(String name)
+    {
+        return shoppingLists.get(name);
+    }
+
+    public HashMap<String, List<ShoppingItem>> getShoppingLists()
+    {
+        return shoppingLists;
+    }
+
+    public void shutDown()
+    {
+        // Save shoppinglists
+        System.out.println("Saving n shoppinglists, n=" + shoppingLists.size());
+
+        /*
+        // The outcommented code will add the current cart as a shoppinglist called TESTLISTA
+        if(shoppingLists.size() == 0)
+        {
+            ShoppingCart cart = handler.getShoppingCart();
+            addShoppingList("TESTLISTA", cart.getItems());
+        }*/
+
+        try
+        {
+            FileOutputStream fout =
+                    new FileOutputStream("shoppinglists.dat") ;
+            ObjectOutputStream out = new ObjectOutputStream(fout);
+            out.writeObject(shoppingLists);
+            out.close();
+            fout.close();
+        }
+        catch (Exception redundantName){}
+    }
 
 }
