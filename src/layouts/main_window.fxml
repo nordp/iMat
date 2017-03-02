@@ -30,9 +30,9 @@
          <left>
             <AnchorPane prefHeight="649.0" prefWidth="172.0" BorderPane.alignment="CENTER">
                <children>
-                  <Accordion fx:id="products_accordion" layoutX="-4.0" layoutY="67.0" prefHeight="314.0" prefWidth="202.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                  <Accordion fx:id="products_accordion" layoutX="-4.0" layoutY="67.0" prefHeight="495.0" prefWidth="196.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
                     <panes>
-                      <TitledPane collapsible="false" expanded="false" prefHeight="224.0" prefWidth="202.0" text="Favoritvaror">
+                      <TitledPane collapsible="false" expanded="false" prefWidth="202.0" text="Favoritvaror">
                            <font>
                               <Font size="16.0" />
                            </font>

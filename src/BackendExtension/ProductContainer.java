@@ -130,6 +130,97 @@ public class ProductContainer {
         return productMap.get(p);
     }
 
+
+    public String TranslateToSwedish(String name)
+    {
+        switch (name)
+        {
+            case "MEAT": return "Kött";
+            case "GREEN": return "Grönt";
+            case "BREAD": return "Bröd";
+            case "DAIRY": return "Mejeri";
+            case "DRINKS": return "Drycker";
+            case "PANTRY": return "Skafferi";
+            case "CANDY": return "Godis";
+            case "BEEF": return "Biff";
+            case "CHICKEN": return "Kyckling";
+            case "FISH": return "Fisk";
+            case "VEGETABLE": return "Grönsaker";
+            case "BERRY": return "Bär";
+            case "CITRUS": return "Citrus";
+            case "CABBAGE": return "Kål";
+            case "FRUIT": return "Frukt";
+            case "ROOT": return "Rötter";
+            case "POD": return "Balj";
+            case "POTATO": return "Potatis";
+            case "HERB": return "Ört";
+            case "EXOTIC": return "Exotisk";
+            case "NUTS": return "Nötter";
+            case "MELONS": return "Meloner";
+            case "SOFT": return "Mjuka";
+            case "HARD": return "Hårda";
+            case "CHEESE": return "Ost";
+            case "MILK": return "Mjölk";
+            case "EGG": return "Ägg";
+            case "JUICE": return "Juice";
+            case "SODA": return "Soda";
+            case "WATER": return "Vatten";
+            case "TEA": return "Te";
+            case "PASTA": return "Pasta";
+            case "RICE": return "Ris";
+            case "BAKING": return "Bak";
+            case "SWEET": return "Sött";
+            case "SNACKS": return "Snacks";
+            case "ALL": return "Alla";
+            default: return "";
+        }
+    }
+
+    public String TranslateToEnglish(String name)
+    {
+        switch (name)
+        {
+            case "Kött": return "MEAT";
+            case "Grönt": return "GREEN";
+            case "Bröd": return "BREAD";
+            case "Mejeri": return "DAIRY";
+            case "Drycker": return "DRINKS";
+            case "Skafferi": return "PANTRY";
+            case "Godis": return "CANDY";
+            case "Biff": return "BEEF";
+            case "Kyckling": return "CHICKEN";
+            case "Fisk": return "FISH";
+            case "Grönsaker": return "VEGETABLE";
+            case "Bär": return "BERRY";
+            case "Citrus": return "CITRUS";
+            case "Kål": return "CABBAGE";
+            case "Frukt": return "FRUIT";
+            case "Rötter": return "ROOT";
+            case "Balj": return "POD";
+            case "Potatis": return "POTATO";
+            case "Ört": return "HERB";
+            case "Exotisk": return "EXOTIC";
+            case "Nötter": return "NUTS";
+            case "Meloner": return "MELONS";
+            case "Mjuka": return "SOFT";
+            case "Hårda": return "HARD";
+            case "Ost": return "CHEESE";
+            case "Mjölk": return "MILK";
+            case "Ägg": return "EGG";
+            case "Juice": return "JUICE";
+            case "Soda": return "SODA";
+            case "Vatten": return "WATER";
+            case "Te": return "TEA";
+            case "Pasta": return "PASTA";
+            case "Ris": return "RICE";
+            case "Bak": return "BAKING";
+            case "Sött": return "SWEET";
+            case "Snacks": return "SNACKS";
+            case "Alla": return "ALL";
+            default: return "";
+        }
+    }
+
     private void loadProductTranslations()
     {
         IMatDataHandler handler = IMatDataHandler.getInstance();

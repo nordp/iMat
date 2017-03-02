@@ -76,19 +76,20 @@ public class IMatController implements Initializable, ShoppingCartListener{
             TitledPane pane = new TitledPane();
             pane.setId(String.valueOf(i++));
             pane.setFont(new Font(16));
-            pane.setText(cat.toString());
+            pane.setText(ProductContainer.getInstance().TranslateToSwedish(cat.toString()));
             List<ProductSubCategory> subCats = products.getSubCategories( products.getParentCategory(cat.toString()));
             FlowPane grid = new FlowPane();
             grid.setVgap(4);
             grid.setHgap(4);
+           // grid.prefHeight(300);
             for(ProductSubCategory subCat : subCats){
-                Button b = new Button(subCat.toString());
+                Button b = new Button(ProductContainer.getInstance().TranslateToSwedish(subCat.toString()));
                 b.setOnMouseClicked(sub -> categoryClicked(new ProductCategory_(null,subCat)));
                 grid.getChildren().add(b);
             }
             pane.setContent(grid);
             pane.setOnMouseClicked(sup -> categoryClicked(new ProductCategory_(cat,null)));
-
+           // products_accordion.setPrefHeight(1000);
             products_accordion.getPanes().add(pane);
         }
 
@@ -136,7 +137,10 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     @FXML private void categoryClicked(ProductCategory_ cat) { //Bör ta en kategori som indata.
-        productGridController.fillGrid(cat.toString(),store.getProductsFromCategories(cat));
+        // Lets assume that the TPane is collapsed, what should happend? nothing of the below i guess so we could just return to fix this nullptr exc,
+        // Maybe we want to clear the grid aswell and make something happend in the sequenceHandler, check this out.
+        if(products_accordion.getExpandedPane() == null) return;
+        productGridController.fillGrid(ProductContainer.getInstance().TranslateToSwedish(cat.toString()),store.getProductsFromCategories(cat));
         sequenceHandler.setCategoriesIndex(Integer.parseInt(products_accordion.getExpandedPane().getId()));     // Detta skapar en nullpointer när kategorin redan är vald.
         sequenceHandler.setCategoriesActive(true);
         sequenceHandler.setCheckoutActive(false);

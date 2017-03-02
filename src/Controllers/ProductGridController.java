@@ -77,7 +77,7 @@ public class ProductGridController{
         {
 
             // Add the parent category text
-            Label parentLabel = new Label(entry0.getKey().toString());
+            Label parentLabel = new Label(ProductContainer.getInstance().TranslateToSwedish(entry0.getKey().toString()));
             parentLabel.alignmentProperty().setValue(Pos.CENTER);
             parentLabel.setFont(new Font(24));
             parentLabel.textAlignmentProperty().setValue(TextAlignment.CENTER);
@@ -90,7 +90,7 @@ public class ProductGridController{
                 separator.setPrefWidth(600);
                 productGrid.getChildren().add(separator);
                 // Add the sub category text
-                Label subLabel = new Label(entry1.getKey().toString());
+                Label subLabel = new Label(ProductContainer.getInstance().TranslateToSwedish(entry1.getKey().toString()));
                 subLabel.alignmentProperty().setValue(Pos.TOP_LEFT);
                 subLabel.setFont(new Font(18));
                 subLabel.textAlignmentProperty().setValue(TextAlignment.CENTER);
