@@ -8,8 +8,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Light;
+import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
 import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.Customer;
+
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -60,8 +64,12 @@ public class AccountController implements Initializable, CustomerListener {
     @FXML private void saveText() {
         if (nameTF.getText().contains(" ")) {
             String[] names = nameTF.getText().split(" ");
-            customerHandler.setFirstName(names[0]);
-            customerHandler.setLastName(names[1]);
+            if(names.length>0) {
+                customerHandler.setFirstName(names[0]);
+            }
+            if(names.length>1) {
+                customerHandler.setLastName(names[1]);
+            }
         } else {
             customerHandler.setFirstName(nameTF.getText());
             customerHandler.setLastName("");
@@ -78,7 +86,10 @@ public class AccountController implements Initializable, CustomerListener {
         customerHandler.setValidYear(yearExp.getSelectionModel().getSelectedIndex());
         customerHandler.fireCustomerChangedEvent();
     }
-
+    @FXML private void saveButton(ActionEvent event){
+        saveText();
+        LightboxController.closeWindow();
+    }
     @Override
     public void customerInfoChanged() {
         nameTF.setText(customerHandler.getFirstName() + " " + customerHandler.getLastName());

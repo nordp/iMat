@@ -25,6 +25,8 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
     @FXML TextField validYearTF;
     @FXML Label sumLabel;
     @FXML Label itemsLabel;
+    @FXML Label deliveryDayLabel;
+    @FXML Label deliveryTimeLabel;
     CustomerHandler customerHandler;
     StoreHandler storeHandler;
 
@@ -50,6 +52,19 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
 
     @Override
     public void customerInfoChanged() {
+        StringBuilder deliveryInfo = new StringBuilder("namn: ");
+        deliveryInfo.append(customerHandler.getFirstName() + " " + customerHandler.getLastName() + "\nAdress: " +
+        customerHandler.getAddress() + "\nPostkod: " + customerHandler.getPostCode() + "\nPostAdress: " + customerHandler.getPostAddress());
+        deliveryInfoTA.setText(deliveryInfo.toString());    // Färgen här blir helt fel.
+        cardNumberTF.setText("****");
+        for (int i = 1; i<3; i++) {
+            cardNumberTF.appendText(" " + customerHandler.getCardFour(i));
+        }
+        cardNumberTF.appendText(" ****");
+        validMonthTF.setText(String.valueOf(customerHandler.getValidMonth()));
+        validYearTF.setText(String.valueOf(customerHandler.getValidYear()));
+        cardNameTF.setText(customerHandler.getCardHolder());
+
         //TODO Set labels to reflect current info
     }
 

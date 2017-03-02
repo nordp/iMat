@@ -49,9 +49,9 @@ public class PaymentController implements Initializable, CustomerListener, Activ
                 SequenceHandler.getInstance().setInputValid(isInputValid()));
         cardFourthFour.textProperty().addListener((observable, oldValue, newValue) ->
                 SequenceHandler.getInstance().setInputValid(isInputValid()));
-        validYear.selectionModelProperty().addListener((observable, oldValue, newValue) -> {
+        validYear.valueProperty().addListener((observable, oldValue, newValue) -> {
                 SequenceHandler.getInstance().setInputValid(isInputValid());});
-        validMonth.selectionModelProperty().addListener((observable, oldValue, newValue) -> {
+        validMonth.valueProperty().addListener((observable, oldValue, newValue) -> {
                 SequenceHandler.getInstance().setInputValid(isInputValid());});
         CVCCode.textProperty().addListener((observable, oldValue, newValue) ->
                 SequenceHandler.getInstance().setInputValid(isInputValid()));

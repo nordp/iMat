@@ -22,6 +22,7 @@ public class LightboxController implements Initializable{
     @FXML Parent myAccount;
     @FXML Parent checkout;
     @FXML public CheckoutController checkoutController;
+    private static LightboxController controller;
 
     List<Parent> panes;
     List<Pane> shadows;
@@ -30,11 +31,16 @@ public class LightboxController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         panes = new ArrayList<>();
         shadows = new ArrayList<>();
+        controller = this;
         panes.add(history);
         panes.add(shoppingLists);
         panes.add(myAccount);
         panes.add(checkout);
         close();
+    }
+
+    protected static void closeWindow(){
+        controller.close();
     }
 
     public LightBoxEnum getActiveView()

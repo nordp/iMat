@@ -12,7 +12,7 @@ public class SequenceHandler {
     private int MAX_CHECKOUT_VALUE = 4;
     private int MAX_CATEGORY_VALUE = 6;
     private int checkoutIndex = 0;
-    private int categoryIndex = -1; //TODO Is it wise to use instance values since it is possible to use different means of navigating?
+    private int categoryIndex = 0; //TODO Is it wise to use instance values since it is possible to use different means of navigating?
     private boolean checkoutActive = false;
     private static Main.SequenceHandler instance = null;
     private boolean inputValid = false;
@@ -141,7 +141,6 @@ public class SequenceHandler {
         updateButtonStatus();
     }
     private void updateButtonText(){
-        System.out.println(nextButtonLabel + " " + previousButtonLabel);
         if(nextButtonLabel != null && previousButtonLabel != null) {
             System.out.println(categoriesActive);
             if (categoriesActive) {

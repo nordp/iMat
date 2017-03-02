@@ -25,10 +25,7 @@ public class CheckoutController implements Initializable{
     public final static int RECEIPT = 5;
 
     private int active = 0;
-    private int lastActive = 0;
 
-        @FXML AnchorPane pane;
-        @FXML Button nextButton;
         @FXML Hyperlink cartLink;
         @FXML Hyperlink deliveryLink;
         @FXML Hyperlink confirmationLink;

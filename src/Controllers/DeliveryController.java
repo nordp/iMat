@@ -108,7 +108,8 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
         }
     }
 
-    @FXML private void isDoneListener(ActionEvent event){
+    @FXML private void toggleButtonPressed(ActionEvent event){
+        // Handle this via a new file? since backend has no support for deliveryTime
         SequenceHandler.getInstance().setInputValid(isInputValid());
     }
 
