@@ -4,6 +4,7 @@
 .button {
     -fx-background-color: #DBC390;
     -fx-background-radius: 20px;
+    -fx-font: Bold 14px "Arial";
     /*
     -fx-border-radius: 20px;
     -fx-border-color: red;
