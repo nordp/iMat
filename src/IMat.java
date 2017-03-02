@@ -33,5 +33,6 @@ public class IMat extends Application {
         scene.getStylesheets().add("layouts/style.css");
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setTitle("iMat");
     }
 }
