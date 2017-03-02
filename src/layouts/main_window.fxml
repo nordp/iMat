@@ -39,7 +39,7 @@
                   </Accordion>
                   <ImageView fitHeight="72.0" fitWidth="196.0" layoutX="-3.0" layoutY="1.0" onMouseClicked="#toHome" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <image>
-                        <Image url="@../resources/img/logo_2.png" />
+                        <Image url="@../resources/img/logo_3.png" />
                      </image>
                   </ImageView>
                   <Pane fx:id="shadow" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#shadowClicked" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
