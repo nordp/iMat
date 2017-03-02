@@ -3,6 +3,7 @@ package BackendMediators;
 import BackendExtension.CustomerListener;
 import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.Customer;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 
 import java.util.List;

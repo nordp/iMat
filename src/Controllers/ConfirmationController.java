@@ -19,12 +19,14 @@ import java.util.ResourceBundle;
 
 public class ConfirmationController implements CustomerListener, ShoppingCartListener, Initializable, ActivePaneListener{
     @FXML TextArea deliveryInfoTA;
-    @FXML TextField cardNumberTF;
-    @FXML TextField cardNameTF;
-    @FXML TextField validMonthTF;
-    @FXML TextField validYearTF;
-    @FXML Label sumLabel;
-    @FXML Label itemsLabel;
+    @FXML TextField cardNumberTF1;
+    @FXML TextField cardNameTF1;
+    @FXML TextField validMonthTF1;
+    @FXML TextField validYearTF1;
+    @FXML Label sumLabel1;
+    @FXML Label itemsLabel1;
+    @FXML Label deliveryDayLabel;
+    @FXML Label deliveryTimeLabel;
     CustomerHandler customerHandler;
     StoreHandler storeHandler;
 
@@ -50,13 +52,27 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
 
     @Override
     public void customerInfoChanged() {
+        StringBuilder deliveryInfo = new StringBuilder("namn: ");
+        deliveryInfo.append(customerHandler.getFirstName() + " " + customerHandler.getLastName() + "\nAdress: " +
+        customerHandler.getAddress() + "\nPostkod: " + customerHandler.getPostCode() + "\nPostAdress: " + customerHandler.getPostAddress());
+        deliveryInfoTA.setText(deliveryInfo.toString());    // Färgen här blir helt fel.
+        if(customerHandler.isDirectPaymentSelcted()) {
+            cardNumberTF1.setText("****");
+            for (int i = 1; i < 3; i++) {
+                cardNumberTF1.appendText(" " + customerHandler.getCardFour(i));
+            }
+            cardNumberTF1.appendText(" ****");
+            validMonthTF1.setText(String.valueOf(customerHandler.getValidMonth()));
+            validYearTF1.setText(String.valueOf(customerHandler.getValidYear()));
+            cardNameTF1.setText(customerHandler.getCardHolder());
+        }
         //TODO Set labels to reflect current info
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        sumLabel.setText((int)storeHandler.getCartPrice() + " kr");
-        itemsLabel.setText(storeHandler.getCurrentShoppingCart().size() + " st");
+        sumLabel1.setText((int)storeHandler.getCartPrice() + " kr");
+        itemsLabel1.setText(storeHandler.getCurrentShoppingCart().size() + " st");
     }
 
     @Override

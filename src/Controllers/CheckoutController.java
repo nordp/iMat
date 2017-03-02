@@ -25,10 +25,7 @@ public class CheckoutController implements Initializable{
     public final static int RECEIPT = 5;
 
     private int active = 0;
-    private int lastActive = 0;
 
-        @FXML AnchorPane pane;
-        @FXML Button nextButton;
         @FXML Hyperlink cartLink;
         @FXML Hyperlink deliveryLink;
         @FXML Hyperlink confirmationLink;
@@ -47,8 +44,10 @@ public class CheckoutController implements Initializable{
         @FXML ReceiptController receiptController;
         List<ActivePaneListener> controllerList = new ArrayList<>();
         List<Parent> parentList = new ArrayList<>();
+        private static CheckoutController checkout;
         @Override
         public void initialize(URL location, ResourceBundle resources) {
+            checkout = this;
             parentList.add(cart);
             parentList.add(delivery);
             parentList.add(payment);
@@ -66,10 +65,10 @@ public class CheckoutController implements Initializable{
             for(int i = 0; i<parentList.size(); i++){
                 parentList.get(i).setVisible(false);
             }
+            active = paneIndex;
             parentList.get(paneIndex).setVisible(true);
             controllerList.get(paneIndex).receivedActive();
         }
-
         @FXML protected void nextButtonPressed(){
             active++;
             // Temporary to avoid crashes.

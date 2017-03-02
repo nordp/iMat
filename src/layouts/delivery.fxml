@@ -65,7 +65,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ToggleButton fx:id="t0_0" layoutX="94.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="9-12">
+      <ToggleButton fx:id="t0_0" layoutX="94.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="9-12">
          <font>
             <Font size="18.0" />
          </font>
@@ -73,97 +73,97 @@
             <ToggleGroup fx:id="deliverySelection" />
          </toggleGroup>
       </ToggleButton>
-      <ToggleButton fx:id="t1_0" layoutX="214.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t1_0" layoutX="214.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t2_0" layoutX="334.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t2_0" layoutX="334.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t3_0" layoutX="454.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t3_0" layoutX="454.0" layoutY="229.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t0_1" layoutX="94.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t0_1" layoutX="94.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t1_1" layoutX="214.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t1_1" layoutX="214.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t2_1" layoutX="334.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t2_1" layoutX="334.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t3_1" layoutX="454.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t3_1" layoutX="454.0" layoutY="279.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t0_2" layoutX="94.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t0_2" layoutX="94.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t1_2" layoutX="214.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t1_2" layoutX="214.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t2_2" layoutX="334.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t2_2" layoutX="334.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t3_2" layoutX="454.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t3_2" layoutX="454.0" layoutY="329.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t0_3" layoutX="94.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t0_3" layoutX="94.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t1_3" layoutX="214.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t1_3" layoutX="214.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t2_3" layoutX="334.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t2_3" layoutX="334.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t3_3" layoutX="454.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t3_3" layoutX="454.0" layoutY="379.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t0_4" layoutX="94.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t0_4" layoutX="94.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="9-12" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t1_4" layoutX="214.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t1_4" layoutX="214.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="12-15" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t2_4" layoutX="334.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t2_4" layoutX="334.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="15-18" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="t3_4" layoutX="454.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#isDoneListener" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
+      <ToggleButton fx:id="t3_4" layoutX="454.0" layoutY="429.0" minHeight="40.0" mnemonicParsing="false" onAction="#toggleButtonPressed" prefWidth="100.0" text="18-21" toggleGroup="$deliverySelection">
          <font>
             <Font size="18.0" />
          </font>

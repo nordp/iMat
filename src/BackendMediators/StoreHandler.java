@@ -8,9 +8,6 @@ import se.chalmers.ait.dat215.project.*;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by gustav on 2017-02-22.
- */
 public class StoreHandler implements IStoreHandler{
     private static IStoreHandler instance;
 
@@ -70,8 +67,13 @@ public class StoreHandler implements IStoreHandler{
     }
 
     @Override
-    public void getOrder(int index) {
-        handler.getOrders().get(index);
+    public Order getOrder(int index) {
+        return handler.getOrders().get(index);
+    }
+
+    @Override
+    public Order getLastOrder() {
+        return getOrder(handler.getOrders().size()-1);
     }
 
     @Override
