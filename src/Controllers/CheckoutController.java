@@ -65,6 +65,7 @@ public class CheckoutController implements Initializable{
             for(int i = 0; i<parentList.size(); i++){
                 parentList.get(i).setVisible(false);
             }
+            active = paneIndex;
             parentList.get(paneIndex).setVisible(true);
             controllerList.get(paneIndex).receivedActive();
         }

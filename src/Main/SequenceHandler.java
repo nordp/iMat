@@ -1,5 +1,6 @@
 package Main;
 
+import Controllers.LightboxController;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -55,7 +56,13 @@ public class SequenceHandler {
     }
     public void nextButton(){
         if(checkoutActive){
-            if(checkoutIndex<MAX_CHECKOUT_VALUE) {
+            if(checkoutIndex == MAX_CHECKOUT_VALUE){
+                iMatController.closeWindow();
+                setCheckoutActive(false);
+                setCategoriesActive(true);
+                checkoutIndex = 0;
+            }
+            else if(checkoutIndex<MAX_CHECKOUT_VALUE) {
                 checkoutIndex++;
                 iMatController.nextCheckout();
             }
@@ -108,7 +115,7 @@ public class SequenceHandler {
     private boolean isNextButtonActive(){
 
         if(checkoutActive){
-            if(checkoutIndex<MAX_CHECKOUT_VALUE){
+            if(checkoutIndex<=MAX_CHECKOUT_VALUE){
                 return true;
             }
             return false;
@@ -142,7 +149,6 @@ public class SequenceHandler {
     }
     private void updateButtonText(){
         if(nextButtonLabel != null && previousButtonLabel != null) {
-            System.out.println(categoriesActive);
             if (categoriesActive) {
                 nextButtonLabel.setText(categories[categoryIndex + 2]);
                 previousButtonLabel.setText(categories[categoryIndex]);

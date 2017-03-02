@@ -72,6 +72,11 @@ public class StoreHandler implements IStoreHandler{
     }
 
     @Override
+    public Order getLastOrder() {
+        return getOrder(handler.getOrders().size()-1);
+    }
+
+    @Override
     public void placeOrder() {
         handler.placeOrder();
     }

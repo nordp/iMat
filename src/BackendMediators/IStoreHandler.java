@@ -38,4 +38,5 @@ import java.util.Locale;
     Image getImage(Product product, int width, int height);
     Image getImage(int productID, int width, int height);
     Order getOrder(int index);
+    Order getLastOrder();
 }

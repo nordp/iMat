@@ -195,6 +195,10 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     public void nextCheckout() {
         lightboxController.nextCheckoutPaneSelected();
-
+    }
+    protected void closeWindow(){
+        System.out.println("closing");
+        lightboxController.close();
+        lightboxController.resetCheckout();
     }
 }

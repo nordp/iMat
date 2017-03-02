@@ -39,8 +39,11 @@ public class LightboxController implements Initializable{
         close();
     }
 
-    protected static void closeWindow(){
+    protected static void closeWindow() {
         controller.close();
+    }
+    public void resetCheckout(){
+        checkoutController.changePaneContent(0);
     }
 
     public LightBoxEnum getActiveView()
