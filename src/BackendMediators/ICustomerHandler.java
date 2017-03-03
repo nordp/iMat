@@ -1,10 +1,7 @@
 package BackendMediators;
 
 import BackendExtension.CustomerListener;
-import se.chalmers.ait.dat215.project.CreditCard;
-import se.chalmers.ait.dat215.project.Customer;
-import se.chalmers.ait.dat215.project.Order;
-import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.*;
 
 import java.util.List;
 
@@ -15,6 +12,8 @@ import java.util.List;
     void addFavorite(Product product);
     void addFavorite(int productID);
     void addCustomerListener(CustomerListener cls);
+    void addShoppingList(String name, List<ShoppingItem> list);
+    void removeShoppingList(String name);
     void removeFavorite(Product product);
     void removeFavorite(int productID);
     boolean isFavorite(Product product);

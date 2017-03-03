@@ -1,5 +1,12 @@
 ReadME IMat:
 
+**Förslag på färgtema**
+    #44B25A
+    #CDFFD7
+    #7BFF95
+    #B23245
+    #FF7B8E
+
 Handling 1:
 Sökfuntionen, Lägg till fiskpinnar.
 1 JA

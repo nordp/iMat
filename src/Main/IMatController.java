@@ -48,6 +48,17 @@ public class IMatController implements Initializable, ShoppingCartListener{
     IStoreHandler store = new StoreHandler();
     List<ProductParentCategory> parentCategories;
     SequenceHandler sequenceHandler;
+
+    private static IMatController instance;
+
+    public static IMatController getInstance(){
+        return instance;
+    }
+
+    public IMatController(){
+        instance = this;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         sequenceHandler = SequenceHandler.getInstance(this, nextButton, backButton, nextLabel, previousLabel);
@@ -113,7 +124,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         sequenceHandler.setCategoriesActive(false);
     }
 
-    @FXML private void historyClicked(){
+    @FXML public void historyClicked(){
         lightboxController.history();
         sequenceHandler.setCheckoutActive(false);
         sequenceHandler.setCategoriesActive(false);
@@ -176,7 +187,11 @@ public class IMatController implements Initializable, ShoppingCartListener{
         if (cartEvent.isAddEvent()){
             currentCartList.getItems().add(cartEvent.getShoppingItem());
         } else {
-            currentCartList.getItems().remove(cartEvent.getShoppingItem());
+            if(store.getCurrentShoppingCart().size() == 0){
+                currentCartList.getItems().clear();
+            } else {
+                currentCartList.getItems().remove(cartEvent.getShoppingItem());
+            }
         }
     }
 

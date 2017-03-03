@@ -3,11 +3,19 @@ package Utility;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
+import se.chalmers.ait.dat215.project.ShoppingItem;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Phnor on 2017-03-01.
  */
 public class Util {
+    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
     private Util(){}
 
     public static void setNextTextFieldOn4Chars(TextField a, TextField b)
@@ -67,5 +75,21 @@ public class Util {
         } else {
             return String.format("%s",amount.doubleValue());
         }
+    }
+
+    public static String formatTime(Date time){
+        return timeFormat.format(time);
+    }
+
+    public static String formatDate(Date date){
+        return dateFormat.format(date);
+    }
+
+    public static int calcSum(List<ShoppingItem> list){
+        int sum = 0;
+        for (ShoppingItem item : list){
+            sum += item.getTotal();
+        }
+        return sum;
     }
 }

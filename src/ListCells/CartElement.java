@@ -31,12 +31,9 @@ public class CartElement extends ListCell<ShoppingItem>{
     @FXML Label totalPrice;
     @FXML Label amountTF;
     @FXML Label unitLabel;
-    private ShoppingItem item;
+    @FXML Button removeButton;
     FXMLLoader mLLoader;
 
-
-    public CartElement(){
-    }
     @Override
     public void updateItem(ShoppingItem item, boolean empty) {
         super.updateItem(item, empty);
@@ -54,39 +51,15 @@ public class CartElement extends ListCell<ShoppingItem>{
                     e.printStackTrace();
                 }
             }
-            this.item = item;
+            removeButton.setOnAction(e -> StoreHandler.getInstance().removeFromCart(item));
+
             productName.setText(item.getProduct().getName());
             pricePerUnit.setText(Util.format(item.getProduct().getPrice()));
-            unitLabel.setText(item.getProduct().getUnitSuffix());
+            unitLabel.setText(item.getProduct().getUnit());
             totalPrice.setText(Util.format(item.getTotal()) + " kr");
             amountTF.setText(Util.format(item.getAmount()));
             setGraphic(grid);
         }
     }
 
-    public void onRemove(ActionEvent event) {   //Should be changed to only handle integers. the listeners should also be looked over.
-        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix(),"");
-        Double amount = Double.parseDouble(nr);
-        amount-=1;
-        amount = Math.max(0,amount);
-        amountTF.setText(Util.format(amount) + item.getProduct().getUnitSuffix());
-        valueChanged();
-    }
-
-    public void onAdd(ActionEvent event) {
-        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix(),"");
-        Double amount = Double.parseDouble(nr);
-        amount+=1;
-        amountTF.setText(Util.format(amount) + item.getProduct().getUnitSuffix());
-        valueChanged();
-    }
-    @FXML private void valueChanged(){
-        String nr = amountTF.getText().replaceAll(item.getProduct().getUnitSuffix(),"");
-        // How could this happend?
-        /*if(Double.parseDouble(amountTF.getText())<=0){
-            amountTF.setText("0");
-        }*/
-        item.setAmount(Double.parseDouble(nr));
-        totalPrice.setText(Util.format(item.getTotal()) + " Kr");
-    }
 }
