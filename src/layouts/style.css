@@ -6,9 +6,11 @@
 }
 .button {
     /* -fx-background-color: #44B25A; */
-    -fx-background-color: #72B29E;
-    -fx-background-radius: 20px;
+    /* -fx-background-color: #72B29E; */
+    -fx-background-color: linear-gradient(#72B29E, #588A7A);
+    -fx-background-radius: 15px;
     -fx-font: bold 14px "Arial";
+    -fx-effect: dropshadow(gaussian, silver, 2, 0.3, 1px, 1px);
     /*
     -fx-border-radius: 20px;
     -fx-border-color: red;
@@ -16,36 +18,39 @@
     -fx-background-insets: 2;
     */
 }
+.button:hover {
+    /* -fx-background-color: #7BFF95; */
+    /* -fx-background-color: #90E0C7; */
+    -fx-background-color: linear-gradient(#90E0C7, #78BAA5);
+    -fx-effect: dropshadow(gaussian, #808080, 10, 0.2, 0, 0);
+}
+.button:pressed {
+    -fx-background-color: linear-gradient(#78BAA5, #90E0C7);
+    /* -fx-background-color: linear-gradient(#93EBC5, #72B29E, #93EBC5); */
+    /* -fx-background-color: linear-gradient(#7BFF95, #49E564, #7BFF95); */
+}
 .toggle-button {
-    -fx-background-color: #72B29E;
-    -fx-background-radius: 20px;
+    -fx-background-color: linear-gradient(#72B29E, #588A7A);
+    -fx-effect: dropshadow(gaussian, silver, 2, 0.3, 1px, 1px);
+    /* -fx-background-color: #72B29E; */
+    -fx-background-radius: 15px;
     -fx-font: bold 14px "Arial";
 }
 .toggle-button: selected {
     -fx-background-color: linear-gradient(#629988, #69A391);
     /* -fx-background-color: linear-gradient(#93EBC5, #72B29E, #93EBC5); */
-    /* -fx-effect: dropshadow(gaussian, #808080, 10, 0.2, 0, 0) */
     -fx-border-color: #459EA8;
     -fx-border-width: 5px;
-    -fx-border-radius: 20px;
+    -fx-border-radius: 15px;
 }
 .ImageButton{
     -fx-background-color: rgba(0,0,0,0);
-}
-.button:hover {
-    /* -fx-background-color: #7BFF95; */
-    -fx-background-color: #90E0C7;
-    -fx-effect: dropshadow(gaussian, #808080, 10, 0.2, 0, 0);
-}
-.button:pressed {
-    -fx-background-color: linear-gradient(#93EBC5, #72B29E, #93EBC5);
-    /* -fx-background-color: linear-gradient(#7BFF95, #49E564, #7BFF95); */
 }
 .titled-pane {
 }
 .titled-pane > .title {
     -fx-background-color: linear-gradient(#A0FFD6, #93EBC5);
-    -fx-font: bold 16px "Arial";
+    /* -fx-font: bold 16px "Arial"; */
     -fx-background-radius: 2px;
     -fx-border-radius: 2px;
     -fx-background-insets: 1px;
@@ -85,7 +90,7 @@
 }
 #productElement_GP {
     -fx-border-color: silver;
-    -fx-border-radius: 20px;
+    -fx-border-radius: 15px;
     -fx-border-width: 1px;
     -fx-padding: 10px;
 }

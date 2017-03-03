@@ -93,7 +93,7 @@
             </AnchorPane>
          </right>
          <center>
-            <AnchorPane id="mainWindow_AP" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="searchField" layoutX="-157.0" layoutY="56.0" onAction="#searchPerformed" prefHeight="64.0" prefWidth="525.0" promptText="Sök..." AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="5.0">
                      <font>
