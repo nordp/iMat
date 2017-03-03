@@ -1,9 +1,12 @@
 .root {
-     -fx-background-color: linear-gradient(#F2F2EF, #f2ede1);
-    /* -fx-background-color: blue; */
+    /* -fx-background-color: linear-gradient(#F2F2EF, #f2ede1); */
+    /* -fx-background-color: linear-gradient(#CDFFD7, #F2EDE1); */
+    /* -fx-background-color: #CDFFD7; */
+    -fx-background-color: #E2FFD7;
 }
 .button {
-    -fx-background-color: #DBD390;
+    /* -fx-background-color: #44B25A; */
+    -fx-background-color: #72B29E;
     -fx-background-radius: 20px;
     -fx-font: bold 14px "Arial";
     /*
@@ -17,21 +20,24 @@
     -fx-background-color: rgba(0,0,0,0);
 }
 .button:hover {
-    -fx-background-color: #DBC3CC;
+    -fx-background-color: #7BFF95;
     -fx-effect: dropshadow(gaussian, #808080, 10, 0.2, 0, 0);
 }
 .button:pressed {
-    -fx-background-color: linear-gradient(#DBAB6C, #DBC390);
+    -fx-background-color: linear-gradient(#7BFF95, #49E564, #7BFF95);
 }
 .titled-pane {
 }
 .titled-pane > .title {
-    -fx-background-color: #DBC390;
-    -fx-font: bold 14px "Arial";
-    -fx-background-radius: 15px;
+    -fx-background-color: linear-gradient(#A0FFD6, #A0FFD6);
+    -fx-font: bold 16px "Arial";
+    -fx-background-radius: 2px;
+    -fx-border-radius: 2px;
+    -fx-background-insets: 1px;
+
 }
 .titled-pane: focused{
-    -fx-font: bold 14px "Arial";
+    -fx-font: bold 16px "Arial";
 }
 .titled-pane > *.content {
     -fx-background-color: transparent;
@@ -48,10 +54,10 @@
 #shoppingListLabel {
     -fx-font: bold 14px "Arial";
 }
-#nextButton {
+#nextButtonLabel {
     -fx-font: bold 14px "Arial";
 }
-#backButton {
+#backButtonLabel {
     -fx-font: bold 14px "Arial";
 }
 #nextButton: hover {

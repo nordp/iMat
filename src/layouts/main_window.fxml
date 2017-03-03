@@ -117,7 +117,7 @@
                                     <Image url="@../resources/img/previousArrow.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="previousLabel">
+                              <Label id="backButtonLabel" fx:id="previousLabel">
                                  <font>
                                     <Font size="36.0" />
                                  </font>
@@ -135,7 +135,7 @@
                                     <Image url="@../resources/img/NextArrow.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="nextLabel" text="Kött">
+                              <Label id="nextButtonLabel" fx:id="nextLabel" text="Kött">
                                  <font>
                                     <Font size="36.0" />
                                  </font>
