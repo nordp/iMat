@@ -191,7 +191,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     public void previousCategory(int categoryIndex) {
         productGridController.fillGrid(parentCategories.get(categoryIndex).toString(), store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
         products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex+1));
-    }
+}
 
     public void nextCheckout() {
         lightboxController.nextCheckoutPaneSelected();

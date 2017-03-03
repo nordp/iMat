@@ -19,6 +19,7 @@ public class StoreHandler implements IStoreHandler{
     }
         return instance;}
 
+
     @Override
     public void addToCart(ShoppingItem product) {
         // fulhack :p
@@ -74,6 +75,15 @@ public class StoreHandler implements IStoreHandler{
     @Override
     public Order getLastOrder() {
         return getOrder(handler.getOrders().size()-1);
+    }
+
+    @Override
+    public void removeFromCart(int index, int amount) {
+    }
+
+    @Override
+    public void removeFromCart(ShoppingItem item) {
+        handler.getShoppingCart().removeItem(item);
     }
 
     @Override

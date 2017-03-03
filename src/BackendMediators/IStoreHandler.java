@@ -39,4 +39,6 @@ import java.util.Locale;
     Image getImage(int productID, int width, int height);
     Order getOrder(int index);
     Order getLastOrder();
+    void removeFromCart(int index, int amount);
+    void removeFromCart(ShoppingItem item);
 }

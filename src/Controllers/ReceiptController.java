@@ -48,6 +48,7 @@ public class ReceiptController implements Initializable, ActivePaneListener{
     @Override
     public void receivedActive() {
         storeHandler.placeOrder();
+        storeHandler.clearCurrentShoppingCart();
         Order lastOrder = storeHandler.getLastOrder();
         //sumLabel.setText(storeHandler.getLastOrder());
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
