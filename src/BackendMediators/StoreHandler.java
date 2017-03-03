@@ -92,6 +92,16 @@ public class StoreHandler implements IStoreHandler{
     }
 
     @Override
+    public double getTotalOrderPrice(Order order) {
+        double total = 0;
+        List<ShoppingItem> list = order.getItems();
+        for(ShoppingItem item: list){
+            total += item.getTotal();
+        }
+        return total;
+    }
+
+    @Override
     public double getProductPrice(Product product) {
         return product.getPrice();
     }

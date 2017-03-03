@@ -32,6 +32,10 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML ListView<ShoppingItem> currentCartList;
     @FXML Label sumLabel;
 
+    @FXML Button accountButton;
+    @FXML Button savedCartsButton;
+    @FXML Button historyButton;
+
     @FXML Pane shadow, shadow1, shadow2, shadow3;
     @FXML LightboxController lightboxController;
 
@@ -107,6 +111,11 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
 
     }
+    public void enableButtons(){
+        historyButton.setDisable(false);
+        savedCartsButton.setDisable(false);
+        accountButton.setDisable(false);
+    }
 
     private void favoritesClicked()
     {
@@ -125,6 +134,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     @FXML public void historyClicked(){
+        HistoryController.getInstance().updateList();
         lightboxController.history();
         sequenceHandler.setCheckoutActive(false);
         sequenceHandler.setCategoriesActive(false);
@@ -140,6 +150,13 @@ public class IMatController implements Initializable, ShoppingCartListener{
         lightboxController.checkout();
         sequenceHandler.setCheckoutActive(true);
         sequenceHandler.setCategoriesActive(false);
+        disableButtons();
+    }
+
+    private void disableButtons() {
+        accountButton.setDisable(true);
+        savedCartsButton.setDisable(true);
+        historyButton.setDisable(true);
     }
 
     @FXML private void toHome(){ lightboxController.close();
@@ -214,6 +231,9 @@ public class IMatController implements Initializable, ShoppingCartListener{
     protected void closeWindow(){
         System.out.println("closing");
         lightboxController.close();
+        resetCheckout();
+    }
+    protected void resetCheckout(){
         lightboxController.resetCheckout();
     }
 }

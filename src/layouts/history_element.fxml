@@ -17,9 +17,9 @@
    <graphic>
       <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="1200.0">
          <children>
-            <Label id="shoppingListLabel" text="1" />
-            <Label text="9999 kr" GridPane.columnIndex="2" />
-            <Label text="1 jan 2017" GridPane.columnIndex="1" />
+            <Label id="shoppingListLabel" fx:id="orderNumberLabel" text="1" />
+            <Label fx:id="totalPriceLabel" text="9999 kr" GridPane.columnIndex="2" />
+            <Label fx:id="dateLabel" text="1 jan 2017" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

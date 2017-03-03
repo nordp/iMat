@@ -19,6 +19,7 @@ import java.util.Locale;
     List<ShoppingItem> getCurrentShoppingCart();
     List<Order> getOrders();
     void placeOrder();
+    double getTotalOrderPrice(Order order);
     double getProductPrice(Product product);
     double getProductPrice(int productID);
     double getCartPrice();

@@ -3,12 +3,15 @@ package Controllers;
 /**
  * Created by Phnor on 2017-02-24.
  */
+import Main.IMatController;
 import Main.SequenceHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -99,7 +102,9 @@ public class LightboxController implements Initializable{
         root.setVisible(false);
         setShadows(false);
         activeView = LightBoxEnum.NONE;
-        SequenceHandler.getInstance().setCheckoutActive(true);
+        SequenceHandler.getInstance().setCheckoutActive(false);
+        SequenceHandler.getInstance().setCategoriesActive(true);
+        IMatController.getInstance().enableButtons();
     }
 
     private void setShadows(boolean bool){

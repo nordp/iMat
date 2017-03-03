@@ -12,20 +12,27 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * Created by gustav on 2017-03-03.
- */
 public class HistoryController implements Initializable {
 
-    @FXML
-    Accordion orderAccordion;
+    @FXML Accordion orderAccordion;
     IStoreHandler storeHandler = StoreHandler.getInstance();
-
+    private static HistoryController instance;
+    public static HistoryController getInstance(){
+        if(instance == null){
+            instance = new HistoryController();
+        }
+        return instance;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        instance = this;
+        updateList();
+    }
+    public void updateList(){
+        orderAccordion.getPanes().clear();
         List<Order> orders = storeHandler.getOrders();
-        for (Order currentOrder : orders) {
-            orderAccordion.getPanes().add(new HistoryElement(currentOrder).getBackgroundPane());
-        }
+            for (Order currentOrder : orders) {
+                orderAccordion.getPanes().add(new HistoryElement(currentOrder).getBackgroundPane());
+            }
     }
 }
