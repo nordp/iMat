@@ -12,6 +12,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -67,7 +68,7 @@
             </AnchorPane>
          </left>
          <right>
-            <AnchorPane prefHeight="649.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="649.0" prefWidth="325.0" BorderPane.alignment="CENTER">
                <children>
                   <Button layoutX="74.0" layoutY="606.0" mnemonicParsing="false" onAction="#toCheckout" prefHeight="63.0" prefWidth="190.0" text="Till kassa" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                      <font>
@@ -76,7 +77,7 @@
                   </Button>
                   <ListView fx:id="currentCartList" layoutY="71.0" prefHeight="462.0" prefWidth="196.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="71.0" />
                   <Separator layoutX="11.0" layoutY="151.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Label alignment="CENTER" layoutX="71.0" layoutY="15.0" text="Kundvagn" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                  <Label alignment="CENTER" layoutX="71.0" layoutY="15.0" text="Kundvagn" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font size="27.0" />
                      </font>
@@ -92,6 +93,7 @@
                      </font>
                   </Label>
                   <Pane fx:id="shadow3" layoutX="30.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#shadowClicked" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ToggleButton fx:id="editToggle" layoutX="269.0" layoutY="42.0" mnemonicParsing="false" onAction="#setCartEditable" text="Ändra" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="42.0" />
                </children>
             </AnchorPane>
          </right>

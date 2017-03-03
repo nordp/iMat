@@ -6,6 +6,7 @@ import BackendMediators.IStoreHandler;
 import BackendMediators.StoreHandler;
 import Controllers.*;
 import ListCells.CartElement;
+import ListCells.EditableCartElementFactory;
 import Main.SequenceHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -16,12 +17,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import javafx.util.Callback;
 import se.chalmers.ait.dat215.project.*;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import BackendExtension.*;
+
+import javax.swing.*;
 
 public class IMatController implements Initializable, ShoppingCartListener{
 
@@ -30,6 +34,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML ProductGridController productGridController;
 
     @FXML ListView<ShoppingItem> currentCartList;
+    @FXML ToggleButton editToggle;
     @FXML Label sumLabel;
 
     @FXML Button accountButton;
@@ -71,7 +76,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         store.addShoppingCartListener(this);
         shoppingCartChanged(null);
 
-        currentCartList.setCellFactory(param -> new CartElement());
+        currentCartList.setCellFactory(new EditableCartElementFactory(currentCartList.widthProperty().subtract(4),editToggle.isSelected()));
         currentCartList.getItems().addAll(store.getCurrentShoppingCart());
 
 
@@ -195,6 +200,14 @@ public class IMatController implements Initializable, ShoppingCartListener{
         sequenceHandler.previousButton();
     }
 
+    @FXML private void setCartEditable(ActionEvent event){
+        currentCartList.setCellFactory(new EditableCartElementFactory(currentCartList.widthProperty().subtract(4),editToggle.isSelected()));
+        if (editToggle.isSelected()){
+            editToggle.setText("Klar");
+        } else {
+            editToggle.setText("Ändra");
+        }
+    }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {

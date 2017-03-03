@@ -34,6 +34,20 @@ public class CartElement extends ListCell<ShoppingItem>{
     @FXML Button removeButton;
     FXMLLoader mLLoader;
 
+    public CartElement(){
+        if (mLLoader == null) {
+            mLLoader = new FXMLLoader(getClass().getResource("/layouts/cart_element.fxml"));
+            mLLoader.setController(this);
+
+            try {
+                mLLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        setGraphic(grid);
+    }
+
     @Override
     public void updateItem(ShoppingItem item, boolean empty) {
         super.updateItem(item, empty);
@@ -41,16 +55,6 @@ public class CartElement extends ListCell<ShoppingItem>{
             setGraphic(null);
             return;
         } else {
-            if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/layouts/cart_element.fxml"));
-                mLLoader.setController(this);
-
-                try {
-                    mLLoader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
             removeButton.setOnAction(e -> StoreHandler.getInstance().removeFromCart(item));
 
             productName.setText(item.getProduct().getName());
