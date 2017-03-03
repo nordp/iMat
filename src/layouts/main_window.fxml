@@ -112,7 +112,7 @@
                      <graphic>
                         <StackPane prefHeight="150.0" prefWidth="200.0">
                            <children>
-                              <ImageView id="backButton" fitHeight="71.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="71.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../resources/img/previousArrow.png" />
                                  </image>
@@ -135,7 +135,7 @@
                                     <Image url="@../resources/img/NextArrow.png" />
                                  </image>
                               </ImageView>
-                              <Label id="nextButton" fx:id="nextLabel" text="Kött">
+                              <Label fx:id="nextLabel" text="Kött">
                                  <font>
                                     <Font size="36.0" />
                                  </font>

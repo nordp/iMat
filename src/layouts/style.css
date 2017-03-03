@@ -1,10 +1,11 @@
 .root {
-    -fx-background-color: linear-gradient(#F2F2EF, #f2ede1);
+     -fx-background-color: linear-gradient(#F2F2EF, #f2ede1);
+    /* -fx-background-color: blue; */
 }
 .button {
-    -fx-background-color: #DBC390;
+    -fx-background-color: #DBD390;
     -fx-background-radius: 20px;
-    -fx-font: Bold 14px "Arial";
+    -fx-font: bold 14px "Arial";
     /*
     -fx-border-radius: 20px;
     -fx-border-color: red;
@@ -23,19 +24,35 @@
     -fx-background-color: linear-gradient(#DBAB6C, #DBC390);
 }
 .titled-pane {
+}
+.titled-pane > .title {
     -fx-background-color: #DBC390;
+    -fx-font: bold 14px "Arial";
+    -fx-background-radius: 15px;
+}
+.titled-pane: focused{
+    -fx-font: bold 14px "Arial";
+}
+.titled-pane > *.content {
+    -fx-background-color: transparent;
 }
 #deleteAccountButton {
-    -fx-font: bold 15px "Arial";
+    -fx-font: bold 14px "Arial";
 }
 #saveAccountButton {
-    -fx-font: bold 15px "Arial";
+    -fx-font: bold 14px "Arial";
 }
 #addToCart_ShoppingListButton {
     -fx-font: bold 14px "Arial";
 }
 #shoppingListLabel {
-    -fx-font: bold 17px "Arial";
+    -fx-font: bold 14px "Arial";
+}
+#nextButton {
+    -fx-font: bold 14px "Arial";
+}
+#backButton {
+    -fx-font: bold 14px "Arial";
 }
 #nextButton: hover {
     -fx-background-color: transparent;
