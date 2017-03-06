@@ -18,7 +18,7 @@ public class CustomerHandler implements ICustomerHandler {
     private static CustomerHandler instance;
     List<CustomerListener> listeners = new ArrayList<>();
     HashMap<String, List<ShoppingItem>> shoppingLists = new HashMap<String, List<ShoppingItem>>();
-    List<String> keys = new LinkedList<>();
+    HashMap <Integer, String> keys = new HashMap<>();
     private boolean directPayment;
     private CustomerHandler()
     {
@@ -28,8 +28,13 @@ public class CustomerHandler implements ICustomerHandler {
             shoppingLists = (HashMap<String, List<ShoppingItem>>)in.readObject();
             in.close();
             fileIn.close();
+            FileInputStream fileInputStream = new FileInputStream("shoppingListsIndexes.dat");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            keys = (HashMap<Integer, String>) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
         }catch(Exception ex) {
-            System.out.println("an error occured while saving data");
+            System.out.println("an error occured while reading data");
             // Filenotfound, memory ex blabla we cant do anything anyway so just continue.
         }
     }
@@ -186,10 +191,11 @@ public class CustomerHandler implements ICustomerHandler {
 
     public void addShoppingList(String name, List<ShoppingItem> list)
     {
-        keys.add(name);
+        keys.put(keys.size(), name);
         shoppingLists.put(name, list);
     }
     public String getKey(int index){
+        System.out.println(keys);
         return keys.get(index);
     }
     public void removeShoppingList(String name)
@@ -222,14 +228,24 @@ public class CustomerHandler implements ICustomerHandler {
 
         try
         {
+            System.out.println("saving shoppinglists");
             FileOutputStream fout =
                     new FileOutputStream("shoppinglists.dat") ;
             ObjectOutputStream out = new ObjectOutputStream(fout);
             out.writeObject(shoppingLists);
             out.close();
             fout.close();
+            FileOutputStream fileOutputStream =
+                    new FileOutputStream("ShoppingListsIndexes.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream);
+            outputStream.flush();
+            outputStream.writeObject(keys);
+            outputStream.close();
+            fileOutputStream.close();
         }
-        catch (Exception redundantName){}
+        catch (Exception redundantName){
+            System.out.println("could not read files. ");
+        }
     }
 
 }

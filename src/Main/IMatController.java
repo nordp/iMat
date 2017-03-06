@@ -70,6 +70,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         sequenceHandler = SequenceHandler.getInstance(this, nextButton, backButton, nextLabel, previousLabel);
         store = StoreHandler.getInstance();
 

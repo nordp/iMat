@@ -31,7 +31,6 @@ public class ShoppingListElement {
             }
         }
         this.shoppingList = shoppingList;
-        System.out.println(shoppingList.get(0));
         ObservableList<ShoppingItem> list = FXCollections.observableList(shoppingList);
         itemList.setItems(list);
         itemList.setCellFactory(param -> new CartElement());
