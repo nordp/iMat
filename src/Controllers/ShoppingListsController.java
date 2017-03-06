@@ -41,7 +41,7 @@ public class ShoppingListsController implements Initializable{
         for (int i = 0; i<shoppingLists.size(); i++) {
             System.out.println(customerHandler.getKey(i));
             List<ShoppingItem> list = shoppingLists.get(customerHandler.getKey(i));
-            itemAccordion.getPanes().add(new ListCells.ShoppingListElement(list).getBackgroundPane());
+            itemAccordion.getPanes().add(new ListCells.ShoppingListElement(list, i).getBackgroundPane());
         }
     }
 }

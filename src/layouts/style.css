@@ -46,6 +46,10 @@
 .ImageButton{
     -fx-background-color: rgba(0,0,0,0);
 }
+.list-cell:empty{
+    -fx-pref-height: 0px;
+    /* maybe use different color for nonpopulated items, since doing in another way will be hacky. */
+}
 .titled-pane {
 }
 .titled-pane > .title {

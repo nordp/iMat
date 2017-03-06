@@ -4,6 +4,7 @@ import BackendExtension.CustomerListener;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import se.chalmers.ait.dat215.project.*;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,6 +24,8 @@ import java.util.List;
     boolean isFavorite(Product product);
     boolean isFavorite(int productID);
     boolean isFirstRun();
+    void setDeliveryDate(Date date);
+    Date getDeliveryDate();
     List<Product> getFavorites();
     //List<> //Method to return a favorites shopping cart.
 

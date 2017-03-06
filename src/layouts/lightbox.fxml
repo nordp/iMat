@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.Double?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -7,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Polygon?>
 
-<AnchorPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LightboxController">
+<AnchorPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LightboxController">
    <children>
       <Polygon fill="WHITE" layoutX="14.0" layoutY="354.0" rotate="-90.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="0.0">
         <points>
@@ -36,15 +41,15 @@
                   <fx:include fx:id="history" source="history.fxml" />
                   <fx:include fx:id="shoppingLists" source="shopping_lists.fxml" />
                   <fx:include fx:id="myAccount" source="account.fxml" />
-                  <fx:include fx:id="checkout" source="checkout.fxml"/>
-                  <Button mnemonicParsing="false" onAction="#close" style="-fx-background-color: red;" text="X" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+                  <fx:include fx:id="checkout" source="checkout.fxml" />
                </children>
             </StackPane>
          </children>
       </AnchorPane>
+      <Button mnemonicParsing="false" onAction="#close" style="-fx-background-color: red;" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

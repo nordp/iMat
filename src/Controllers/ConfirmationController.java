@@ -15,6 +15,9 @@ import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ConfirmationController implements CustomerListener, ShoppingCartListener, Initializable, ActivePaneListener{
@@ -77,6 +80,25 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
 
     @Override
     public void receivedActive() {
+        Date day = customerHandler.getDeliveryDate();
+        Date current = new Date();
+        Calendar currentDay = Calendar.getInstance();
+        currentDay.setTime(current);
+        Calendar deliveryDay = Calendar.getInstance();
+        deliveryDay.setTime(day);
+        if(deliveryDay.get(Calendar.DATE) == currentDay.get(Calendar.DATE)){
+            deliveryDayLabel.setText("Idag");
+        }
+        else if(deliveryDay.get(Calendar.DATE) == currentDay.get(Calendar.DATE)+1){
+            deliveryDayLabel.setText("Imorgon");
+        }
+        else{
+            SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE");
+            deliveryDayLabel.setText(dayFormat.format(day));
+        }
+        String time =  deliveryDay.get(Calendar.HOUR_OF_DAY)
+                + "-" + (deliveryDay.get(Calendar.HOUR_OF_DAY)+3);
+        deliveryTimeLabel.setText(time);
     }
     // A Method that handels the next button clicked should be implemented. Interface or SuperClass?
 }

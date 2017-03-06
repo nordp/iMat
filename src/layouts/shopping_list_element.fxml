@@ -31,8 +31,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
         </rowConstraints>
          <children>
-            <Label id="shoppingListLabel" text="Inköpslista 1" />
-            <Button id="addToCart_ShoppingListButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="153.0" text="Lägg i varukorgen" GridPane.columnIndex="1">
+            <Label id="shoppingListLabel" fx:id="listName" text="Inköpslista 1" />
+            <Button id="addToCart_ShoppingListButton" fx:id="addToCartButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="153.0" text="Lägg i varukorgen" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="2.0" />
                </GridPane.margin>

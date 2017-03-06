@@ -18,8 +18,9 @@ public class CustomerHandler implements ICustomerHandler {
     private static CustomerHandler instance;
     List<CustomerListener> listeners = new ArrayList<>();
     HashMap<String, List<ShoppingItem>> shoppingLists = new HashMap<String, List<ShoppingItem>>();
-    HashMap <Integer, String> keys = new HashMap<>();
+    List<String> keys = new LinkedList<>();
     private boolean directPayment;
+    private Date deliveryDate;
     private CustomerHandler()
     {
         try {
@@ -30,7 +31,7 @@ public class CustomerHandler implements ICustomerHandler {
             fileIn.close();
             FileInputStream fileInputStream = new FileInputStream("shoppingListsIndexes.dat");
             ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            keys = (HashMap<Integer, String>) inputStream.readObject();
+            keys = (List<String>)inputStream.readObject();
             inputStream.close();
             fileInputStream.close();
         }catch(Exception ex) {
@@ -54,6 +55,16 @@ public class CustomerHandler implements ICustomerHandler {
     @Override
     public boolean isFirstRun(){
         return handler.isFirstRun();
+    }
+
+    @Override
+    public void setDeliveryDate(Date date) {
+        deliveryDate = date;
+    }
+
+    @Override
+    public Date getDeliveryDate() {
+        return deliveryDate;
     }
 
     @Override
@@ -191,7 +202,7 @@ public class CustomerHandler implements ICustomerHandler {
 
     public void addShoppingList(String name, List<ShoppingItem> list)
     {
-        keys.put(keys.size(), name);
+        keys.add(name);
         shoppingLists.put(name, list);
     }
     public String getKey(int index){
@@ -215,17 +226,7 @@ public class CustomerHandler implements ICustomerHandler {
 
     public void shutDown()
     {
-        // Save shoppinglists
         System.out.println("Saving n shoppinglists, n=" + shoppingLists.size());
-
-        /*
-        // The outcommented code will add the current cart as a shoppinglist called TESTLISTA
-        if(shoppingLists.size() == 0)
-        {
-            ShoppingCart cart = handler.getShoppingCart();
-            addShoppingList("TESTLISTA", cart.getItems());
-        }*/
-
         try
         {
             System.out.println("saving shoppinglists");

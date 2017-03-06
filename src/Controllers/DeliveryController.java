@@ -9,15 +9,16 @@ import Utility.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import BackendMediators.CustomerHandler;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
 import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.Customer;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
 /**
@@ -29,6 +30,9 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     @FXML TextField postcodeTF;
     @FXML TextField cityTF;
     @FXML TextArea miscInfoTA;
+    @FXML Label twoDays;
+    @FXML Label threeDays;
+    @FXML Label fourDays;
     @FXML ToggleButton t0_0;
     @FXML ToggleButton t1_0;
     @FXML ToggleButton t2_0;
@@ -50,10 +54,12 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     @FXML ToggleButton t2_4;
     @FXML ToggleButton t3_4;
     CustomerHandler handler = CustomerHandler.getInstance();
-
-
+    Label[] dayLabels = new Label[3];
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        dayLabels[0] = twoDays;
+        dayLabels[1] = threeDays;
+        dayLabels[2] = fourDays;
         handler.addCustomerListener(this);
         customerInfoChanged();
         Util.setNumericTextField(postcodeTF);
@@ -83,7 +89,24 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
         t1_4.setToggleGroup(toggleGroup);
         t2_4.setToggleGroup(toggleGroup);
         t3_4.setToggleGroup(toggleGroup);
+        updateDayLabels();
     }
+
+    private void updateDayLabels() {
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date()); // Today's date
+        c.add(Calendar.DATE, 1);
+        for(int i = 0; i<3; i++) {
+            c.add(Calendar.DATE, 1); // Adds i days
+            SimpleDateFormat format = new SimpleDateFormat("EEEE");
+            Date day = c.getTime();
+            String s = format.format(day);
+            s = s.substring(0,1).toUpperCase() + s.substring(1).toLowerCase() + ":";
+            System.out.println(dayLabels[i]);
+            dayLabels[i].setText(s);
+        }
+    }
+
     private void updateButtonsAndLinks(){
         SequenceHandler.getInstance().setInputValid(isInputValid());
     }
@@ -107,7 +130,21 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     }
 
     @FXML private void toggleButtonPressed(ActionEvent event){
-        // Handle this via a new file? since backend has no support for deliveryTime
+        ToggleButton pressedButton = (ToggleButton) event.getSource();
+        // Så hackigt det ens kan bli
+        int dayFromNow = Integer.parseInt(pressedButton.getId());
+        String s[] = pressedButton.getText().split("-");
+        int hour = Integer.parseInt(s[0]);
+        Date day = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(day);
+        c.add(Calendar.DATE, dayFromNow);
+        c.set(Calendar.HOUR_OF_DAY, hour);
+        c.set(Calendar.MINUTE, 0);
+        c.set(Calendar.SECOND, 0);
+        day = c.getTime();
+        System.out.println(day);
+        handler.setDeliveryDate(day);
         updateButtonsAndLinks();
     }
 
@@ -124,6 +161,25 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     }
     @Override
     public void receivedActive() {
+        updateAvailableTimes();
         updateButtonsAndLinks();
+    }
+
+    private void updateAvailableTimes() {
+        Date time = new Date();
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY, 11);
+        if(c.get(Calendar.HOUR_OF_DAY)>9){
+            t0_0.setDisable(true);
+        }
+        if(c.get(Calendar.HOUR_OF_DAY)>12){
+            t1_0.setDisable(true);
+        }
+        if(c.get(Calendar.HOUR_OF_DAY)>15){
+            t2_0.setDisable(true);
+        }
+        if(c.get(Calendar.HOUR_OF_DAY)>18){
+            t3_0.setDisable(true);
+        }
     }
 }

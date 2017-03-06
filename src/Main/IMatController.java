@@ -103,7 +103,10 @@ public class IMatController implements Initializable, ShoppingCartListener{
             grid.setVgap(4);
             grid.setHgap(4);
            // grid.prefHeight(300);
+            int nButton = 0;
+            double height = 0;
             for(ProductSubCategory subCat : subCats){
+                nButton++;
                 Button b = new Button(ProductContainer.getInstance().TranslateToSwedish(subCat.toString()));
                 b.setOnMouseClicked(sub -> categoryClicked(new ProductCategory_(null,subCat)));
                 grid.getChildren().add(b);
