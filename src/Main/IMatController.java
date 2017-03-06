@@ -133,6 +133,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         sequenceHandler.setCategoriesActive(false);}
 
     @FXML private void shoppingListsClicked(){
+        ShoppingListsController.getInstance().updateList();
         lightboxController.shoppingLists();
         sequenceHandler.setCheckoutActive(false);
         sequenceHandler.setCategoriesActive(false);

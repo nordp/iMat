@@ -18,6 +18,7 @@ public class CustomerHandler implements ICustomerHandler {
     private static CustomerHandler instance;
     List<CustomerListener> listeners = new ArrayList<>();
     HashMap<String, List<ShoppingItem>> shoppingLists = new HashMap<String, List<ShoppingItem>>();
+    List<String> keys = new LinkedList<>();
     private boolean directPayment;
     private CustomerHandler()
     {
@@ -28,6 +29,7 @@ public class CustomerHandler implements ICustomerHandler {
             in.close();
             fileIn.close();
         }catch(Exception ex) {
+            System.out.println("an error occured while saving data");
             // Filenotfound, memory ex blabla we cant do anything anyway so just continue.
         }
     }
@@ -184,9 +186,12 @@ public class CustomerHandler implements ICustomerHandler {
 
     public void addShoppingList(String name, List<ShoppingItem> list)
     {
+        keys.add(name);
         shoppingLists.put(name, list);
     }
-
+    public String getKey(int index){
+        return keys.get(index);
+    }
     public void removeShoppingList(String name)
     {
         shoppingLists.remove(name);

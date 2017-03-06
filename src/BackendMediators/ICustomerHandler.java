@@ -1,8 +1,10 @@
 package BackendMediators;
 
 import BackendExtension.CustomerListener;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import se.chalmers.ait.dat215.project.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -13,6 +15,8 @@ import java.util.List;
     void addFavorite(int productID);
     void addCustomerListener(CustomerListener cls);
     void addShoppingList(String name, List<ShoppingItem> list);
+    HashMap <String, List<ShoppingItem>> getShoppingLists();
+    String getKey(int index);
     void removeShoppingList(String name);
     void removeFavorite(Product product);
     void removeFavorite(int productID);
