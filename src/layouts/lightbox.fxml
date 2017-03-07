@@ -42,14 +42,14 @@
                   <fx:include fx:id="shoppingLists" source="shopping_lists.fxml" />
                   <fx:include fx:id="myAccount" source="account.fxml" />
                   <fx:include fx:id="checkout" source="checkout.fxml" />
+                  <Button mnemonicParsing="false" onAction="#close" style="-fx-background-color: red;" text="X" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </StackPane>
          </children>
       </AnchorPane>
-      <Button mnemonicParsing="false" onAction="#close" style="-fx-background-color: red;" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
    </children>
 </AnchorPane>

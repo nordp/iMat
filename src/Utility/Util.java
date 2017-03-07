@@ -1,8 +1,11 @@
 package Utility;
 
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.text.SimpleDateFormat;
@@ -70,7 +73,6 @@ public class Util {
 
     public static String format(Double amount) {
         if (amount.doubleValue() == amount.intValue()){
-            System.out.println("formated");
             return String.format("%d", amount.intValue());
         } else {
             return String.format("%s",amount.doubleValue());
@@ -91,5 +93,19 @@ public class Util {
             sum += item.getTotal();
         }
         return sum;
+    }
+    public static void fadeIn(double time, double delay, Node node){
+        FadeTransition transition = new FadeTransition(Duration.millis(time), node);
+        transition.setDelay(Duration.millis(delay));
+        transition.setFromValue(0.0);
+        transition.setToValue(1.0);
+        transition.play();
+    }
+    public static void fadeOut(double time, double delay, Node node){
+        FadeTransition t = new FadeTransition(Duration.millis(time), node);
+        t.setDelay(new Duration(delay));
+        t.setToValue(0.0);
+        t.setFromValue(1.0);
+        t.play();
     }
 }

@@ -1,6 +1,7 @@
 package Main;
 
 import Controllers.LightboxController;
+import Utility.Util;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -159,9 +160,14 @@ public class SequenceHandler {
                 nextButtonLabel.setText(categories[categoryIndex + 2]);
                 previousButtonLabel.setText(categories[categoryIndex]);
             } else {
+
                 nextButtonLabel.setText(checkout[checkoutIndex + 2]);
                 previousButtonLabel.setText(checkout[checkoutIndex]);
             }
+            Util.fadeOut(200, 0, nextButtonLabel);
+            Util.fadeIn(200,0, nextButtonLabel);
+            Util.fadeOut(200, 0, previousButtonLabel);
+            Util.fadeIn(200,0, previousButtonLabel);
         }
     }
 }

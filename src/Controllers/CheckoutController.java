@@ -1,6 +1,8 @@
 package Controllers;
 
 import Main.SequenceHandler;
+import Utility.Util;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,13 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static java.lang.System.out;
+import static java.lang.System.setOut;
 
 public class CheckoutController implements Initializable{
 
@@ -23,7 +25,7 @@ public class CheckoutController implements Initializable{
     public final static int PAYMENT = 3;
     public final static int CONFIRMATION = 4;
     public final static int RECEIPT = 5;
-
+    private int lastActive = 0;
     private int active = 0;
 
         @FXML Hyperlink cartLink;
@@ -61,13 +63,47 @@ public class CheckoutController implements Initializable{
             changePaneContent(0);
         }
 
-        public void changePaneContent(int paneIndex){
-            for(int i = 0; i<parentList.size(); i++){
-                parentList.get(i).setVisible(false);
+        private void fadeOutTransition(boolean toLeft){
+            int offset = -50;
+            if(!toLeft) {
+                offset = 50;
             }
-            active = paneIndex;
-            parentList.get(paneIndex).setVisible(true);
+                TranslateTransition transition = new TranslateTransition(Duration.millis(200), parentList.get(lastActive));
+                transition.setFromX(parentList.get(lastActive).getLayoutX());
+                transition.setToX(parentList.get(lastActive).getLayoutX() + offset);
+                transition.play();
+                Util.fadeOut(200, 0, parentList.get(lastActive));
+        }
+        private void fadeInTransition(boolean toLeft){
+        int offset = 50;
+        if(!toLeft){
+            offset = -50;
+        }
+            TranslateTransition transition2 = new TranslateTransition(Duration.millis(200), parentList.get(active));
+            transition2.setToX(parentList.get(active).getLayoutX());
+            transition2.setFromX(parentList.get(active).getLayoutX() + offset);
+            transition2.play();
+            Util.fadeIn(200, 0, parentList.get(active));
+        }
+        public void changePaneContent(int paneIndex){
+            boolean toLeft = paneIndex>lastActive;
+            fadeOutTransition(toLeft);
+            Timer t = new Timer();
+            t.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    for(Parent p : parentList){
+                        p.setVisible(false);
+                    }
+                    parentList.get(paneIndex).setVisible(true);
+                    active = paneIndex;
+                    fadeInTransition(toLeft);
+                    t.cancel();
+                    t.purge();
+                }
+            }, 200);
             controllerList.get(paneIndex).receivedActive();
+            lastActive = active;
         }
         @FXML protected void nextButtonPressed(){
             active++;

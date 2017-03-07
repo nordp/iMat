@@ -53,10 +53,8 @@ public class CartElement extends ListCell<ShoppingItem>{
         super.updateItem(item, empty);
         if (empty || item == null) {
             setGraphic(null);
-            return;
         } else {
             removeButton.setOnAction(e -> StoreHandler.getInstance().removeFromCart(item));
-
             productName.setText(item.getProduct().getName());
             pricePerUnit.setText(Util.format(item.getProduct().getPrice()));
             unitLabel.setText(item.getProduct().getUnit());

@@ -3,6 +3,8 @@ package ListCells;
 import BackendMediators.CustomerHandler;
 import BackendMediators.StoreHandler;
 import Utility.Util;
+import javafx.animation.FadeTransition;
+import javafx.animation.Transition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,9 +15,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.util.Duration;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.lang.System.out;
 
@@ -39,7 +44,7 @@ public class ProductElement extends AnchorPane {
     @FXML private Button addAmount;
     @FXML private Button removeAmount;
     @FXML private Button addToFavoritesBtn;
-
+    @FXML private StackPane addedToCartOverlay;
     private StoreHandler storeHandler = new StoreHandler();
     private CustomerHandler customerHandler = CustomerHandler.getInstance();
     private boolean isFavourite;
@@ -59,8 +64,25 @@ public class ProductElement extends AnchorPane {
             icon.setImage(storeHandler.getImage(p.getProductId()));
             productPrice.setText(String.valueOf(p.getPrice()));
 
-            addToCartButton.setOnAction(params-> storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText()))));
-
+            addToCartButton.setOnAction(params-> {
+                storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText())));
+                addedToCartOverlay.setVisible(true);
+                addedToCartOverlay.setDisable(false);
+                Util.fadeIn(200, 0, addedToCartOverlay);
+                Util.fadeOut(200, 800, addedToCartOverlay);
+                Timer t = new Timer();
+                t.schedule(
+                        new TimerTask() {
+                            @Override
+                            public void run() {
+                                addedToCartOverlay.setVisible(false);
+                                addedToCartOverlay.setDisable(true);
+                                t.cancel();
+                                t.purge();
+                            }
+                        },1200
+                );
+            });
             addAmount.setOnAction(params -> {
                 Double amount = Double.parseDouble(amountField.getText());
                 amount += 1;

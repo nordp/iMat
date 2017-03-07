@@ -124,6 +124,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         historyButton.setDisable(false);
         savedCartsButton.setDisable(false);
         accountButton.setDisable(false);
+        editToggle.setDisable(false);
     }
 
     private void favoritesClicked()
@@ -167,6 +168,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         accountButton.setDisable(true);
         savedCartsButton.setDisable(true);
         historyButton.setDisable(true);
+        editToggle.setDisable(true);
     }
 
     @FXML private void toHome(){ lightboxController.close();

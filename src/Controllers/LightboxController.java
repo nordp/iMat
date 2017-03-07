@@ -5,12 +5,16 @@ package Controllers;
  */
 import Main.IMatController;
 import Main.SequenceHandler;
+import Utility.Util;
+import javafx.animation.PathTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 import java.net.URL;
@@ -93,6 +97,12 @@ public class LightboxController implements Initializable{
         root.setVisible(toggle);
         setShadows(toggle);
         parent.setVisible(toggle);
+        Util.fadeIn(300, 0, root);
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), root);
+        translateTransition.setFromY(root.getLayoutY()+25);
+        translateTransition.setByY(root.getLayoutY()+10);
+        translateTransition.setToY(root.getLayoutY());
+        translateTransition.play();
     }
 
     public void close(){

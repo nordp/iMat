@@ -168,17 +168,18 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     private void updateAvailableTimes() {
         Date time = new Date();
         Calendar c = Calendar.getInstance();
-        c.set(Calendar.HOUR_OF_DAY, 11);
-        if(c.get(Calendar.HOUR_OF_DAY)>9){
+        c.setTime(time);
+        System.out.println(c.get(Calendar.HOUR_OF_DAY));
+        if(c.get(Calendar.HOUR_OF_DAY)>=9){
             t0_0.setDisable(true);
         }
-        if(c.get(Calendar.HOUR_OF_DAY)>12){
+        if(c.get(Calendar.HOUR_OF_DAY)>=12){
             t1_0.setDisable(true);
         }
-        if(c.get(Calendar.HOUR_OF_DAY)>15){
+        if(c.get(Calendar.HOUR_OF_DAY)>=15){
             t2_0.setDisable(true);
         }
-        if(c.get(Calendar.HOUR_OF_DAY)>18){
+        if(c.get(Calendar.HOUR_OF_DAY)>=18){
             t3_0.setDisable(true);
         }
     }
