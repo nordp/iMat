@@ -132,6 +132,16 @@ public class PaymentController implements Initializable, CustomerListener, Activ
         CVCCode.setText(customerHandler.getSecurityCode() + "");
         cardName.setText(customerHandler.getCardHolder());
     }
+    @FXML private void saveInfo(ActionEvent event){
+        customerHandler.setCardNumber(cardFirstFour.getText() + cardSecondFour.getText() + cardThirdFour.getText() + cardFourthFour.getText());
+        customerHandler.setHoldersName(cardName.getText());
+        if (!CVCCode.getText().equals("")){
+        customerHandler.setVerificationCode(Integer.valueOf(CVCCode.getText()));
+    }
+        customerHandler.setValidMonth(validMonth.getSelectionModel().getSelectedIndex());
+        customerHandler.setValidYear(validYear.getSelectionModel().getSelectedIndex());
+        customerHandler.fireCustomerChangedEvent();
+}
 
     public TextField getCardSecondFour() {
         return cardSecondFour;

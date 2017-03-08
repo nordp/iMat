@@ -162,7 +162,7 @@ public class SequenceHandler {
                     previousButtonLabel.setText(categories[categoryIndex - 1]);
                 }
                 else{
-                    System.out.println("temporary fix. sorry");
+                    System.out.println("temporary fix.");
                 }
             } else {
 

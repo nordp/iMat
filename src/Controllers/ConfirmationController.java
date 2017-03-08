@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import BackendMediators.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.CreditCard;
 import se.chalmers.ait.dat215.project.Customer;
@@ -32,6 +34,9 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
     @FXML Label deliveryTimeLabel;
     CustomerHandler customerHandler;
     StoreHandler storeHandler;
+    @FXML AnchorPane directPayment;
+    @FXML AnchorPane fakturaPayment;
+    @FXML Label paymentMethodLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,6 +60,7 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
 
     @Override
     public void customerInfoChanged() {
+        System.out.println("customer info");
         StringBuilder deliveryInfo = new StringBuilder("namn: ");
         deliveryInfo.append(customerHandler.getFirstName() + " " + customerHandler.getLastName() + "\nAdress: " +
         customerHandler.getAddress() + "\nPostkod: " + customerHandler.getPostCode() + "\nPostAdress: " + customerHandler.getPostAddress());
@@ -69,6 +75,7 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
             validYearTF1.setText(String.valueOf(customerHandler.getValidYear()));
             cardNameTF1.setText(customerHandler.getCardHolder());
         }
+
         //TODO Set labels to reflect current info
     }
 
@@ -80,6 +87,7 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
 
     @Override
     public void receivedActive() {
+        displayPayment();
         Date day = customerHandler.getDeliveryDate();
         Date current = new Date();
         Calendar currentDay = Calendar.getInstance();
@@ -99,6 +107,19 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
         String time =  deliveryDay.get(Calendar.HOUR_OF_DAY)
                 + "-" + (deliveryDay.get(Calendar.HOUR_OF_DAY)+3);
         deliveryTimeLabel.setText(time);
+    }
+
+    private void displayPayment() {
+        if(customerHandler.isDirectPaymentSelcted()){
+            fakturaPayment.setVisible(false);
+            directPayment.setVisible(true);
+            paymentMethodLabel.setText("Betalningsmetod: kortbetalning");
+        }
+        else{
+            fakturaPayment.setVisible(true);
+            directPayment.setVisible(false);
+            paymentMethodLabel.setText("Betalningsmetod: Faktura");
+        }
     }
     // A Method that handels the next button clicked should be implemented. Interface or SuperClass?
 }

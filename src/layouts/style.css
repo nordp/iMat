@@ -45,6 +45,9 @@
 }
 .ImageButton{
     -fx-background-color: rgba(0,0,0,0);
+    -fx-background-radius: 15px;
+    -fx-font: bold 14px "Arial";
+    -fx-effect: dropshadow(gaussian, silver, 2, 0.3, 1px, 1px);
 }
 .list-cell:empty{
     -fx-pref-height: 0px;
