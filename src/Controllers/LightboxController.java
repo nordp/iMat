@@ -97,6 +97,13 @@ public class LightboxController implements Initializable{
         root.setVisible(toggle);
         setShadows(toggle);
         parent.setVisible(toggle);
+        if(!toggle){
+            close();
+        }
+        else{
+            SequenceHandler.getInstance().setCategoriesActive(false);
+            SequenceHandler.getInstance().setCategoriesActive(false);
+        }
         Util.fadeIn(300, 0, root);
         TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), root);
         translateTransition.setFromY(root.getLayoutY()+25);

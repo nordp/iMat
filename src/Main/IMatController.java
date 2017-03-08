@@ -113,7 +113,6 @@ public class IMatController implements Initializable, ShoppingCartListener{
             }
             pane.setContent(grid);
             pane.setOnMouseClicked(sup -> categoryClicked(new ProductCategory_(cat,null)));
-           // products_accordion.setPrefHeight(1000);
             products_accordion.getPanes().add(pane);
         }
 
@@ -134,27 +133,26 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML private void myAccountClicked(){
         lightboxController.myAccount();
-        sequenceHandler.setCheckoutActive(false);
-        sequenceHandler.setCategoriesActive(false);}
+        editToggle.setDisable(true);
+        System.out.println("clicked");}
 
     @FXML private void shoppingListsClicked(){
         ShoppingListsController.getInstance().updateList();
         lightboxController.shoppingLists();
-        sequenceHandler.setCheckoutActive(false);
-        sequenceHandler.setCategoriesActive(false);
+        editToggle.setDisable(true);
     }
 
     @FXML public void historyClicked(){
         HistoryController.getInstance().updateList();
         lightboxController.history();
-        sequenceHandler.setCheckoutActive(false);
-        sequenceHandler.setCategoriesActive(false);
+        editToggle.setDisable(true);
     }
 
     @FXML private void shadowClicked() {
         lightboxController.close();
         sequenceHandler.setCategoriesActive(true);
         sequenceHandler.setCheckoutActive(false);
+        enableButtons();
     }
 
     @FXML private void toCheckout(){

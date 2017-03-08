@@ -37,6 +37,7 @@ public class SequenceHandler {
 
     private SequenceHandler(){}
     public void setCategoriesActive(boolean categoriesActive) {
+        System.out.println("categories " + categoriesActive);
         this.categoriesActive = categoriesActive;
         updateButtonStatus();
         updateButtonText();
@@ -78,7 +79,7 @@ public class SequenceHandler {
         updateButtonStatus();
     }
     public void setCheckoutActive(boolean checkoutActive){
-        System.out.println(checkoutIndex);
+        System.out.println("checkout " + checkoutActive);
         if(checkoutIndex == MAX_CHECKOUT_VALUE){
             iMatController.resetCheckout();
             checkoutIndex = 0;
