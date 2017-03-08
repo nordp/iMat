@@ -70,7 +70,7 @@ public class SequenceHandler {
             }
         }
         else{
-            if(categoryIndex<MAX_CATEGORY_VALUE) {
+            if(categoryIndex<=MAX_CATEGORY_VALUE) {
                 categoryIndex++;
                 iMatController.nextCategory(categoryIndex);
             }
@@ -128,14 +128,13 @@ public class SequenceHandler {
             return false;
         }
         if(categoriesActive){
-            if(categoryIndex<MAX_CATEGORY_VALUE){
+            if(categoryIndex<=MAX_CATEGORY_VALUE){
                 return true;
             }
         }
         return false;
     }
     private boolean isBackButtonActive(){
-
             if(checkoutActive){
                 if(checkoutIndex>0 && checkoutIndex<MAX_CHECKOUT_VALUE){
                     return true;
@@ -144,7 +143,7 @@ public class SequenceHandler {
                 return false;
             }
             if(categoriesActive){
-                if(categoryIndex>0){
+                if(categoryIndex>1){
                     return true;
                 }
             }
@@ -158,8 +157,13 @@ public class SequenceHandler {
     private void updateButtonText(){
         if(nextButtonLabel != null && previousButtonLabel != null) {
             if (categoriesActive) {
-                nextButtonLabel.setText(categories[categoryIndex + 2]);
-                previousButtonLabel.setText(categories[categoryIndex]);
+                nextButtonLabel.setText(categories[categoryIndex + 1]);
+                if(categoryIndex!= 0) {
+                    previousButtonLabel.setText(categories[categoryIndex - 1]);
+                }
+                else{
+                    System.out.println("temporary fix. sorry");
+                }
             } else {
 
                 nextButtonLabel.setText(checkout[checkoutIndex + 2]);

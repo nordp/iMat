@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -52,6 +53,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML Button nextButton;
     @FXML Button backButton;
+
+    @FXML AnchorPane startPage;
 
     private List<Product> testList;
     IStoreHandler store = new StoreHandler();
@@ -179,7 +182,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
         // Maybe we want to clear the grid aswell and make something happend in the sequenceHandler, check this out.
         if(products_accordion.getExpandedPane() == null) return;
         productGridController.fillGrid(ProductContainer.getInstance().TranslateToSwedish(cat.toString()),store.getProductsFromCategories(cat));
-        sequenceHandler.setCategoriesIndex(Integer.parseInt(products_accordion.getExpandedPane().getId()));     // Detta skapar en nullpointer när kategorin redan är vald.
+        sequenceHandler.setCategoriesIndex((Integer.parseInt(products_accordion.getExpandedPane().getId())+1));     // Detta skapar en nullpointer när kategorin redan är vald.
         sequenceHandler.setCategoriesActive(true);
         sequenceHandler.setCheckoutActive(false);
     }
@@ -197,8 +200,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     public void nextCategory(int categoryIndex) {
-        productGridController.fillGrid(parentCategories.get(categoryIndex).toString(),store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
-        products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex+1));
+        productGridController.fillGrid(parentCategories.get(categoryIndex-1).toString(),store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex-1), null)));
+        products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex));
     }
 
     @FXML private void backPressed(ActionEvent event){
@@ -239,8 +242,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     public void previousCategory(int categoryIndex) {
-        productGridController.fillGrid(parentCategories.get(categoryIndex).toString(), store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex), null)));
-        products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex+1));
+        productGridController.fillGrid(parentCategories.get(categoryIndex-1).toString(), store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex-1), null)));
+        products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex));
 }
 
     public void nextCheckout() {
@@ -253,5 +256,9 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
     protected void resetCheckout(){
         lightboxController.resetCheckout();
+    }
+
+    public void disableWelcomeScreen() {
+        startPage.setVisible(false);
     }
 }

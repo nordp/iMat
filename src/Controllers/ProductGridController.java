@@ -5,6 +5,7 @@ import BackendExtension.ProductParentCategory;
 import BackendExtension.ProductSubCategory;
 import BackendMediators.StoreHandler;
 import ListCells.ProductElement;
+import Main.IMatController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -54,7 +55,7 @@ public class ProductGridController{
         gridHeader.setFont(new Font(20));
         gridHeader.setPrefWidth(500);
         productGrid.getChildren().add(gridHeader);
-
+        IMatController.getInstance().disableWelcomeScreen();
         HashMap<ProductParentCategory, HashMap<ProductSubCategory ,List<Product>>> productFromCategory = new HashMap<>();
         for(Product p : products)
         {

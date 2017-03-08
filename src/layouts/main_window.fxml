@@ -151,6 +151,7 @@
                         <fx:include fx:id="productGrid" source="product_grid.fxml" />
                         <Pane fx:id="shadow2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#shadowClicked" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" />
                         <fx:include fx:id="lightbox" source="lightbox.fxml" />
+                        <fx:include fx:id="startPage" source="first_page.fxml"/>
                      </children>
                   </StackPane>
                </children>
