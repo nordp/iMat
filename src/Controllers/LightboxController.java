@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -85,6 +86,7 @@ public class LightboxController implements Initializable{
     }
 
     private void setView(Parent parent){
+        IMatController.getInstance().helpPaneVisible(true);
         // Disable all other parents
         for (Parent p : panes){
             if (p!=parent){
@@ -122,6 +124,8 @@ public class LightboxController implements Initializable{
         SequenceHandler.getInstance().setCheckoutActive(false);
         SequenceHandler.getInstance().setCategoriesActive(true);
         IMatController.getInstance().enableButtons();
+        IMatController.getInstance().helpPaneVisible(false);
+        IMatController.getInstance().nextAndBackButtonsActive(true);
     }
 
     private void setShadows(boolean bool){

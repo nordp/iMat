@@ -66,6 +66,14 @@
     -fx-font: bold 16px "Arial";
     /* -fx-background-color: #93EBC5; */
 }
+.text-area:disabled{
+    -fx-text-fill: Black;
+    -fx-opacity: 100;
+}
+.split-pane:disabled{
+    -fx-opacity: 1.0;
+    -fx-text: black;
+}
 .titled-pane > *.content {
     -fx-background-color: transparent;
 }

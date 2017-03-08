@@ -32,7 +32,10 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="deliveryInfoTA" disable="true" editable="false" layoutX="16.0" layoutY="101.0" prefHeight="184.0" prefWidth="200.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="101.0" />
+                  <TextArea fx:id="deliveryInfoTA" editable="false" layoutX="16.0" layoutY="101.0" prefHeight="184.0" prefWidth="200.0" styleClass="text-area" stylesheets="@style.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="101.0">
+                     <font>
+                        <Font size="17.5" />
+                     </font></TextArea>
                   <Label layoutX="16.0" layoutY="302.0" text="Vald leveranstid:" AnchorPane.leftAnchor="16.0">
                      <font>
                         <Font size="18.0" />

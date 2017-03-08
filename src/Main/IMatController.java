@@ -8,6 +8,8 @@ import Controllers.*;
 import ListCells.CartElement;
 import ListCells.EditableCartElementFactory;
 import Main.SequenceHandler;
+import Utility.Util;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -19,6 +21,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.util.Callback;
+import javafx.util.Duration;
 import se.chalmers.ait.dat215.project.*;
 
 import java.net.URL;
@@ -47,6 +50,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML TextField searchField;
     @FXML Accordion products_accordion;
+
+    @FXML Pane lightBoxHelpPane;
 
     @FXML Label nextLabel;
     @FXML Label previousLabel;
@@ -137,18 +142,31 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML private void myAccountClicked(){
         lightboxController.myAccount();
         editToggle.setDisable(true);
-        System.out.println("clicked");}
+        System.out.println("clicked");
+        helpPaneVisible(false);
+        nextAndBackButtonsActive(false);}
 
     @FXML private void shoppingListsClicked(){
         ShoppingListsController.getInstance().updateList();
         lightboxController.shoppingLists();
         editToggle.setDisable(true);
+        helpPaneVisible(false);
+        nextAndBackButtonsActive(false);
+    }
+
+    public void nextAndBackButtonsActive(boolean active) {
+        if(nextButton != null && backButton != null) {
+            nextButton.setVisible(active);
+            backButton.setVisible(active);
+        }
     }
 
     @FXML public void historyClicked(){
         HistoryController.getInstance().updateList();
         lightboxController.history();
         editToggle.setDisable(true);
+        helpPaneVisible(false);
+        nextAndBackButtonsActive(false);
     }
 
     @FXML private void shadowClicked() {
@@ -163,6 +181,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
         sequenceHandler.setCheckoutActive(true);
         sequenceHandler.setCategoriesActive(false);
         disableButtons();
+        helpPaneVisible(true);
+        nextAndBackButtonsActive(true);
     }
 
     private void disableButtons() {
@@ -175,6 +195,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML private void toHome(){ lightboxController.close();
         sequenceHandler.setCheckoutActive(false);
         sequenceHandler.setCategoriesActive(true);
+        helpPaneVisible(false);
+        nextAndBackButtonsActive(true);
     }
 
     @FXML private void categoryClicked(ProductCategory_ cat) { //Bör ta en kategori som indata.
@@ -260,5 +282,24 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     public void disableWelcomeScreen() {
         startPage.setVisible(false);
+    }
+
+    public void helpPaneVisible(boolean visible) {
+        System.out.println("visible " + visible);
+    if(lightboxController != null) {
+        lightBoxHelpPane.setVisible(visible);
+        if(visible){
+            Util.fadeIn(300, 0, lightBoxHelpPane);
+            TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), lightBoxHelpPane);
+            System.out.println(lightBoxHelpPane.getLayoutY());
+            translateTransition.setFromY(25);
+            translateTransition.setToY(0);
+            translateTransition.play();
+            System.out.println(translateTransition.getToY());
+        }
+        else{
+           // Util.fadeOut(300, 0, lightBoxHelpPane);
+        }
+    }
     }
 }
