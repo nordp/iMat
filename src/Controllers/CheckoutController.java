@@ -139,4 +139,8 @@ public class CheckoutController implements Initializable{
             SequenceHandler.getInstance().updateButtonStatus();
             changePaneContent(active);
         }
+
+    public void resetButtons() {
+            receiptController.resetSaveButton();
     }
+}

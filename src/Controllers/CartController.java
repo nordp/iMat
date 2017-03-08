@@ -23,6 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static java.lang.System.in;
 import static java.lang.System.out;
 import static java.lang.System.setOut;
 
@@ -40,10 +41,16 @@ public class CartController implements ShoppingCartListener, Initializable, Acti
     @FXML ComboBox<String> sortByCB;
     boolean ascSort = true;
     IStoreHandler handler;
+    private static CartController instance;
 
     public CartController(){
         handler = new StoreHandler();
         handler.addShoppingCartListener(this);
+        instance = this;
+    }
+
+    public static CartController getInstance(){
+        return instance;
     }
 
     @Override
@@ -62,6 +69,8 @@ public class CartController implements ShoppingCartListener, Initializable, Acti
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
+        System.out.println("Called");
+        cartList.setItems(null);        // Force update, even if only amount is changed.
             cartList.setItems(FXCollections.observableList(handler.getCurrentShoppingCart()));
             sumLabel.setText((int)handler.getCartPrice() + " kr");
 

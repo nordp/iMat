@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import se.chalmers.ait.dat215.project.Order;
@@ -36,6 +37,7 @@ public class ReceiptController implements Initializable, ActivePaneListener{
     @FXML Label sumLabel;
     @FXML Label timeLabel;
     @FXML ListView receiptList;
+    @FXML Button saveButton;
     ICustomerHandler customerHandler = CustomerHandler.getInstance();
     IStoreHandler storeHandler = StoreHandler.getInstance();
     ObservableList<ShoppingItem> dispList;
@@ -46,8 +48,13 @@ public class ReceiptController implements Initializable, ActivePaneListener{
     @FXML private void saveShoppingList(){
         Order order = storeHandler.getLastOrder();
         customerHandler.addShoppingList(formatDate(order.getDate()) + " " + formatTime(order.getDate()), order.getItems());
+        saveButton.setText("Inköpslista sparad");
+        saveButton.setDisable(true);
     }
-
+    public void resetSaveButton(){
+        saveButton.setDisable(false);
+        saveButton.setText("Spara inköpslista");
+    }
     @FXML private void toHistory(){
         IMatController.getInstance().historyClicked();
     }

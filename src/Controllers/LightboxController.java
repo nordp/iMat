@@ -51,6 +51,7 @@ public class LightboxController implements Initializable{
         controller.close();
     }
     public void resetCheckout(){
+        checkoutController.resetButtons();
         checkoutController.changePaneContent(0);
     }
 

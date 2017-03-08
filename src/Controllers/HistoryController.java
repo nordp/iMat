@@ -6,6 +6,7 @@ import ListCells.HistoryElement;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.ScrollPane;
 import se.chalmers.ait.dat215.project.Order;
 
 import java.net.URL;
@@ -15,6 +16,7 @@ import java.util.ResourceBundle;
 public class HistoryController implements Initializable {
 
     @FXML Accordion orderAccordion;
+    @FXML ScrollPane scrollPane;
     IStoreHandler storeHandler = StoreHandler.getInstance();
     private static HistoryController instance;
     public static HistoryController getInstance(){

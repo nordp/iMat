@@ -10,19 +10,19 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="507.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReceiptController">
    <children>
-      <Button mnemonicParsing="false" onAction="#print" prefHeight="69.0" prefWidth="143.0" text="Skriv ut kvitto" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
+      <Button mnemonicParsing="false" onAction="#print" prefHeight="69.0" prefWidth="143.0" text="Skriv ut kvitto" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="175.0">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="392.0" layoutY="339.0" mnemonicParsing="false" onAction="#saveShoppingList" prefHeight="69.0" prefWidth="143.0" text="Spara inköpslista" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0">
+      <Button fx:id="saveButton" layoutX="392.0" layoutY="339.0" mnemonicParsing="false" onAction="#saveShoppingList" prefHeight="69.0" prefWidth="143.0" text="Spara inköpslista" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="91.0" layoutY="28.0" maxHeight="1.7976931348623157E308" prefHeight="472.0" prefWidth="613.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="91.0" layoutY="28.0" maxHeight="1.7976931348623157E308" prefHeight="426.0" prefWidth="613.0" AnchorPane.bottomAnchor="81.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutY="51.0" maxHeight="1.7976931348623157E308" prefHeight="386.0" prefWidth="613.0" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutY="51.0" maxHeight="1.7976931348623157E308" prefHeight="376.0" prefWidth="613.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="43.0" prefWidth="255.0">
                      <children>
@@ -33,16 +33,16 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="255.0">
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="613.0">
                      <children>
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" text="Kvitto">
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="18.0" prefWidth="42.0" text="Kvitto">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="40.0" prefWidth="613.0" spacing="5.0">
+                  <HBox prefHeight="28.0" prefWidth="613.0" spacing="5.0">
                      <children>
                         <Label text="Datum:">
                            <font>
@@ -56,7 +56,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="40.0" prefWidth="613.0" spacing="5.0">
+                  <HBox prefHeight="28.0" prefWidth="613.0" spacing="5.0">
                      <children>
                         <Label text="Tid:">
                            <font>
@@ -70,8 +70,8 @@
                         </Label>
                      </children>
                   </HBox>
-                  <ListView fx:id="receiptList" maxHeight="1.7976931348623157E308" maxWidth="618.0" prefHeight="200.0" prefWidth="618.0" />
-                  <HBox prefHeight="40.0" prefWidth="613.0" spacing="5.0">
+                  <ListView fx:id="receiptList" maxHeight="1.7976931348623157E308" maxWidth="618.0" prefHeight="326.0" prefWidth="613.0" />
+                  <HBox prefHeight="115.0" prefWidth="613.0" spacing="5.0">
                      <children>
                         <Label text="Summa:">
                            <font>

@@ -2,6 +2,8 @@ package ListCells;
 
 import BackendMediators.CustomerHandler;
 import BackendMediators.StoreHandler;
+import Controllers.CartController;
+import Controllers.CheckoutController;
 import Utility.Util;
 import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
@@ -66,6 +68,7 @@ public class ProductElement extends AnchorPane {
 
             addToCartButton.setOnAction(params-> {
                 storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText())));
+                CartController.getInstance().shoppingCartChanged(null);
                 addedToCartOverlay.setVisible(true);
                 addedToCartOverlay.setDisable(false);
                 Util.fadeIn(200, 0, addedToCartOverlay);

@@ -20,16 +20,23 @@ import static java.lang.System.out;
 /**
  * Created by gustav on 2017-02-24.
  */
-public class CheckoutCartElement extends ListCell<ShoppingItem>{
-    @FXML Label productName;
-    @FXML Label pricePerUnit;
-    @FXML GridPane grid;
-    @FXML Label totalPrice;
-    @FXML TextField amountTF;
+public class CheckoutCartElement extends ListCell<ShoppingItem> {
+    @FXML
+    Label productName;
+    @FXML
+    Label pricePerUnit;
+    @FXML
+    GridPane grid;
+    @FXML
+    Label totalPrice;
+    @FXML
+    Label amountLabel;
     private ShoppingItem item;
     FXMLLoader mLLoader;
-    public CheckoutCartElement(){
+
+    public CheckoutCartElement() {
     }
+
     @Override
     public void updateItem(ShoppingItem item, boolean empty) {
         super.updateItem(item, empty);
@@ -50,34 +57,11 @@ public class CheckoutCartElement extends ListCell<ShoppingItem>{
 
             this.item = item;
             productName.setText(item.getProduct().getName());
-            pricePerUnit.setText(String.valueOf((int)item.getProduct().getPrice()) + item.getProduct().getUnit());
-            totalPrice.setText(String.valueOf((int)item.getTotal()) + " kr");
-            amountTF.setText(String.valueOf((int)item.getAmount()));
+            pricePerUnit.setText(String.valueOf((int) item.getProduct().getPrice()) + item.getProduct().getUnit());
+            totalPrice.setText(String.valueOf((int) item.getTotal()) + " kr");
+            amountLabel.setText(String.valueOf((int) item.getAmount()) + " st");
             setGraphic(grid);
             setText(null);
         }
-    }
-
-    public void onRemove() {   //Should be changed to only handle integers. the listeners should also be looked over.
-        Double amount = Double.parseDouble(amountTF.getText());
-        amount-=1;
-        amountTF.setText(amount.toString()); //TODO Update cart when item removed (Not supported by backend)
-        valueChanged();
-    }
-
-
-    public void onAdd() {
-        out.println("pressed");
-        Double amount = Double.parseDouble(amountTF.getText());
-        amount+=1;
-        amountTF.setText(Util.format(amount));
-        valueChanged();
-    }
-    @FXML private void valueChanged(){
-        if(Double.parseDouble(amountTF.getText())<=0){
-            amountTF.setText("0");
-        }
-        item.setAmount(Double.parseDouble(amountTF.getText()));
-        totalPrice.setText(Util.format(item.getTotal()) + " kr");
     }
 }
