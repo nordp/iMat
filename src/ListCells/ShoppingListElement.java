@@ -45,7 +45,7 @@ public class ShoppingListElement {
         this.shoppingList = shoppingList;
         ObservableList<ShoppingItem> list = FXCollections.observableList(shoppingList);
         itemList.setItems(list);
-        itemList.setCellFactory(param -> new CartElement());
+        itemList.setCellFactory(param -> new SavedCartsElementsController());
         listName.setText(customerHandler.getKey(listIndex));
         addToCartButton.setOnAction(event -> addListToCart());
     }
