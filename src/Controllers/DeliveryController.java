@@ -55,6 +55,8 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     @FXML ToggleButton t3_4;
     CustomerHandler handler = CustomerHandler.getInstance();
     Label[] dayLabels = new Label[3];
+    private boolean inputHandled = true;
+    private boolean wasValid = false;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dayLabels[0] = twoDays;
@@ -67,7 +69,9 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
         addressTF.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
         postcodeTF.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
         cityTF.textProperty().addListener((observable, oldValue, newValue) -> updateButtonsAndLinks());
-
+        nameTF.focusedProperty().addListener(param -> saveText());
+        addressTF.focusedProperty().addListener(param -> saveText());
+        postcodeTF.focusedProperty().addListener(param -> saveText());
         ToggleGroup toggleGroup = new ToggleGroup();
         t0_0.setToggleGroup(toggleGroup);
         t1_0.setToggleGroup(toggleGroup);
@@ -107,26 +111,53 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
         }
     }
 
-    private void updateButtonsAndLinks(){
+    private void updateButtonsAndLinks() {
         SequenceHandler.getInstance().setInputValid(isInputValid());
+        updateValid();
     }
-    @FXML private void saveText(ActionEvent actionEvent) {
-        if (actionEvent.getSource().equals(nameTF)) {
+
+    private void updateValid() {
+        if(nameTF.getText().split(" ").length>1){
+            nameTF.setStyle("-fx-border-color: green ; -fx-border-width: 2px ;");
+        }
+        else{
+            nameTF.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        if(addressTF.getText().isEmpty()){
+            addressTF.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+        }
+        else{
+            addressTF.setStyle(("-fx-border-color: green ; -fx-border-width: 2px ;"));
+        }
+        if(postcodeTF.getText().length() != 5){
+            postcodeTF.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+        }
+        else{
+            postcodeTF.setStyle(("-fx-border-color: green ; -fx-border-width: 2px ;"));
+        }
+        if(cityTF.getText().isEmpty()){
+            cityTF.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        else {
+            cityTF.setStyle(("-fx-border-color: green ; -fx-border-width: 2px ;"));
+        }
+    }
+
+    @FXML private void saveText() {
             if (nameTF.getText().contains(" ") && nameTF.getText().trim().length() > 2) {
                 String[] names = nameTF.getText().split(" ");
-                handler.setFirstName(names[0]);
-                handler.setLastName(names[1]);
+                if(names.length>1) {
+                    handler.setFirstName(names[0]);
+                    handler.setLastName(names[1]);
+                }
             } else {
                 handler.setFirstName(nameTF.getText());
                 handler.setLastName("");
             }
-        } else if (actionEvent.getSource().equals(addressTF)) {
             handler.setAddress(addressTF.getText());
-        } else if (actionEvent.getSource().equals(postcodeTF)) {
             handler.setPostCode(postcodeTF.getText());
-        } else if (actionEvent.getSource().equals(cityTF)) {
             handler.setPostAddress(cityTF.getText());
-        }
+            handler.fireCustomerChangedEvent();
     }
 
     @FXML private void toggleButtonPressed(ActionEvent event){
@@ -149,7 +180,8 @@ public class DeliveryController implements Initializable, CustomerListener, Acti
     }
 
     public boolean isInputValid(){
-        return (Util.isInputValid(nameTF, addressTF, postcodeTF, cityTF) && !(t0_0.getToggleGroup().getSelectedToggle() == null));
+        boolean isValid = Util.isInputValid(nameTF, addressTF, postcodeTF, cityTF) && !(t0_0.getToggleGroup().getSelectedToggle() == null);
+        return (isValid);
     }
 
     @Override

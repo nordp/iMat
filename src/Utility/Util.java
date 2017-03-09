@@ -48,7 +48,7 @@ public class Util {
 
     public static boolean isInputValid(TextField name, TextField address, TextField postCode, TextField city)
     {
-        if(name.getText().length() <= 0)
+        if(name.getText().length() <= 0 && name.getText().contains(" "))
         {
             // Prompt user to enter his/her name.
             return false;

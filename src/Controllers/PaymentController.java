@@ -79,12 +79,63 @@ public class PaymentController implements Initializable, CustomerListener, Activ
     }
     private void updateButtonsAndLinks(){
         SequenceHandler.getInstance().setInputValid(isInputValid());
+        updateValid();
     }
     @FXML private void paymentChosen(ActionEvent event) {
         invoicePane.setVisible(event.getSource() == invoicePayment);
         cardPane.setVisible(event.getSource() == cardPayment);
         customerHandler.directPaymentSelected(event.getSource() == cardPayment);
         updateButtonsAndLinks();
+    }
+    private void updateValid() {
+        if(cardFirstFour.getText().length()==4){
+            cardFirstFour.setStyle("-fx-border-color: green ; -fx-border-width: 2px ;");
+        }
+        else{
+            cardFirstFour.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        if(cardSecondFour.getText().length()==4){
+            cardSecondFour.setStyle("-fx-border-color: green ; -fx-border-width: 2px ;");
+        }
+        else{
+            cardSecondFour.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        if(cardThirdFour.getText().length()==4){
+            cardThirdFour.setStyle("-fx-border-color: green ; -fx-border-width: 2px ;");
+        }
+        else{
+            cardThirdFour.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        if(cardFourthFour.getText().length()==4){
+            cardFourthFour.setStyle("-fx-border-color: green ; -fx-border-width: 2px ;");
+        }
+        else{
+            cardFourthFour.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        if(cardName.getText().isEmpty()){
+            cardName.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+        }
+        else{
+            cardName.setStyle(("-fx-border-color: green ; -fx-border-width: 2px ;"));
+        }
+        if(CVCCode.getText().length() != 3){
+            CVCCode.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+        }
+        else{
+            CVCCode.setStyle(("-fx-border-color: green ; -fx-border-width: 2px ;"));
+        }
+        if(validMonth.getSelectionModel().isEmpty()){
+            validMonth.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        else {
+            validMonth.setStyle(("-fx-border-color: green ; -fx-border-width: 2px ;"));
+        }
+        if(validYear.getSelectionModel().isEmpty()){
+            validYear.setStyle(("-fx-border-color: red ; -fx-border-width: 2px ;"));
+        }
+        else {
+            validYear.setStyle(("-fx-border-color: green ; -fx-border-width: 2px ;"));
+        }
     }
 
     public boolean isInputValid()
@@ -127,7 +178,7 @@ public class PaymentController implements Initializable, CustomerListener, Activ
         cardSecondFour.setText(customerHandler.getCardFour(1));
         cardThirdFour.setText(customerHandler.getCardFour(2));
         cardFourthFour.setText(customerHandler.getCardFour(3));
-        validYear.getSelectionModel().select(customerHandler.getValidMonth());
+        validYear.getSelectionModel().select(customerHandler.getValidYear());
         validMonth.getSelectionModel().select(customerHandler.getValidMonth());
         CVCCode.setText(customerHandler.getSecurityCode() + "");
         cardName.setText(customerHandler.getCardHolder());

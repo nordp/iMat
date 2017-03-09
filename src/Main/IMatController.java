@@ -140,18 +140,19 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     @FXML private void myAccountClicked(){
+        nextAndBackButtonsActive(false);
         lightboxController.myAccount();
         editToggle.setDisable(true);
         System.out.println("clicked");
         helpPaneVisible(false);
-        nextAndBackButtonsActive(false);}
+    }
 
     @FXML private void shoppingListsClicked(){
+        nextAndBackButtonsActive(false);
         ShoppingListsController.getInstance().updateList();
         lightboxController.shoppingLists();
         editToggle.setDisable(true);
         helpPaneVisible(false);
-        nextAndBackButtonsActive(false);
     }
 
     public void nextAndBackButtonsActive(boolean active) {
@@ -162,11 +163,11 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     @FXML public void historyClicked(){
+        nextAndBackButtonsActive(false);
         HistoryController.getInstance().updateList();
         lightboxController.history();
         editToggle.setDisable(true);
         helpPaneVisible(false);
-        nextAndBackButtonsActive(false);
     }
 
     @FXML private void shadowClicked() {
