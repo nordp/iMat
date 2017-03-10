@@ -48,7 +48,9 @@ public class ProductGridController{
 
 
         productGrid.getChildren().clear();
-
+        if (products == null){
+            return;
+        }
         ProductContainer prodContainer = ProductContainer.getInstance();
 
         Label gridHeader = new Label(header);
