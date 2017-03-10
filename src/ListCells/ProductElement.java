@@ -76,7 +76,6 @@ public class ProductElement extends AnchorPane {
             storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText())));
             amountField.setText("1");
             productPrice.setText(Util.format(p.getPrice()) + "kr");
-            productUnit.setText(p.getUnitSuffix());
             CartController.getInstance().shoppingCartChanged(null);
             addedToCartOverlay.setVisible(true);
             addedToCartOverlay.setDisable(false);

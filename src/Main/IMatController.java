@@ -44,6 +44,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     @FXML Button accountButton;
     @FXML Button savedCartsButton;
     @FXML Button historyButton;
+    @FXML Button checkoutButton;
 
     @FXML Pane shadow, shadow1, shadow2, shadow3;
     @FXML LightboxController lightboxController;
@@ -122,6 +123,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
             pane.setContent(grid);
             pane.setOnMouseClicked(sup -> categoryClicked(new ProductCategory_(cat,null)));
             products_accordion.getPanes().add(pane);
+            setcheckoutButtonStatus();
         }
 
 
@@ -256,6 +258,16 @@ public class IMatController implements Initializable, ShoppingCartListener{
             } else {
                 currentCartList.getItems().remove(cartEvent.getShoppingItem());
             }
+        }
+        setcheckoutButtonStatus();
+    }
+
+    private void setcheckoutButtonStatus() {
+        if(currentCartList.getItems().isEmpty()){
+            checkoutButton.setDisable(true);
+        }
+        else{
+            checkoutButton.setDisable(false);
         }
     }
 

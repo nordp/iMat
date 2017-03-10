@@ -75,8 +75,7 @@ public class CartController implements ShoppingCartListener, Initializable, Acti
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        System.out.println("Called");
-        cartList.setItems(null);        // Force update, even if only amount is changed.
+        cartList.setItems(null);        // Forces update, even if only amount is changed.
             cartList.setItems(FXCollections.observableList(handler.getCurrentShoppingCart()));
             sumLabel.setText((int)handler.getCartPrice() + " kr");
 

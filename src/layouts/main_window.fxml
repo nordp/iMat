@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
@@ -69,7 +75,7 @@
          <right>
             <AnchorPane prefHeight="760.0" prefWidth="341.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="74.0" layoutY="606.0" mnemonicParsing="false" onAction="#toCheckout" prefHeight="63.0" prefWidth="190.0" text="Till kassa" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                  <Button fx:id="checkoutButton" layoutX="74.0" layoutY="606.0" mnemonicParsing="false" onAction="#toCheckout" prefHeight="63.0" prefWidth="190.0" text="Till kassa" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                      <font>
                         <Font size="16.0" />
                      </font>
