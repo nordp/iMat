@@ -15,7 +15,7 @@
    <children>
       <SplitPane dividerPositions="0.5" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane minHeight="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
                   <Label layoutX="16.0" layoutY="14.0" text="Leverans:" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="14.0">
                      <font>
@@ -32,7 +32,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="deliveryInfoTA" editable="false" layoutX="16.0" layoutY="101.0" prefHeight="184.0" prefWidth="200.0" styleClass="text-area" stylesheets="@style.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="101.0">
+                  <TextArea fx:id="deliveryInfoTA" layoutX="16.0" layoutY="101.0" prefHeight="184.0" prefWidth="200.0" styleClass="text-area" stylesheets="@style.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="101.0">
                      <font>
                         <Font size="17.5" />
                      </font></TextArea>
@@ -53,7 +53,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane minHeight="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" text="Betalning:" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="14.0">
                      <font>
@@ -74,13 +74,12 @@
                      <children>
                         <AnchorPane fx:id="directPayment" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <Label layoutX="21.0" layoutY="1.0" text="Kortnummer:" AnchorPane.leftAnchor="16.0" />
-                              <Label layoutX="21.0" layoutY="43.0" text="Namn på kort:" AnchorPane.leftAnchor="16.0" />
-                              <TextField fx:id="cardNameTF1" disable="true" editable="false" layoutX="23.0" layoutY="60.0" AnchorPane.leftAnchor="16.0" />
-                              <Label layoutX="16.0" layoutY="99.0" text="Datum på kort:" AnchorPane.leftAnchor="16.0" />
-                              <Label layoutX="117.0" layoutY="99.0" text="CVC:" />
-                              <TextField fx:id="validYearTF1" disable="true" editable="false" layoutX="14.0" layoutY="121.0" prefHeight="25.0" prefWidth="80.0" AnchorPane.leftAnchor="16.0" />
-                              <TextField fx:id="validMonthTF1" disable="true" editable="false" layoutX="117.0" layoutY="121.0" prefHeight="25.0" prefWidth="48.0" />
+                              <Label layoutX="14.0" layoutY="23.0" text="Kortnummer:" AnchorPane.leftAnchor="14.0" />
+                              <Label layoutX="14.0" layoutY="65.0" text="Namn på kort:" AnchorPane.leftAnchor="14.0" />
+                              <TextField fx:id="cardNameTF1" editable="false" layoutX="14.0" layoutY="82.0" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font></TextField>
                               <Label layoutX="14.0" layoutY="226.0" text="Summa:" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="14.0">
                                  <font>
                                     <Font size="22.0" />
@@ -101,7 +100,15 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="cardNumberTF1" disable="true" editable="false" layoutX="18.0" layoutY="18.0" AnchorPane.leftAnchor="18.0" />
+                              <TextField fx:id="cardNumberTF1" editable="false" layoutX="14.0" layoutY="40.0" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font></TextField>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="200.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/img/payment.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="fakturaPayment" prefHeight="200.0" prefWidth="200.0" visible="false">

@@ -58,22 +58,22 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="cardFirstFour" layoutX="10.0" layoutY="10.0" onAction="#saveInfo" prefHeight="39.0" prefWidth="62.0" promptText="1234" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardFirstFour" layoutX="12.0" layoutY="42.0" minWidth="62.0" onAction="#saveInfo" prefHeight="39.0" prefWidth="65.0" promptText="1234" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="41.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cardSecondFour" onAction="#saveInfo" prefHeight="39.0" prefWidth="62.0" promptText="5678" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardSecondFour" layoutX="81.0" layoutY="41.0" onAction="#saveInfo" prefHeight="39.0" prefWidth="65.0" promptText="5678" AnchorPane.leftAnchor="81.0" AnchorPane.topAnchor="41.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cardThirdFour" onAction="#saveInfo" prefHeight="39.0" prefWidth="62.0" promptText="9012" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardThirdFour" layoutX="149.0" layoutY="41.0" onAction="#saveInfo" prefHeight="39.0" prefWidth="65.0" promptText="9012" AnchorPane.leftAnchor="151.0" AnchorPane.topAnchor="41.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cardFourthFour" onAction="#saveInfo" prefHeight="39.0" prefWidth="62.0" promptText="3456" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="40.0">
+                  <TextField fx:id="cardFourthFour" layoutX="219.0" layoutY="42.0" onAction="#saveInfo" prefHeight="39.0" prefWidth="65.0" promptText="3456" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="41.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -88,13 +88,13 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="validMonth" layoutX="250.0" layoutY="137.0" onAction="#saveInfo" prefHeight="40.0" prefWidth="100.0" promptText="Månad" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0" />
+                  <ComboBox fx:id="validMonth" layoutX="250.0" layoutY="137.0" onAction="#saveInfo" prefHeight="40.0" prefWidth="100.0" promptText="MM" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0" />
                   <Label layoutX="235.0" layoutY="100.0" text="Giltigt till:" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="100.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="validYear" layoutX="430.0" layoutY="148.0" onAction="#saveInfo" prefHeight="40.0" prefWidth="100.0" promptText="År" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="130.0" />
+                  <ComboBox fx:id="validYear" layoutX="430.0" layoutY="148.0" onAction="#saveInfo" prefHeight="40.0" prefWidth="100.0" promptText="ÅÅ" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="130.0" />
                   <Label layoutX="363.0" layoutY="127.0" text="/" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="125.0">
                      <font>
                         <Font size="32.0" />
@@ -105,7 +105,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="CVCCode" layoutY="210.0" onAction="#saveInfo" prefWidth="200.0" promptText="123" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0">
+                  <TextField fx:id="CVCCode" layoutX="12.0" layoutY="222.0" onAction="#saveInfo" prefHeight="39.0" prefWidth="70.0" promptText="123" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="221.0">
                      <font>
                         <Font size="18.0" />
                      </font>

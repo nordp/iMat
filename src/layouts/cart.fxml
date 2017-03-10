@@ -15,8 +15,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="sortByCB" layoutX="143.0" layoutY="11.0" onAction="#onComboBoxClicked" prefHeight="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="10.0" />
-      <Button fx:id="sortFromButton" layoutX="549.0" layoutY="19.0" minHeight="40.0" mnemonicParsing="false" onAction="#onComboBoxClicked" prefWidth="40.0" text="^" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <ComboBox fx:id="sortByCB" layoutX="143.0" layoutY="11.0" onAction="#onComboBoxClicked" prefHeight="40.0" promptText="Egen" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="10.0" />
+      <Button fx:id="sortFromButton" layoutX="549.0" layoutY="19.0" minHeight="40.0" mnemonicParsing="false" onAction="#onComboBoxClicked" prefWidth="40.0" text="▲" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <tooltip>
             <Tooltip text="Sortera från högsta till lägsta." />
          </tooltip>

@@ -26,8 +26,6 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
     @FXML TextArea deliveryInfoTA;
     @FXML TextField cardNumberTF1;
     @FXML TextField cardNameTF1;
-    @FXML TextField validMonthTF1;
-    @FXML TextField validYearTF1;
     @FXML Label sumLabel1;
     @FXML Label itemsLabel1;
     @FXML Label deliveryDayLabel;
@@ -54,29 +52,16 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
 
     public void changePaymentClicked(ActionEvent event) {
         //TODO
-        // something about Opening paymentPane and returning to Confirmation on nextButton clicked.
-        // How should Previous Button be handled in this case.
     }
 
     @Override
     public void customerInfoChanged() {
-        System.out.println("customer info");
-        StringBuilder deliveryInfo = new StringBuilder("namn: ");
-        deliveryInfo.append(customerHandler.getFirstName() + " " + customerHandler.getLastName() + "\nAdress: " +
-        customerHandler.getAddress() + "\nPostkod: " + customerHandler.getPostCode() + "\nPostAdress: " + customerHandler.getPostAddress());
-        deliveryInfoTA.setText(deliveryInfo.toString());    // Färgen här blir helt fel.
-        if(customerHandler.isDirectPaymentSelcted()) {
-            cardNumberTF1.setText("****");
-            for (int i = 1; i < 3; i++) {
-                cardNumberTF1.appendText(" " + customerHandler.getCardFour(i));
-            }
-            cardNumberTF1.appendText(" ****");
-            validMonthTF1.setText(String.valueOf(customerHandler.getValidMonth()));
-            validYearTF1.setText(String.valueOf(customerHandler.getValidYear()));
-            cardNameTF1.setText(customerHandler.getCardHolder());
-        }
-
-        //TODO Set labels to reflect current info
+        StringBuilder deliveryInfo = new StringBuilder();
+        deliveryInfo.append(customerHandler.getFirstName() + " " + customerHandler.getLastName() + "\n" +
+        customerHandler.getAddress() + "\n" + customerHandler.getPostCode() + "\n" + customerHandler.getPostAddress());
+        deliveryInfoTA.setText(deliveryInfo.toString());
+        cardNumberTF1.setText(customerHandler.getCardFour(0) + " **** **** " + customerHandler.getCardFour(3));
+        cardNameTF1.setText(customerHandler.getCardHolder());
     }
 
     @Override
@@ -113,12 +98,10 @@ public class ConfirmationController implements CustomerListener, ShoppingCartLis
         if(customerHandler.isDirectPaymentSelcted()){
             fakturaPayment.setVisible(false);
             directPayment.setVisible(true);
-            paymentMethodLabel.setText("Betalningsmetod: kortbetalning");
         }
         else{
             fakturaPayment.setVisible(true);
             directPayment.setVisible(false);
-            paymentMethodLabel.setText("Betalningsmetod: Faktura");
         }
     }
     // A Method that handels the next button clicked should be implemented. Interface or SuperClass?

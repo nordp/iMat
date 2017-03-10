@@ -53,7 +53,8 @@ public class ProductGridController{
 
         Label gridHeader = new Label(header);
         gridHeader.setFont(new Font(20));
-        gridHeader.setPrefWidth(500);
+        gridHeader.setPrefWidth(600);
+        gridHeader.alignmentProperty().setValue(Pos.TOP_CENTER);
         productGrid.getChildren().add(gridHeader);
         IMatController.getInstance().disableWelcomeScreen();
         HashMap<ProductParentCategory, HashMap<ProductSubCategory ,List<Product>>> productFromCategory = new HashMap<>();
@@ -87,9 +88,6 @@ public class ProductGridController{
 
             for(Map.Entry<ProductSubCategory, List<Product>> entry1 : productFromCategory.get(entry0.getKey()).entrySet())
             {
-                Separator separator = new Separator();
-                separator.setPrefWidth(600);
-                productGrid.getChildren().add(separator);
                 // Add the sub category text
                 Label subLabel = new Label(ProductContainer.getInstance().TranslateToSwedish(entry1.getKey().toString()));
                 subLabel.alignmentProperty().setValue(Pos.TOP_LEFT);

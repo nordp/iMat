@@ -52,10 +52,15 @@ public class PaymentController implements Initializable, CustomerListener, Activ
 
         customerHandler = CustomerHandler.getInstance();
         customerHandler.addCustomerListener(this);
-        customerInfoChanged();
-        if(true){ //TODO REPLACE WITH customerHandler.isFirstRun()
+        if(customerHandler.isFirstRun()){
             cardPane.setVisible(false);
             invoicePane.setVisible(false);
+        } else if (customerHandler.isDirectPaymentSelcted()){
+            invoicePane.setVisible(false);
+            cardPayment.selectedProperty().setValue(true);
+        } else {
+            cardPane.setVisible(false);
+            invoicePayment.selectedProperty().setValue(true);
         }
 
         for(int i = 16; i < 27; i++)
@@ -76,6 +81,7 @@ public class PaymentController implements Initializable, CustomerListener, Activ
         setNextTextFieldOn4Chars(cardSecondFour, cardThirdFour);
         setNextTextFieldOn4Chars(cardThirdFour, cardFourthFour);
         setNextTextFieldOn4Chars(cardFourthFour, cardName);
+        customerInfoChanged();
     }
     private void updateButtonsAndLinks(){
         SequenceHandler.getInstance().setInputValid(isInputValid());
@@ -173,16 +179,17 @@ public class PaymentController implements Initializable, CustomerListener, Activ
 
     @Override
     public void customerInfoChanged() {
-        System.out.println("Payment received");
         cardFirstFour.setText(customerHandler.getCardFour(0));
         cardSecondFour.setText(customerHandler.getCardFour(1));
         cardThirdFour.setText(customerHandler.getCardFour(2));
         cardFourthFour.setText(customerHandler.getCardFour(3));
         validYear.getSelectionModel().select(customerHandler.getValidYear());
         validMonth.getSelectionModel().select(customerHandler.getValidMonth());
+        System.out.println("month set to " + customerHandler.getValidMonth());
         CVCCode.setText(customerHandler.getSecurityCode() + "");
         cardName.setText(customerHandler.getCardHolder());
     }
+
     @FXML private void saveInfo(ActionEvent event){
         customerHandler.setCardNumber(cardFirstFour.getText() + cardSecondFour.getText() + cardThirdFour.getText() + cardFourthFour.getText());
         customerHandler.setHoldersName(cardName.getText());
@@ -194,34 +201,8 @@ public class PaymentController implements Initializable, CustomerListener, Activ
         customerHandler.fireCustomerChangedEvent();
 }
 
-    public TextField getCardSecondFour() {
-        return cardSecondFour;
-    }
-
-    public TextField getCardThirdFour() {
-        return cardThirdFour;
-    }
-
-    public TextField getCardFourthFour() {
-        return cardFourthFour;
-    }
-
-    public ComboBox<Integer> getValidYear() {
-        return validYear;
-    }
-
-    public ComboBox<Integer> getValidMonth() {
-        return validMonth;
-    }
-
-    public TextField getCVCCode() {
-        return CVCCode;
-    }
-
-
     @Override
     public void receivedActive() {
         updateButtonsAndLinks();
     }
-    //TODO Implmenet save method.
 }

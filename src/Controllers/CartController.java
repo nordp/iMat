@@ -58,7 +58,13 @@ public class CartController implements ShoppingCartListener, Initializable, Acti
         shoppingCartChanged(null);
         sortFromButton.setOnAction(a ->
         {
-            ascSort = !ascSort;
+            if (ascSort) {
+                ascSort = false;
+                sortFromButton.setText("▼");
+            } else {
+                ascSort = true;
+                sortFromButton.setText("▲");
+            }
             onComboBoxClicked();
         });
         sortByCB.getItems().addAll(new String[]{"Jämförpris","Pris", "A-Ö", "Kategori"});

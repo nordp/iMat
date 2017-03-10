@@ -102,5 +102,10 @@ public class AccountController implements Initializable, CustomerListener {
         secondFour.setText(customerHandler.getCardFour(1));
         thirdFour.setText(customerHandler.getCardFour(2));
         lastFour.setText(customerHandler.getCardFour(3));
+        cardHolderTF.setText(customerHandler.getCardHolder());
+        cvcTF.setText(customerHandler.getSecurityCode() + "");
+        monthExp.getSelectionModel().select(customerHandler.getValidMonth());
+        yearExp.getSelectionModel().select(customerHandler.getValidYear());
+
     }
 }

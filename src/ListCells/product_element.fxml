@@ -56,7 +56,7 @@
                         <Insets left="2.0" right="2.0" />
                      </HBox.margin>
                      <font>
-                        <Font size="14.0" />
+                        <Font size="13.0" />
                      </font>
                   </TextField>
                   <Button fx:id="addAmount" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+">
@@ -79,14 +79,9 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="productUnit" text="500 g" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+            <Label fx:id="productPrice" text="60 kr" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="productPrice" text="60 kr" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Button fx:id="addToFavoritesBtn" mnemonicParsing="false" prefHeight="31.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
