@@ -56,7 +56,7 @@ public class ProductGridController{
         gridHeader.setPrefWidth(600);
         gridHeader.alignmentProperty().setValue(Pos.TOP_CENTER);
         productGrid.getChildren().add(gridHeader);
-        IMatController.getInstance().disableWelcomeScreen();
+        IMatController.getInstance().setWelcomeScreenVisible(false);
         HashMap<ProductParentCategory, HashMap<ProductSubCategory ,List<Product>>> productFromCategory = new HashMap<>();
         for(Product p : products)
         {

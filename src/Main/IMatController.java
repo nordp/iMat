@@ -136,14 +136,13 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     private void favoritesClicked()
     {
-        productGridController.fillGrid("Favoriter", IMatDataHandler.getInstance().favorites());
+        productGridController.fillGrid("\uD83D\uDDA4 Favoriter", IMatDataHandler.getInstance().favorites());
     }
 
     @FXML private void myAccountClicked(){
         nextAndBackButtonsActive(false);
         lightboxController.myAccount();
         editToggle.setDisable(true);
-        System.out.println("clicked");
         helpPaneVisible(false);
     }
 
@@ -193,9 +192,14 @@ public class IMatController implements Initializable, ShoppingCartListener{
         editToggle.setDisable(true);
     }
 
-    @FXML private void toHome(){ lightboxController.close();
+    @FXML private void toHome(){
+        lightboxController.close();
         sequenceHandler.setCheckoutActive(false);
         sequenceHandler.setCategoriesActive(true);
+        productGridController.fillGrid("",null);
+        sequenceHandler.setCategoriesIndex(0);
+        products_accordion.getExpandedPane().setExpanded(false);
+        setWelcomeScreenVisible(true);
         helpPaneVisible(false);
         nextAndBackButtonsActive(true);
     }
@@ -212,7 +216,6 @@ public class IMatController implements Initializable, ShoppingCartListener{
 
     @FXML private void searchPerformed()
     {
-
         productGridController.fillGrid("Sökresultat",store.getProductsFromSearch(searchField.getText()));
         sequenceHandler.setCategoriesActive(false);
         sequenceHandler.setCheckoutActive(false);
@@ -281,8 +284,8 @@ public class IMatController implements Initializable, ShoppingCartListener{
         lightboxController.resetCheckout();
     }
 
-    public void disableWelcomeScreen() {
-        startPage.setVisible(false);
+    public void setWelcomeScreenVisible(boolean value) {
+        startPage.setVisible(value);
     }
 
     public void helpPaneVisible(boolean visible) {
