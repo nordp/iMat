@@ -26,7 +26,6 @@ import static java.lang.System.out;
  */
 public class CartElement extends ListCell<ShoppingItem>{
     @FXML Label productName;
-    @FXML Label pricePerUnit;
     @FXML GridPane grid;
     @FXML Label totalPrice;
     @FXML Label amountTF;
@@ -56,10 +55,8 @@ public class CartElement extends ListCell<ShoppingItem>{
         } else {
             removeButton.setOnAction(e -> StoreHandler.getInstance().removeFromCart(item));
             productName.setText(item.getProduct().getName());
-            pricePerUnit.setText(Util.format(item.getProduct().getPrice()));
-            unitLabel.setText(item.getProduct().getUnit());
             totalPrice.setText(Util.format(item.getTotal()) + " kr");
-            amountTF.setText(Util.format(item.getAmount()));
+            amountTF.setText(Util.format(item.getAmount()) + " " + item.getProduct().getUnitSuffix());
             setGraphic(grid);
         }
     }
