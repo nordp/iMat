@@ -38,6 +38,7 @@ public class ProductElement extends AnchorPane {
     @FXML private ImageView noHeartIcon;
     @FXML private TextField amountField;
     @FXML private Label productPrice;
+    @FXML private Label productUnit;
     @FXML private Label unitPrice;
     @FXML private AnchorPane backgroundPane;
     @FXML private Label productName;
@@ -46,8 +47,10 @@ public class ProductElement extends AnchorPane {
     @FXML private Button removeAmount;
     @FXML private Button addToFavoritesBtn;
     @FXML private StackPane addedToCartOverlay;
+    @FXML private Label productUnitType;
     private StoreHandler storeHandler = new StoreHandler();
     private CustomerHandler customerHandler = CustomerHandler.getInstance();
+    double addvalue = 1;
     private boolean isFavourite;
 
     public ProductElement(se.chalmers.ait.dat215.project.Product p) {
@@ -65,11 +68,15 @@ public class ProductElement extends AnchorPane {
         icon.setImage(storeHandler.getImage(p.getProductId()));
         productPrice.setText(Util.format(p.getPrice()) + "kr");
         unitPrice.setText(Util.format(p.getPrice()) + p.getUnit());
-
+        if(p.getUnitSuffix().equals("kg")){
+            productUnitType.setText("Kg:");
+            addvalue = 0.2;
+        }
         addToCartButton.setOnAction(params-> {
             storeHandler.addToCart(new ShoppingItem(p, Double.parseDouble(amountField.getText())));
             amountField.setText("1");
             productPrice.setText(Util.format(p.getPrice()) + "kr");
+            productUnit.setText(p.getUnitSuffix());
             CartController.getInstance().shoppingCartChanged(null);
             addedToCartOverlay.setVisible(true);
             addedToCartOverlay.setDisable(false);
@@ -90,13 +97,13 @@ public class ProductElement extends AnchorPane {
         });
         addAmount.setOnAction(params -> {
             Double amount = Double.parseDouble(amountField.getText());
-            amount += 1;
+            amount += addvalue;
             amountField.setText(Util.format(amount));
             productPrice.setText(Util.format(amount*p.getPrice()) + "kr");
         });
         removeAmount.setOnAction(params ->{
             Double amount = Double.parseDouble(amountField.getText());
-            amount-=1;
+            amount-=addvalue;
             amount = Math.max(amount, 0);
             amountField.setText(Util.format(amount));
             productPrice.setText(Util.format(amount*p.getPrice()) + "kr");

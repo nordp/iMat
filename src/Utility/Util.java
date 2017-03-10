@@ -72,6 +72,7 @@ public class Util {
     }
 
     public static String format(Double amount) {
+        amount = Math.round(amount * 100D) / 100D;
         if (amount.doubleValue() == amount.intValue()){
             return String.format("%d", amount.intValue());
         } else {

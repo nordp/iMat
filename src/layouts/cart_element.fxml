@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -10,12 +16,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="grid" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="grid" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.5" minWidth="10.0" prefWidth="144.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="46.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="64.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="94.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="151.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="89.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="106.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -26,12 +31,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="pricePerUnit" text="999" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="amountTF" text="5" GridPane.halignment="RIGHT">
+      <Label fx:id="amountTF" prefHeight="25.0" prefWidth="80.0" text="5" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -39,20 +39,7 @@
             <Insets right="10.0" />
          </padding>
       </Label>
-      <Label fx:id="unitLabel" alignment="CENTER" prefHeight="25.0" text="kr/förp" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="LEFT">
-         <font>
-            <Font size="16.0" />
-         </font>
-         <padding>
-            <Insets left="2.0" />
-         </padding>
-      </Label>
-      <Label fx:id="pricePerUnit1" text="x" wrapText="true" GridPane.halignment="RIGHT">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" GridPane.columnIndex="3">
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" GridPane.columnIndex="2">
          <children>
             <Label fx:id="totalPrice" text="9999 kr">
                <font>
