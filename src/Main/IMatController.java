@@ -228,7 +228,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     public void nextCategory(int categoryIndex) {
-        productGridController.fillGrid(parentCategories.get(categoryIndex-1).toString(),store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex-1), null)));
+        productGridController.fillGrid(ProductContainer.getInstance().TranslateToSwedish(parentCategories.get(categoryIndex-1).toString()),store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex-1), null)));
         products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex));
     }
 
@@ -280,7 +280,7 @@ public class IMatController implements Initializable, ShoppingCartListener{
     }
 
     public void previousCategory(int categoryIndex) {
-        productGridController.fillGrid(parentCategories.get(categoryIndex-1).toString(), store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex-1), null)));
+        productGridController.fillGrid(ProductContainer.getInstance().TranslateToSwedish(parentCategories.get(categoryIndex-1).toString()), store.getProductsFromCategories(new ProductCategory_(parentCategories.get(categoryIndex-1), null)));
         products_accordion.setExpandedPane(products_accordion.getPanes().get(categoryIndex));
 }
 
