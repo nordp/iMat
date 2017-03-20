@@ -1,78 +1,13 @@
-ReadME IMat:
-
-**Förslag på färgtema**
-    #44B25A
-    #CDFFD7
-    #7BFF95
-    #B23245
-    #FF7B8E
-
-Handling 1:
-Sökfuntionen, Lägg till fiskpinnar.
-1 JA
-2 Sökvyn var svår att hitta för vissa.
-3 JA
-4 JA
-
-Handling 2:
-Spara något som favorit.
-1 JA
-2 Detta var otydligt att hitta den, dom hittade favorit knappen men den var otydlig.
-3 JA
-4 JA
-
-Handling 3
-Nästa och tillbaka knappar: 
-1. Tillbaka var oklar, om det var tillbaka i menyn, eller ångra. Dynamisk text är en lösning på detta. 
-2. Inne i kassaVyn var det otydligt att de fortfarande hade effekt. 
-3. Ja
-4. Ja
-
-**TODO:**
-
-1. Layouts:
-
-    * My account (new)
-    * History
-    * Product elements:
-    
-        * History
-        * Checkout
-        * Cart (Main view)
-        
-2. Design:
-
-    * .CSS
-    * Choose a color scheme
-    * Specify our own categorization.
-    
-3. Backend:
-
-    * Create basic navigation interaction
-    * Make adapter for backend to include util-methods
-    * Create category-handling for our own categories.
-    
-4. Fix problems from testing:
-
-    * Create shopping lists without making a purchase.
-    * You should be able to preview items shopping lists.
-    * Make sure you can buy 1,5 KG of any lösviktsprodukt.
-    * Dynamic next-button.
-    * Ask before saving credit-card.
-    * Structured input for credit-card.
-    * Clicking twice on a Category causes an exception. 
-    * How should nextButton behave on Search
-    
-
-
 **Notes**
+
+För att köra programmet krävs det att resursmappen [imat](https://studentchalmersse-my.sharepoint.com/personal/nordp_net_chalmers_se/_layouts/15/guestaccess.aspx?docid=0448f084bbacd4a2aa1167ca382b347f4&authkey=AbaBLf59LBzMt05kF7zebMk) placeras under .dat215 i hemmabiblioteket.
+
+Exempelvis: 
     
-    
-    Should program launch in maximized mode?
-    How should resizing be handled?
-    Should resources be released when not used to minimize Memory usage?
-    
-**FXML Files:** 
+    C:\Users\Bengt\.dat215\imat
+
+
+**Pappersprototyp** 
 
    **cart.fxml:** 
    
